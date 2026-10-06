@@ -838,12 +838,12 @@ figure, .curve-full, .amp-chart, .sec-shield {
 
 /* === DOS CAMINOS === */
 .fork { flex:1; display:flex; flex-direction:column; min-height:0; }
-.fork-fig { flex:1; min-height:0; display:flex; align-items:center; justify-content:center; }
-.fork-fig svg { width:100%; height:100%; max-height:44vh; }
-.fork-row { display:grid; grid-template-columns:1fr 1fr; gap:4%; margin-top:1%; }
+.fork-fig { flex:1; min-height:0; min-width:0; display:flex; align-items:center; justify-content:center; }
+.fork-fig svg { width:100%; height:100%; max-height:100%; }
+.fork-row { display:grid; grid-template-columns:1fr 1fr; gap:4%; margin-top:.6%; }
 .fork-side { display:flex; flex-direction:column; gap:.3em; }
-.fork-h { font-size:clamp(13px,1.55vw,22px); font-weight:800; color:var(--black); line-height:1.1; }
-.fork-d { font-size:clamp(9.5px,1.08vw,14px); line-height:1.45; color:var(--black); }
+.fork-h { font-size:clamp(11.5px,1.35vw,19px); font-weight:800; color:var(--black); line-height:1.1; }
+.fork-d { font-size:clamp(8.5px,.96vw,12.5px); line-height:1.4; color:var(--black); }
 
 /* el ciclo se mueve: cada estacion se enciende por turno */
 @keyframes cycPulse {
@@ -953,12 +953,12 @@ figure, .curve-full, .amp-chart, .sec-shield {
 
 /* === QR DEL VIDEO === */
 .qr-block {
-  display:flex; align-items:center; gap:1.1em; margin-top:1.4%;
+  display:flex; align-items:center; gap:.9em; margin-top:.8%;
   background:rgba(255,255,255,.8); border:2px solid var(--black); border-radius:14px;
   padding:1em 1.2em; align-self:flex-start;
 }
-.qr-img { width:clamp(62px,7.5vw,100px); height:auto; display:block; border-radius:4px; }
-.qr-txt { font-size:clamp(9.5px,1.08vw,14px); line-height:1.45; color:var(--black); }
+.qr-img { width:clamp(48px,5.6vw,74px); height:auto; display:block; border-radius:4px; }
+.qr-txt { font-size:clamp(8.5px,.94vw,12px); line-height:1.4; color:var(--black); }
 .qr-txt b { display:block; font-size:1.12em; font-weight:800; margin-bottom:.2em; }
 .qr-txt span { color:#6B6B6B; }
 
@@ -2467,33 +2467,33 @@ figure, .curve-full, .amp-chart, .sec-shield {
 
       <line x1="92" y1="40" x2="92" y2="324" stroke="#DBD8CE" stroke-width="2.5"/>
       <line x1="92" y1="324" x2="930" y2="324" stroke="#DBD8CE" stroke-width="2.5"/>
-      <text x="62" y="182" text-anchor="middle" font-size="15" fill="#999" transform="rotate(-90 62 182)">rendimiento</text>
-      <text x="511" y="358" text-anchor="middle" font-size="15" fill="#999">experiencia con IA &#9654;</text>
+      <text x="58" y="182" text-anchor="middle" font-size="19" fill="#999" transform="rotate(-90 58 182)">rendimiento</text>
+      <text x="511" y="360" text-anchor="middle" font-size="19" fill="#999">experiencia con IA &#9654;</text>
 
       <path class="curve-draw" pathLength="1"
             d="M92 292C150 286 200 276 240 258C290 234 320 110 394 92C460 76 486 214 528 262C568 306 640 294 740 274C820 258 886 248 930 242"
             stroke="#1A1A1A" stroke-width="6" stroke-linecap="round" fill="none"/>
 
       <circle cx="240" cy="258" r="9" fill="#fff" stroke="#1A1A1A" stroke-width="4"/>
-      <text x="240" y="292" text-anchor="middle" font-size="17" font-weight="800" fill="#1A1A1A">1 &middot; Entender</text>
-      <text x="240" y="312" text-anchor="middle" font-size="13.5" fill="#6B6B6B">La parte lenta</text>
+      <text x="240" y="294" text-anchor="middle" font-size="22" font-weight="800" fill="#1A1A1A">1 &middot; Entender</text>
+      <text x="240" y="316" text-anchor="middle" font-size="17" fill="#6B6B6B">La parte lenta</text>
 
       <circle cx="394" cy="92" r="10" fill="#F5C900" stroke="#1A1A1A" stroke-width="4"/>
-      <text x="394" y="68" text-anchor="middle" font-size="17" font-weight="800" fill="#1A1A1A">2 &middot; Superman</text>
-      <text x="394" y="48" text-anchor="middle" font-size="13.5" fill="#6B6B6B">Deleg&aacute;s todo y sale</text>
+      <text x="394" y="66" text-anchor="middle" font-size="22" font-weight="800" fill="#1A1A1A">2 &middot; Superman</text>
+      <text x="394" y="42" text-anchor="middle" font-size="17" fill="#6B6B6B">Deleg&aacute;s todo y sale</text>
 
       <circle cx="528" cy="262" r="10" fill="#A8C5DA" stroke="#1A1A1A" stroke-width="4"/>
-      <text x="548" y="294" text-anchor="start" font-size="17" font-weight="800" fill="#1A1A1A">3 &middot; Golpe de realidad</text>
-      <text x="548" y="314" text-anchor="start" font-size="13.5" fill="#6B6B6B">Sin criterio propio, la velocidad no sirve</text>
+      <text x="550" y="296" text-anchor="start" font-size="22" font-weight="800" fill="#1A1A1A">3 &middot; Golpe de realidad</text>
+      <text x="550" y="318" text-anchor="start" font-size="17" fill="#6B6B6B">Sin criterio propio, la velocidad no sirve</text>
 
       <circle cx="930" cy="242" r="10" fill="#1A1A1A"/>
-      <text x="920" y="196" text-anchor="end" font-size="17" font-weight="800" fill="#1A1A1A">4 &middot; Varios frentes</text>
-      <text x="920" y="176" text-anchor="end" font-size="13.5" fill="#6B6B6B">Cada proyecto te pide saber m&aacute;s, no menos</text>
+      <text x="920" y="192" text-anchor="end" font-size="22" font-weight="800" fill="#1A1A1A">4 &middot; Varios frentes</text>
+      <text x="920" y="168" text-anchor="end" font-size="17" fill="#6B6B6B">Cada proyecto te pide saber m&aacute;s, no menos</text>
 
     </svg>
   </div>
   <p class="slide-note slide-note--bold">Saberlo de antemano sirve para no abandonar en el medio: el bajón de la etapa 3 no significa que la herramienta no sirva, significa que ahí empieza a pesar lo que vos sabés.</p>
-  <p class="src"><b>Fuente:</b> METR (2025), ensayo controlado con 16 desarrolladores experimentados en sus propios repositorios. Habían predicho ser 24% más rápidos; midieron 19% más lentos; y después de vivirlo seguían creyendo que habían ganado tiempo.</p>
+  <p class="src"><b>METR (2025):</b> 16 desarrolladores experimentados. Predijeron ser 24% más rápidos con IA; midieron <b>19% más lentos</b>; y aún así creían haber ganado tiempo.</p>
   <div class="footer">Taller de IA &middot; JUP &middot; FCE UBA &middot; Del chat al agente</div>
 </div>
 
@@ -2598,22 +2598,22 @@ figure, .curve-full, .amp-chart, .sec-shield {
   <div class="fork">
 
     <div class="fork-fig">
-      <svg viewBox="0 0 880 250" fill="none" font-family="Space Grotesk,sans-serif" preserveAspectRatio="xMidYMid meet">
-        <path d="M30 125h330" stroke="#1A1A1A" stroke-width="7" stroke-linecap="round"/>
-        <text x="40" y="108" font-size="14" font-weight="800" fill="#6B6B6B">la misma tecnología</text>
+      <svg viewBox="0 0 820 300" fill="none" font-family="Space Grotesk,sans-serif" preserveAspectRatio="xMidYMid meet">
+        <path d="M24 150h300" stroke="#1A1A1A" stroke-width="10" stroke-linecap="round"/>
+        <text x="30" y="124" font-size="20" font-weight="800" fill="#6B6B6B">la misma tecnología</text>
 
-        <circle cx="390" cy="125" r="17" fill="#fff" stroke="#1A1A1A" stroke-width="5"/>
-        <text x="390" y="131" text-anchor="middle" font-size="16" font-weight="800" fill="#1A1A1A">?</text>
+        <circle cx="358" cy="150" r="24" fill="#fff" stroke="#1A1A1A" stroke-width="7"/>
+        <text x="358" y="159" text-anchor="middle" font-size="24" font-weight="800" fill="#1A1A1A">?</text>
 
-        <path d="M414 112C470 72 540 52 640 50" stroke="#A9A49A" stroke-width="7" stroke-linecap="round"/>
-        <path d="M640 50l-16-8 2 16z" fill="#A9A49A"/>
-        <rect x="652" y="30" width="206" height="42" rx="12" fill="#fff" stroke="#A9A49A" stroke-width="3"/>
-        <text x="755" y="57" text-anchor="middle" font-size="18" font-weight="800" fill="#6B6B6B">Sustituir</text>
+        <path d="M388 130C450 74 530 46 616 42" stroke="#A9A49A" stroke-width="10" stroke-linecap="round"/>
+        <path d="M616 42l-22-11 3 22z" fill="#A9A49A"/>
+        <rect x="630" y="14" width="178" height="58" rx="16" fill="#fff" stroke="#A9A49A" stroke-width="4"/>
+        <text x="719" y="52" text-anchor="middle" font-size="27" font-weight="800" fill="#6B6B6B">Sustituir</text>
 
-        <path d="M414 138C470 178 540 198 640 200" stroke="#F5C900" stroke-width="7" stroke-linecap="round"/>
-        <path d="M640 200l-16 8 2-16z" fill="#F5C900"/>
-        <rect x="652" y="179" width="206" height="42" rx="12" fill="#F5C900" stroke="#1A1A1A" stroke-width="3"/>
-        <text x="755" y="206" text-anchor="middle" font-size="18" font-weight="800" fill="#1A1A1A">Aumentar</text>
+        <path d="M388 170C450 226 530 254 616 258" stroke="#F5C900" stroke-width="10" stroke-linecap="round"/>
+        <path d="M616 258l-22 11 3-22z" fill="#F5C900"/>
+        <rect x="630" y="228" width="178" height="58" rx="16" fill="#F5C900" stroke="#1A1A1A" stroke-width="4"/>
+        <text x="719" y="266" text-anchor="middle" font-size="27" font-weight="800" fill="#1A1A1A">Aumentar</text>
       </svg>
     </div>
 
