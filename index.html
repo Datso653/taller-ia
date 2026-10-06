@@ -478,8 +478,8 @@ body {
 .state--no { background:var(--yellow); color:var(--black); }
 
 /* === CURVA PROTAGONISTA (slide 23) === */
-.curve-full { flex:1; display:flex; align-items:center; justify-content:center; min-height:0; padding:1% 0 2%; }
-.curve-full svg { width:100%; max-height:58vh; }
+.curve-full { flex:1; min-height:0; min-width:0; display:flex; align-items:center; justify-content:center; padding:0; overflow:hidden; }
+.curve-full svg { width:100%; height:100%; max-height:100%; }
 
 /* === AMPLIFICADOR (slide 27) === */
 .amp { flex:1; display:flex; gap:3.5%; min-height:0; align-items:center; }
@@ -2431,36 +2431,35 @@ figure, .curve-full, .amp-chart, .sec-shield {
   <span class="pill pill--yellow">Lo que viene cuando empezás</span>
   <h2 class="slide-title">Las cuatro etapas</h2>
   <div class="curve-full">
-    <svg viewBox="0 0 980 420" fill="none" font-family="Space Grotesk,sans-serif">
+    <svg viewBox="0 0 1000 400" fill="none" font-family="Space Grotesk,sans-serif" preserveAspectRatio="xMidYMid meet">
 
-      <rect x="330" y="40" width="120" height="330" fill="#F5C900" opacity=".16" rx="6"/>
-      <rect x="470" y="215" width="135" height="155" fill="#A8C5DA" opacity=".25" rx="6"/>
+      <rect x="330" y="56" width="128" height="268" fill="#F5C900" opacity=".16" rx="6"/>
+      <rect x="486" y="188" width="128" height="136" fill="#A8C5DA" opacity=".25" rx="6"/>
 
-      <line x1="70" y1="30" x2="70" y2="370" stroke="#DBD8CE" stroke-width="2"/>
-      <line x1="70" y1="370" x2="935" y2="370" stroke="#DBD8CE" stroke-width="2"/>
-      <text x="34" y="205" text-anchor="middle" font-size="15" fill="#999" transform="rotate(-90 34 205)">rendimiento</text>
-      <text x="500" y="404" text-anchor="middle" font-size="15" fill="#999">experiencia con IA &#9654;</text>
+      <line x1="92" y1="40" x2="92" y2="324" stroke="#DBD8CE" stroke-width="2.5"/>
+      <line x1="92" y1="324" x2="930" y2="324" stroke="#DBD8CE" stroke-width="2.5"/>
+      <text x="62" y="182" text-anchor="middle" font-size="15" fill="#999" transform="rotate(-90 62 182)">rendimiento</text>
+      <text x="511" y="358" text-anchor="middle" font-size="15" fill="#999">experiencia con IA &#9654;</text>
 
       <path class="curve-draw" pathLength="1"
-            d="M70 322 C 150 312, 230 296, 290 254 C 340 218, 365 108, 400 86 C 440 62, 470 190, 520 262 C 565 322, 640 292, 740 262 C 830 236, 890 220, 935 206"
-            stroke="#1A1A1A" stroke-width="5" stroke-linecap="round" fill="none"/>
+            d="M92 292C150 286 200 276 240 258C290 234 320 110 394 92C460 76 486 214 528 262C568 306 640 294 740 274C820 258 886 248 930 242"
+            stroke="#1A1A1A" stroke-width="6" stroke-linecap="round" fill="none"/>
 
-      <circle cx="150" cy="312" r="8" fill="#fff" stroke="#1A1A1A" stroke-width="3.5"/>
-      <text x="150" y="352" text-anchor="middle" font-size="19" font-weight="800" fill="#1A1A1A">1 &middot; Entender</text>
-      <text x="150" y="374" text-anchor="middle" font-size="14" fill="#6B6B6B">La parte lenta</text>
+      <circle cx="240" cy="258" r="9" fill="#fff" stroke="#1A1A1A" stroke-width="4"/>
+      <text x="240" y="292" text-anchor="middle" font-size="17" font-weight="800" fill="#1A1A1A">1 &middot; Entender</text>
+      <text x="240" y="312" text-anchor="middle" font-size="13.5" fill="#6B6B6B">La parte lenta</text>
 
-      <circle cx="400" cy="86" r="9" fill="#F5C900" stroke="#1A1A1A" stroke-width="3.5"/>
-      <text x="400" y="52" text-anchor="middle" font-size="19" font-weight="800" fill="#1A1A1A">2 &middot; Superman</text>
-      <text x="400" y="30" text-anchor="middle" font-size="14" fill="#6B6B6B">Delegás todo y sale</text>
+      <circle cx="394" cy="92" r="10" fill="#F5C900" stroke="#1A1A1A" stroke-width="4"/>
+      <text x="394" y="68" text-anchor="middle" font-size="17" font-weight="800" fill="#1A1A1A">2 &middot; Superman</text>
+      <text x="394" y="48" text-anchor="middle" font-size="13.5" fill="#6B6B6B">Deleg&aacute;s todo y sale</text>
 
-      <circle cx="520" cy="262" r="9" fill="#A8C5DA" stroke="#1A1A1A" stroke-width="3.5"/>
-      <line x1="534" y1="272" x2="572" y2="306" stroke="#1A1A1A" stroke-width="1.6" stroke-dasharray="3 3"/>
-      <text x="578" y="314" font-size="19" font-weight="800" fill="#1A1A1A">3 &middot; Golpe de realidad</text>
-      <text x="578" y="336" font-size="14" fill="#6B6B6B">Sin criterio propio, la velocidad no sirve</text>
+      <circle cx="528" cy="262" r="10" fill="#A8C5DA" stroke="#1A1A1A" stroke-width="4"/>
+      <text x="548" y="294" text-anchor="start" font-size="17" font-weight="800" fill="#1A1A1A">3 &middot; Golpe de realidad</text>
+      <text x="548" y="314" text-anchor="start" font-size="13.5" fill="#6B6B6B">Sin criterio propio, la velocidad no sirve</text>
 
-      <circle cx="935" cy="206" r="9" fill="#1A1A1A"/>
-      <text x="925" y="178" text-anchor="end" font-size="19" font-weight="800" fill="#1A1A1A">4 &middot; Varios frentes</text>
-      <text x="925" y="156" text-anchor="end" font-size="14" fill="#6B6B6B">Cada proyecto te pide saber más, no menos</text>
+      <circle cx="930" cy="242" r="10" fill="#1A1A1A"/>
+      <text x="920" y="196" text-anchor="end" font-size="17" font-weight="800" fill="#1A1A1A">4 &middot; Varios frentes</text>
+      <text x="920" y="176" text-anchor="end" font-size="13.5" fill="#6B6B6B">Cada proyecto te pide saber m&aacute;s, no menos</text>
 
     </svg>
   </div>
