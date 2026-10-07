@@ -1096,16 +1096,16 @@ figure, .curve-full, .amp-chart, .sec-shield {
 .deck.on-cover, .deck.on-cover #slide-1 { overflow:visible; }
 
 /* === PRESENTADORES (tarjetas grandes) === */
-.pcards { flex:1; min-height:0; display:grid; grid-template-columns:1fr 1fr; gap:3%; }
+.pcards { flex:none; width:86%; height:26cqw; align-self:center; margin:auto 0; display:grid; grid-template-columns:1fr 1fr; gap:3.5%; }
 .pcard { display:flex; gap:5%; align-items:center; background:#fff; border:2.5px solid var(--black); border-radius:22px; padding:3.5%; min-height:0; }
-.pcard-photo { flex:0 0 42%; align-self:stretch; border-radius:16px; overflow:hidden; position:relative; }
+.pcard-photo { flex:0 0 40%; align-self:stretch; border-radius:16px; overflow:hidden; position:relative; }
 .pcard--y .pcard-photo { background:#EBB416; box-shadow:9px 9px 0 #EBB416; }
 .pcard--b .pcard-photo { background:#7A9EC7; box-shadow:9px 9px 0 #7A9EC7; }
 .pcard-photo img { width:100%; height:100%; object-fit:cover; display:block; }
 .pcard-txt { display:flex; flex-direction:column; gap:.7em; min-width:0; }
-.pcard-name { font-family:'Noto Serif Display',Georgia,serif; font-stretch:62.5%; font-weight:800; font-size:clamp(30px,3.6cqw,64px); line-height:1; color:var(--navy); margin:0; }
+.pcard-name { font-family:'Noto Serif Display',Georgia,serif; font-stretch:62.5%; font-weight:800; font-size:clamp(26px,3.1cqw,56px); line-height:1; color:var(--navy); margin:0; }
 .pcard-in { font-size:clamp(10px,1cqw,16px); font-weight:600; color:#4E7FA6; text-decoration:none; }
-.pcard-bio { font-size:clamp(11px,1.22cqw,20px); line-height:1.5; color:#1A1A1A; margin:0; }
+.pcard-bio { font-size:clamp(10px,1.08cqw,18px); line-height:1.5; color:#1A1A1A; margin:0; }
 
 /* === PENSAR EN EL CHAT, HACER CON EL AGENTE (dos carriles) === */
 .flow { flex:1; min-height:0; position:relative; margin-top:.4%; }
