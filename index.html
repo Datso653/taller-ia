@@ -1067,6 +1067,19 @@ figure, .curve-full, .amp-chart, .sec-shield {
 .task-ctl .task-t { font-size:clamp(9.5px,1.08vw,14.5px); }
 .task-ctl .task-n { background:var(--black); }
 
+/* === TODO ES IA AHORA (google trends) === */
+.trend-fig { flex:1; min-height:0; min-width:0; display:flex; align-items:center; justify-content:center; }
+.trend-fig svg { width:100%; height:100%; }
+
+/* === NOTICIA DE ZAIN JAVAID (columna local) === */
+.stack-news {
+  display:flex; gap:.6em; align-items:center; margin-top:.6em;
+  background:var(--white); border:2px solid var(--black); border-radius:10px; padding:.5em .6em;
+}
+.stack-news-qr { width:clamp(46px,5vw,72px); height:auto; flex-shrink:0; display:block; }
+.stack-news-t { font-size:clamp(8px,.86vw,11.5px); line-height:1.35; color:var(--black); }
+.stack-news-t b { font-weight:800; }
+
 /* === GRID LAYOUTS === */
 .grid-c2 {
   display: grid;
@@ -1593,9 +1606,42 @@ figure, .curve-full, .amp-chart, .sec-shield {
 </div>
 
 <!-- ======================================================
-     SLIDE 3 — APERTURA
+     TODO ES IA AHORA
 ====================================================== -->
 <div class="slide slide--cream" id="slide-4">
+  <span class="pill pill--yellow">Para arrancar</span>
+  <h2 class="slide-title slide-title--sm">¿Todo es IA ahora?</h2>
+  <div class="trend-fig">
+    <svg viewBox="0 0 1000 400" fill="none" font-family="Space Grotesk,sans-serif" preserveAspectRatio="xMidYMid meet">
+      <line x1="70" y1="265" x2="945" y2="265" stroke="#DCD7C8" stroke-width="1.5" stroke-dasharray="5 6"/><text x="58" y="270" text-anchor="end" font-size="14" fill="#A39C8E">25</text><line x1="70" y1="190" x2="945" y2="190" stroke="#DCD7C8" stroke-width="1.5" stroke-dasharray="5 6"/><text x="58" y="195" text-anchor="end" font-size="14" fill="#A39C8E">50</text><line x1="70" y1="115" x2="945" y2="115" stroke="#DCD7C8" stroke-width="1.5" stroke-dasharray="5 6"/><text x="58" y="120" text-anchor="end" font-size="14" fill="#A39C8E">75</text><line x1="70" y1="40" x2="945" y2="40" stroke="#DCD7C8" stroke-width="1.5" stroke-dasharray="5 6"/><text x="58" y="45" text-anchor="end" font-size="14" fill="#A39C8E">100</text>
+      <line x1="70" y1="30" x2="70" y2="340" stroke="#BDB7A8" stroke-width="2.5"/>
+      <line x1="70" y1="340" x2="948" y2="340" stroke="#BDB7A8" stroke-width="2.5"/>
+      <text x="58" y="345" text-anchor="end" font-size="14" fill="#A39C8E">0</text>
+      <line x1="70.0" y1="340" x2="70.0" y2="347" stroke="#BDB7A8" stroke-width="2"/><text x="70.0" y="370" text-anchor="middle" font-size="16" fill="#8A8377">2004</text><line x1="225.4" y1="340" x2="225.4" y2="347" stroke="#BDB7A8" stroke-width="2"/><text x="225.4" y="370" text-anchor="middle" font-size="16" fill="#8A8377">2008</text><line x1="380.7" y1="340" x2="380.7" y2="347" stroke="#BDB7A8" stroke-width="2"/><text x="380.7" y="370" text-anchor="middle" font-size="16" fill="#8A8377">2012</text><line x1="536.1" y1="340" x2="536.1" y2="347" stroke="#BDB7A8" stroke-width="2"/><text x="536.1" y="370" text-anchor="middle" font-size="16" fill="#8A8377">2016</text><line x1="691.4" y1="340" x2="691.4" y2="347" stroke="#BDB7A8" stroke-width="2"/><text x="691.4" y="370" text-anchor="middle" font-size="16" fill="#8A8377">2020</text><line x1="846.8" y1="340" x2="846.8" y2="347" stroke="#BDB7A8" stroke-width="2"/><text x="846.8" y="370" text-anchor="middle" font-size="16" fill="#8A8377">2024</text>
+
+      <path d="M70.0 331.0 L108.8 334.0 L147.7 331.0 L186.5 331.0 L225.4 331.0 L264.2 331.0 L303.0 328.0 L341.9 328.0 L380.7 331.0 L419.6 331.0 L458.4 331.0 L497.2 331.0 L536.1 331.0 L555.5 334.0 L574.9 337.0 L613.7 334.0 L652.6 334.0 L691.4 334.0 L726.4 328.0 L757.5 322.0 L784.6 310.0 L800.2 295.0 L815.7 304.0 L831.2 256.0 L839.0 295.0 L850.7 262.0 L862.3 283.0 L877.9 244.0 L889.5 250.0 L897.3 169.0 L905.0 220.0 L916.7 196.0 L924.5 214.0 L930.3 190.0 L936.1 232.0 L938.8 40.0 L938.8 340 L70.0 340 Z" fill="#4E7FA6" fill-opacity=".14" stroke="none"/>
+      <path d="M70.0 331.0 L108.8 334.0 L147.7 331.0 L186.5 331.0 L225.4 331.0 L264.2 331.0 L303.0 328.0 L341.9 328.0 L380.7 331.0 L419.6 331.0 L458.4 331.0 L497.2 331.0 L536.1 331.0 L555.5 334.0 L574.9 337.0 L613.7 334.0 L652.6 334.0 L691.4 334.0 L726.4 328.0 L757.5 322.0 L784.6 310.0 L800.2 295.0 L815.7 304.0 L831.2 256.0 L839.0 295.0 L850.7 262.0 L862.3 283.0 L877.9 244.0 L889.5 250.0 L897.3 169.0 L905.0 220.0 L916.7 196.0 L924.5 214.0 L930.3 190.0 L936.1 232.0 L938.8 40.0" stroke="#3F6FA0" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+
+      <line x1="72" y1="296" x2="767.1" y2="296" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="72" y1="288" x2="72" y2="304" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="767.1" y1="288" x2="767.1" y2="304" stroke="#1A1A1A" stroke-width="2"/>
+      <text x="420.6" y="284" text-anchor="middle" font-size="21" font-weight="800" fill="#1A1A1A" paint-order="stroke" stroke="#F0ECE3" stroke-width="6">18 años casi planos</text>
+
+      <line x1="804.8" y1="338" x2="804.8" y2="98" stroke="#1A1A1A" stroke-width="2" stroke-dasharray="5 5"/>
+      <text x="796.8" y="88" text-anchor="end" font-size="17" font-weight="800" fill="#1A1A1A" paint-order="stroke" stroke="#F0ECE3" stroke-width="6">ChatGPT &middot; nov 2022</text>
+
+      <circle cx="938.8" cy="40.0" r="7" fill="#F5C900" stroke="#1A1A1A" stroke-width="2.5"/>
+      <text x="924.8" y="34" text-anchor="end" font-size="17" font-weight="800" fill="#1A1A1A" paint-order="stroke" stroke="#F0ECE3" stroke-width="6">hoy, el máximo de la serie</text>
+    </svg>
+  </div>
+  <p class="src"><b>Fuente:</b> Google Trends &middot; búsquedas de &laquo;inteligencia artificial general&raquo; en todo el mundo, 2004 a hoy (índice: máximo = 100). Serie redibujada a partir de la captura.</p>
+  <div class="footer">Taller de IA &middot; JUP &middot; FCE UBA &middot; Para arrancar</div>
+</div>
+
+<!-- ======================================================
+     SLIDE 3 — APERTURA
+====================================================== -->
+<div class="slide slide--cream" id="slide-5">
   <span class="pill pill--white">Para arrancar</span>
   <h2 class="slide-title">Un modelo sin contexto es un alumno en su primer día de clase</h2>
   <div class="chat-duo">
@@ -1621,7 +1667,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 4 — DIVIDER AMARILLO
 ====================================================== -->
-<div class="slide slide--yellow" id="slide-5">
+<div class="slide slide--yellow" id="slide-6">
   <span class="asterisk">*</span>
   <span class="pill pill--white">El hilo de hoy</span>
   <h2 class="slide-title slide-title--big">La máquina no piensa por vos</h2>
@@ -1632,7 +1678,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 5 — DIVIDER AZUL BLOQUE 1
 ====================================================== -->
-<div class="slide slide--blue" id="slide-6">
+<div class="slide slide--blue" id="slide-7">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Bloque 1</span>
   <h2 class="slide-title slide-title--big">Hasta dónde llega la IA</h2>
@@ -1643,7 +1689,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 6 — GENERA TEXTO
 ====================================================== -->
-<div class="slide slide--cream" id="slide-7">
+<div class="slide slide--cream" id="slide-8">
   <span class="pill pill--yellow">Qué hace &middot; Punto 1</span>
   <h2 class="slide-title">Genera texto plausible, no busca la verdad</h2>
   <div class="predict">
@@ -1678,7 +1724,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      POLISEMIA
 ====================================================== -->
-<div class="slide slide--cream" id="slide-8">
+<div class="slide slide--cream" id="slide-9">
   <span class="pill pill--yellow">Qué hace</span>
   <h2 class="slide-title slide-title--sm">Elige el significado más frecuente, no el tuyo</h2>
   <div class="poly">
@@ -1708,7 +1754,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 7 — NO TE CONOCE
 ====================================================== -->
-<div class="slide slide--cream" id="slide-9">
+<div class="slide slide--cream" id="slide-10">
   <span class="pill pill--yellow">Qué hace &middot; Punto 2</span>
   <h2 class="slide-title">No te conoce y no se acuerda</h2>
   <div class="sessions">
@@ -1740,7 +1786,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 8 — LO QUE PEGÁS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-10">
+<div class="slide slide--cream" id="slide-11">
   <span class="pill pill--yellow">Qué hace &middot; Punto 3</span>
   <h2 class="slide-title">Lo que pegás puede quedar guardado</h2>
   <div class="paste-wrap">
@@ -1765,7 +1811,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 9 — CONTEXTO ANTES QUE ÓRDENES
 ====================================================== -->
-<div class="slide slide--cream" id="slide-11">
+<div class="slide slide--cream" id="slide-12">
   <span class="pill pill--yellow">Cómo pedirle &middot; Punto 4</span>
   <h2 class="slide-title">Un pedido que funciona, desarmado</h2>
   <div class="anat">
@@ -1793,7 +1839,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      CICLO DE ITERACION
 ====================================================== -->
-<div class="slide slide--cream" id="slide-12">
+<div class="slide slide--cream" id="slide-13">
   <span class="pill pill--yellow">Cómo pedirle</span>
   <h2 class="slide-title slide-title--sm">No se pide una vez: se da vueltas</h2>
   <div class="cyc">
@@ -1862,7 +1908,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 10 — TRES CAPAS DE CONTEXTO
 ====================================================== -->
-<div class="slide slide--cream" id="slide-13">
+<div class="slide slide--cream" id="slide-14">
   <span class="pill pill--yellow">Cómo pedirle &middot; Punto 5</span>
   <h2 class="slide-title">Lo que más cambia el resultado: darle material</h2>
   <div class="ctx">
@@ -1912,7 +1958,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 11 — ES UN BORRADOR
 ====================================================== -->
-<div class="slide slide--cream" id="slide-14">
+<div class="slide slide--cream" id="slide-15">
   <span class="pill pill--yellow">Qué le creés &middot; Puntos 4 y 8</span>
   <h2 class="slide-title">Es un borrador, nunca una fuente</h2>
   <div class="marked-wrap">
@@ -1941,7 +1987,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      CANARIO — demo de alucinacion
 ====================================================== -->
-<div class="slide slide--cream" id="slide-15">
+<div class="slide slide--cream" id="slide-16">
   <span class="pill pill--yellow">Demo en vivo &middot; Qué le creés</span>
   <h2 class="slide-title slide-title--sm">¿Te está leyendo o te está completando?</h2>
   <div class="can">
@@ -1982,7 +2028,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 13 — MAPA DE HERRAMIENTAS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-16">
+<div class="slide slide--cream" id="slide-17">
   <span class="pill pill--yellow">Para tu carrera &middot; Las herramientas</span>
   <h2 class="slide-title slide-title--sm">¿Cuál te conviene?</h2>
   <div class="iatable">
@@ -2039,7 +2085,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      BENCHMARK DE MODELOS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-17">
+<div class="slide slide--cream" id="slide-18">
   <span class="pill pill--yellow">Para tu carrera &middot; Los modelos</span>
   <h2 class="slide-title slide-title--sm">Ninguno gana en todo</h2>
   <div class="bench">
@@ -2078,7 +2124,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      COMBINAR IAs
 ====================================================== -->
-<div class="slide slide--cream" id="slide-18">
+<div class="slide slide--cream" id="slide-19">
   <span class="pill pill--yellow">Para tu carrera</span>
   <h2 class="slide-title slide-title--sm">No se elige una: se arma una combinación</h2>
   <div class="stack">
@@ -2134,6 +2180,10 @@ figure, .curve-full, .amp-chart, .sec-shield {
         <span class="stack-chip">Ollama</span>
         <span class="stack-chip">LM Studio</span>
       </div>
+      <div class="stack-news">
+        <img class="stack-news-qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQMAAAC6caSPAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADWklEQVR4nO2bPZKrQAyE5XLgkCNwFI4GR+MoHMEhgcvaUbc0mH37cpmSEmzM50QzPfpDpCynqdsig77txtC+yLwNr1v7sMVj93iukLzIQo/GZdT91u6P2hCZ9Hl/i67jfn87WUhiZFJ98QK3i8DtA3xN70+bNGRW3Qu5KvJ8UAL2dne2e7ZSnoJ1sxfypYi5vQl3c/vwgtIX8hWI6zc3ctNvs2U0/Ra7Z/r9H+Uv5OsRN1swbzvE48LTux/i8VwhaZFuExTbvN8c3UJrJSJUgj+tkFSI7+Cu32FPxFiKCFsiS9oLuRZiZ7NaTK2WUfnacAQxtf8F1NyCtELSIkK3NxkX3+Y3O5Hx68SqxzqCWuURMl7INRDEYxZmMRpXbvBZn7ZSTokVl08hmZHBEivub3xjhM0cGZeoekAkCkmLmGKbv1evc1hofdjwOrwv8oCMF3IhZOWCWdGAmHmWL+PTy5cu4y/7aSskN6LK0xeKPW/yOFpKEgezsPixH+WOQvIhpyzJvR9Ie5YR9qMtgkV6cFXIVRCLmF9dxiVIBNqrSMRj6hF2IXmRhTcYiJkhZ2IJWljn+C3jheRE2lFs6mxRFXzriwB5L+uWboVcD4FwOykRWvf8CtM73lf0dVNIVqTPaND7niW5jGu0+Vm3PB/ihVwBwSfEY55RufJrjGn50JYdESKF5EXcxe7bpgRHzStk3CJsi9jkV45cSDJk9W4Ca89bqDmbSFwEzJHbIohovJCLIIt4YhXLBw3FcycRObJdCkmMYEvD0QzLlIN30Xk4twXdCsmJeIvIyd5L8hMZvx1twUIuhsxqh3ifuBPxxOpzQmc7HiwkLaJ9AsPfRgjvC5UAyTHI5VSCLiQfYm5Hfz8eenR/29SNfWHCyzO7kAsiKHBwdNZ6SbbP31HusF6SYsEUkhuRwcfV+WxM0WGSXSRGozWaToVcCOk2ea9hALn5hI4yGkfezEshWRF163XL2PvY9DFDyVfMIq0uJCey0KOnpgLCMjaRsDA0vP/XK2aFfDMyRWIlHo9xTItNJFatfVHxDwpJj6DYZXv/yKj8YFafuQoZLyQ98jE8OUY/kC8Nuvs/+vuFXAORj0uf9fgcf0ZYBhkvJDXi5nufUo1Nj73/b/mykAshZRntBzDzoqveWW4TAAAAAElFTkSuQmCC" alt="QR a la noticia sobre Ghost y Zain Javaid">
+        <span class="stack-news-t"><b>Zain Javaid, 19 años.</b> Su empresa, Ghost, lanzó una compu sin pantalla de US$&nbsp;3.499 hecha solo para correr agentes en casa.</span>
+      </div>
     </div>
 
   </div>
@@ -2144,7 +2194,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      EL CASO PEPE
 ====================================================== -->
-<div class="slide slide--cream" id="slide-19">
+<div class="slide slide--cream" id="slide-20">
   <span class="pill pill--yellow">Demo en vivo &middot; Para tu carrera</span>
   <h2 class="slide-title slide-title--sm">Pepe busca trabajo</h2>
   <div class="pepe">
@@ -2179,7 +2229,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 14 — DEMO CV
 ====================================================== -->
-<div class="slide slide--cream" id="slide-20">
+<div class="slide slide--cream" id="slide-21">
   <span class="pill pill--yellow">Demo en vivo &middot; Para tu carrera</span>
   <h2 class="slide-title">Mejorá un párrafo de tu CV</h2>
   <div class="ba">
@@ -2202,7 +2252,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      TRABAJOS NUEVOS — avisos reales
 ====================================================== -->
-<div class="slide slide--cream" id="slide-21">
+<div class="slide slide--cream" id="slide-22">
   <span class="pill pill--yellow">Para tu carrera</span>
   <h2 class="slide-title slide-title--sm">Lo que se está buscando, hoy, acá</h2>
   <div class="ads">
@@ -2231,7 +2281,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 15 — CONOCIMIENTO HUMANO (adopción tecnológica)
 ====================================================== -->
-<div class="slide slide--cream" id="slide-22">
+<div class="slide slide--cream" id="slide-23">
   <span class="pill pill--yellow">El contexto · La velocidad importa</span>
   <h2 class="slide-title">La IA se difunde más rápido que cualquier tecnología anterior</h2>
   <div style="display:flex;flex:1;gap:5%;min-height:0;align-items:center">
@@ -2274,7 +2324,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 16 — DIVIDER AMARILLO (QUÉ FIRMÁS)
 ====================================================== -->
-<div class="slide slide--yellow" id="slide-23">
+<div class="slide slide--yellow" id="slide-24">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Qué firmás · Punto 10</span>
   <h2 class="slide-title slide-title--big">Escribí vos primero, aunque sea mal</h2>
@@ -2290,7 +2340,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 17 — DIVIDER AZUL BLOQUE 2
 ====================================================== -->
-<div class="slide slide--blue" id="slide-24">
+<div class="slide slide--blue" id="slide-25">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Bloque 2</span>
   <h2 class="slide-title slide-title--big">¿El chat es un agente?</h2>
@@ -2301,7 +2351,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 18 — CUESTIÓN DE GRADO (TABLA)
 ====================================================== -->
-<div class="slide slide--cream" id="slide-25">
+<div class="slide slide--cream" id="slide-26">
   <span class="pill pill--yellow">Del chat al agente</span>
   <h2 class="slide-title">Un poco. Es una cuestión de grado</h2>
   <table class="data-table">
@@ -2347,7 +2397,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      ESCALERA — prompt / contexto / sistema
 ====================================================== -->
-<div class="slide slide--cream" id="slide-26">
+<div class="slide slide--cream" id="slide-27">
   <span class="pill pill--yellow">Del chat al agente</span>
   <h2 class="slide-title slide-title--sm">De pedirle bien a armarle un sistema</h2>
   <div class="stair">
@@ -2381,7 +2431,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      EL ARNES
 ====================================================== -->
-<div class="slide slide--cream" id="slide-27">
+<div class="slide slide--cream" id="slide-28">
   <span class="pill pill--yellow">Del chat al agente</span>
   <h2 class="slide-title slide-title--sm">El modelo es el caballo. Lo que armás vos es el arnés</h2>
   <div class="hz">
@@ -2426,7 +2476,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 19 — PENSAR EN EL CHAT
 ====================================================== -->
-<div class="slide slide--cream" id="slide-28">
+<div class="slide slide--cream" id="slide-29">
   <span class="pill pill--yellow">Cómo se trabaja</span>
   <h2 class="slide-title">Pensar en el chat, hacer con el agente</h2>
   <div class="grid-c4">
@@ -2454,7 +2504,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      AGENTES ESTATICOS vs DINAMICOS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-29">
+<div class="slide slide--cream" id="slide-30">
   <span class="pill pill--yellow">Del chat al agente</span>
   <h2 class="slide-title slide-title--sm">Los que esperás y los que no duermen</h2>
   <div class="agt">
@@ -2483,7 +2533,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 20 — DEMO CONVOCATORIAS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-30">
+<div class="slide slide--cream" id="slide-31">
   <span class="pill pill--yellow">Veámoslo andar</span>
   <h2 class="slide-title">Buscame convocatorias abiertas para mi carrera</h2>
   <div class="grid-c2">
@@ -2503,7 +2553,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 21 — EL CONTROL
 ====================================================== -->
-<div class="slide slide--cream" id="slide-31">
+<div class="slide slide--cream" id="slide-32">
   <span class="pill pill--yellow">El control</span>
   <h2 class="slide-title">Cuanto más hace, más importa qué le dejás hacer</h2>
   <div class="sec">
@@ -2550,7 +2600,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 22 — LAS CUATRO ETAPAS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-32">
+<div class="slide slide--cream" id="slide-33">
   <span class="pill pill--yellow">Lo que viene cuando empezás</span>
   <h2 class="slide-title">Las cuatro etapas</h2>
   <div class="curve-full">
@@ -2602,7 +2652,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 23 — DIVIDER AZUL CIERRE
 ====================================================== -->
-<div class="slide slide--blue" id="slide-33">
+<div class="slide slide--blue" id="slide-34">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Cierre</span>
   <h2 class="slide-title slide-title--big">Quién está detrás</h2>
@@ -2616,7 +2666,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      GRANDES EMPRESAS — capex
 ====================================================== -->
-<div class="slide slide--cream" id="slide-34">
+<div class="slide slide--cream" id="slide-35">
   <span class="pill pill--yellow">Quién está detrás</span>
   <h2 class="slide-title slide-title--sm">Lo que se está jugando</h2>
   <div class="cap">
@@ -2653,7 +2703,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      MAPA DE DATA CENTERS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-35">
+<div class="slide slide--cream" id="slide-36">
   <span class="pill pill--yellow">Quién está detrás</span>
   <h2 class="slide-title slide-title--sm">¿Dónde vive, físicamente, todo esto?</h2>
   <div class="map">
@@ -2694,7 +2744,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      DOS CAMINOS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-36">
+<div class="slide slide--cream" id="slide-37">
   <span class="pill pill--yellow">Quién está detrás</span>
   <h2 class="slide-title slide-title--sm">La misma tecnología, dos caminos</h2>
   <div class="fork">
@@ -2745,7 +2795,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      AMPLIFICADOR
 ====================================================== -->
-<div class="slide slide--cream" id="slide-37">
+<div class="slide slide--cream" id="slide-38">
   <span class="pill pill--yellow">Quién está detrás</span>
   <h2 class="slide-title slide-title--sm">La IA amplifica, no iguala</h2>
   <div class="amp">
@@ -2803,7 +2853,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      DOS VELOCIDADES
 ====================================================== -->
-<div class="slide slide--cream" id="slide-38">
+<div class="slide slide--cream" id="slide-39">
   <span class="pill pill--yellow">Quién está detrás</span>
   <h2 class="slide-title slide-title--sm">Ella acelera. Nosotros aprendemos al mismo ritmo de siempre</h2>
   <div class="spd">
@@ -2839,7 +2889,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      GLOSARIO
 ====================================================== -->
-<div class="slide slide--cream" id="slide-39">
+<div class="slide slide--cream" id="slide-40">
   <span class="pill pill--yellow">Para llevarse</span>
   <h2 class="slide-title slide-title--sm">Las palabras que conviene tener</h2>
   <div class="glos">
@@ -2867,7 +2917,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      SLIDE 27 — CIERRE FINAL AMARILLO
 ====================================================== -->
-<div class="slide slide--yellow" id="slide-40">
+<div class="slide slide--yellow" id="slide-41">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Para esta semana</span>
   <h2 class="slide-title slide-title--big">Elegí una tarea real y probala con contexto</h2>
@@ -2879,7 +2929,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
      NAVIGATION UI
 ====================================================== -->
 <div class="nav-ui" role="navigation" aria-label="Navegación">
-  <span class="nav-counter" id="navCounter" aria-live="polite">1 / 42</span>
+  <span class="nav-counter" id="navCounter" aria-live="polite">1 / 43</span>
   <button class="nav-btn" id="prevBtn" aria-label="Slide anterior">&#8592;</button>
   <button class="nav-btn" id="nextBtn" aria-label="Slide siguiente">&#8594;</button>
 </div>
@@ -2887,7 +2937,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      LISTA DE TAREAS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-41">
+<div class="slide slide--cream" id="slide-42">
   <span class="pill pill--yellow">Para esta semana</span>
   <h2 class="slide-title slide-title--sm">Doce para elegir</h2>
   <p class="slide-note" style="margin:-1% 0 2%">Todas son lo mismo: <strong>una tarea, un archivo, una pregunta de control.</strong></p>
@@ -2909,7 +2959,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 <!-- ======================================================
      CIERRE — gracias
 ====================================================== -->
-<div class="slide slide--yellow" id="slide-42">
+<div class="slide slide--yellow" id="slide-43">
   <div class="bye">
     <span class="bye-hand" role="img" aria-label="Mano saludando">&#128075;</span>
     <div class="bye-big">¡Gracias!</div>
@@ -2944,7 +2994,7 @@ figure, .curve-full, .amp-chart, .sec-shield {
 
 <script>
 (function() {
-  var TOTAL = 42;
+  var TOTAL = 43;
   var current = 1;
   var deck    = document.getElementById('deck');
   var counter = document.getElementById('navCounter');
