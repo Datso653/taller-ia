@@ -34,7 +34,8 @@ body {
   overflow: hidden;
   cursor: pointer;
 }
-html, body { height: 100%; background: #0A0A0A; }
+html, body { height: 100%; }
+body { transition: background-color .4s ease; }
 
 .deck:focus { outline: none; }
 
@@ -1089,6 +1090,11 @@ figure, .curve-full, .amp-chart, .sec-shield {
 .stack-news-t { font-size:clamp(9.6px,1.03cqw,13.8px); line-height:1.35; color:var(--black); }
 .stack-news-t b { font-weight:800; }
 
+
+/* portada: la píldora "Taller 1" nace en el borde de la pantalla, no del lienzo */
+.fl-tag::before { content:''; position:absolute; right:calc(100% - 1px); top:0; bottom:0; width:100vw; background:#EBB416; }
+.fl-tag { background-image:none !important; }
+.deck.on-cover, .deck.on-cover #slide-1 { overflow:visible; }
 
 /* === TARJETA QR: QR grande arriba, rótulo corto abajo === */
 .qr-card {
@@ -3314,6 +3320,14 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
     });
   }
 
+  // las bandas de los costados (pantallas que no son 16:9) toman el fondo de la slide visible
+  function paintBands(sl) {
+    var cs = getComputedStyle(sl);
+    document.documentElement.style.background = cs.backgroundColor;
+    document.body.style.backgroundColor = cs.backgroundColor;
+    document.body.style.backgroundImage = cs.backgroundImage;
+  }
+
   function goTo(n) {
     n = Math.max(1, Math.min(TOTAL, n));
     if (n === current) return;
@@ -3325,7 +3339,8 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
     clearTimeout(leaveTimer);
     leaveTimer = setTimeout(function() { if (prev) prev.classList.remove('leaving'); }, 560);
     current = n;
-    if (next) { next.classList.add('active'); runCounts(next); }
+    if (next) { next.classList.add('active'); runCounts(next); paintBands(next); }
+    deck.classList.toggle('on-cover', current === 1);
     counter.textContent = current + ' / ' + TOTAL;
     try { history.replaceState(null, '', '#' + current); } catch (e) {}
   }
@@ -3470,6 +3485,8 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   }
   fit();
   window.addEventListener('resize', fit);
+  paintBands(document.getElementById('slide-' + current));
+  deck.classList.toggle('on-cover', current === 1);
 
   deck.focus();
 })();
