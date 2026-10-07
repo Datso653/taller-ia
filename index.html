@@ -853,21 +853,20 @@ figure, .curve-full, .amp-chart, .sec-shield {
 .fork-h { font-size:clamp(13.8px,1.62cqw,22.8px); font-weight:800; color:var(--black); line-height:1.1; }
 .fork-d { font-size:clamp(10.2px,1.15cqw,15px); line-height:1.4; color:var(--black); }
 
-/* el ciclo se mueve: cada estacion se enciende por turno */
-@keyframes cycPulse {
-  0%, 18%   { transform: scale(1);    }
-  7%        { transform: scale(1.14); }
-  100%      { transform: scale(1);    }
+/* el ciclo se mueve: cada estación salta cuando le llega el punto, y todas flotan */
+@keyframes cycHop {
+  0%   { scale:1;    translate:0 0; }
+  6%   { scale:1.28; translate:0 -10px; }
+  14%  { scale:1;    translate:0 0; }
+  100% { scale:1;    translate:0 0; }
 }
-.slide.active .cyc-node {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: cycPulse 7s ease-in-out infinite !important;
-}
-.slide.active .cyc-node:nth-of-type(1) { animation-delay: 0s !important; }
-.slide.active .cyc-node:nth-of-type(2) { animation-delay: 1.75s !important; }
-.slide.active .cyc-node:nth-of-type(3) { animation-delay: 3.5s !important; }
-.slide.active .cyc-node:nth-of-type(4) { animation-delay: 5.25s !important; }
+@keyframes cycFloat { 50% { translate:0 -5px; } }
+.cyc-fig svg > g { transform-box:fill-box; transform-origin:center; }
+.slide.active .cyc-fig svg > g { animation: cycHop 7s cubic-bezier(.34,1.56,.64,1) infinite !important; }
+.slide.active .cyc-fig svg > g:nth-of-type(2) { animation-delay: 1.75s !important; }
+.slide.active .cyc-fig svg > g:nth-of-type(3) { animation-delay: 3.5s !important; }
+.slide.active .cyc-fig svg > g:nth-of-type(4) { animation-delay: 5.25s !important; }
+.slide.active .cyc-node { animation: none !important; }
 
 /* === ZOOM DE IMAGENES === */
 .ad-shot { cursor: zoom-in; transition: transform .15s ease, box-shadow .15s ease; }
@@ -1731,7 +1730,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   .slide ~ .slide { break-before: page; page-break-before: always; }
   .bye-hand { animation: none !important; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .slide.active .cyc-node { animation: none !important; }
+  .slide.active .cyc-node, .slide.active .cyc-fig svg > g { animation: none !important; }
   .bench { flex: none !important; height: 4.1in; }
 }
 </style>
