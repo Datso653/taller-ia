@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scraper de electrodomésticos · Taller de IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wdth,wght@62.5..100,100..900&family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#F1F1F2; --ink:#0A0A0A; --navy:#0B1530; --yellow:#EBB416; --blue:#7A9EC7; --muted:#5A5A5A; --card:#fff; --line:#D9D6CE; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0E1117; --ink:#F2F2F2; --navy:#DCE6F5; --muted:#A9B0BC; --card:#171B23; --line:#2C3340; } }
+:root[data-theme="dark"] { --bg:#0E1117; --ink:#F2F2F2; --navy:#DCE6F5; --muted:#A9B0BC; --card:#171B23; --line:#2C3340; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:'Poppins',sans-serif; line-height:1.55; }
+main { max-width:1080px; margin:0 auto; padding:40px 16px 64px; }
+.pill { display:inline-block; background:var(--yellow); color:#0A0A0A; font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase; padding:.35em 1em; border-radius:999px; }
+h1 { font-family:'Noto Serif Display',Georgia,serif; font-stretch:62.5%; font-weight:800; color:var(--navy); font-size:clamp(40px,7vw,76px); line-height:1.02; margin:.25em 0 .3em; }
+h2 { font-family:'Noto Serif Display',Georgia,serif; font-stretch:70%; font-weight:800; color:var(--navy); font-size:clamp(28px,4vw,40px); margin:1.6em 0 .4em; }
+.lede { font-size:clamp(16px,2vw,20px); max-width:760px; }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:14px; margin:28px 0; }
+.stat { background:var(--card); border:2px solid var(--ink); border-radius:16px; padding:16px 18px; box-shadow:6px 6px 0 var(--yellow); }
+.stat b { display:block; font-size:clamp(28px,4vw,40px); line-height:1; }
+.stat span { font-size:14px; color:var(--muted); }
+.hero { background:var(--card); border:2.5px solid var(--ink); border-radius:20px; padding:22px 24px; box-shadow:8px 8px 0 var(--blue); }
+.hero h3 { margin:0 0 12px; font-size:20px; }
+.bars { display:grid; gap:10px; }
+.bar { display:grid; grid-template-columns:110px 1fr 120px; align-items:center; gap:12px; font-weight:600; }
+.bar i { display:block; height:22px; border-radius:6px; background:var(--blue); }
+.bar.min i { background:var(--yellow); }
+.bar em { font-style:normal; text-align:right; font-variant-numeric:tabular-nums; }
+.scroll { overflow-x:auto; border:2px solid var(--ink); border-radius:14px; background:var(--card); }
+table { border-collapse:collapse; width:100%; min-width:760px; font-size:14px; }
+th { background:var(--yellow); color:#0A0A0A; text-align:left; padding:9px 10px; position:sticky; top:0; }
+td { padding:8px 10px; border-top:1px solid var(--line); font-variant-numeric:tabular-nums; white-space:nowrap; }
+td.prod { white-space:normal; min-width:280px; }
+td.min { background:rgba(46,160,67,.16); font-weight:700; }
+td.max { background:rgba(220,60,60,.14); }
+td.na { color:var(--muted); }
+td.dif { font-weight:700; }
+td a { color:inherit; text-decoration:none; border-bottom:1px dotted currentColor; }
+sup { color:#C0392B; font-weight:700; }
+.note { color:var(--muted); font-size:14px; }
+pre { white-space:pre-wrap; background:var(--card); border-left:5px solid var(--yellow); border-radius:10px; padding:14px 16px; font-size:14px; line-height:1.5; overflow-x:auto; }
+.dl { display:flex; flex-wrap:wrap; gap:12px; margin:14px 0; }
+.dl a { display:inline-flex; align-items:center; gap:8px; background:var(--ink); color:var(--bg); text-decoration:none; font-weight:600; padding:.65em 1.1em; border-radius:999px; }
+.dl a.sec { background:transparent; color:var(--ink); border:2px solid var(--ink); }
+ol li { margin:.35em 0; }
+code { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:0 .35em; font-size:.92em; }
+footer { margin-top:48px; color:var(--muted); font-size:13px; }
+</style>
+</head>
+<body>
+<main>
+<span class="pill">Taller de IA · Demo en vivo</span>
+<h1>La misma heladera, ¿al mismo precio?</h1>
+<p class="lede">Un programa escrito por una IA recorrió cuatro tiendas online argentinas, juntó las heladeras con el mismo código de barras y comparó sus precios. Tardó unos segundos.</p>
+
+<div class="stats">
+  <div class="stat"><b>228</b><span>publicaciones de heladeras en 4 tiendas</span></div>
+  <div class="stat"><b>41</b><span>modelos idénticos en más de una tienda</span></div>
+  <div class="stat"><b>14%</b><span>diferencia promedio para el mismo modelo</span></div>
+  <div class="stat"><b>35%</b><span>la mayor, entre precios de las propias tiendas</span></div>
+</div>
+
+<div class="hero">
+  <h3>Heladera Samsung No Frost 290 Litros RT29K507JS8 · vendida por cada tienda</h3>
+  <div class="bars">
+    <div class="bar min"><span>Naldo</span><i style="width:73.9%"></i><em>$849.999</em></div>
+    <div class="bar"><span>Carrefour</span><i style="width:95.6%"></i><em>$1.099.000</em></div>
+    <div class="bar"><span>Frávega</span><i style="width:100.0%"></i><em>$1.149.999</em></div>
+  </div>
+  <p class="note" style="margin:.8em 0 0">La misma heladera, mismo código de barras: <b>35% más cara</b> de una tienda a otra.</p>
+</div>
+
+<h2>Lo que vende cada tienda</h2>
+<p>Comparación solo con los precios de las propias tiendas. Verde, la más barata; rojo, la más cara. Clic en un precio para ir a la publicación.</p>
+<div class="scroll"><table><thead><tr><th>Modelo</th><th>Frávega</th><th>Naldo</th><th>Carrefour</th><th>Pardo</th><th>Diferencia</th></tr></thead><tbody>
+<tr><td class="prod">Heladera Samsung No Frost 290 Litros RT29K507JS8</td><td class="max"><a href="https://www.fravega.com/heladera-samsung-inverter-no-frost-299l-sart29k507js8-160955/p" target="_blank" rel="noopener">$1.149.999</a></td><td class="min"><a href="https://www.naldo.com.ar/290l-rt29k507js8-silver-n-f-207986-1/p" target="_blank" rel="noopener">$849.999</a></td><td class=""><a href="https://www.carrefour.com.ar/heladera-nf-inv-rt29-silver-samsung-sart29k507js8/p" target="_blank" rel="noopener">$1.099.000</a></td><td class="na">—</td><td class="dif">+35%</td></tr>
+<tr><td class="prod">Heladera Philco 402l Phnt453xdi2 Inoxidable Inverter</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/402l-phnt453xdi2-inox-inv-n-f-209315/p" target="_blank" rel="noopener">$949.999</a></td><td class="na">—</td><td class="max"><a href="https://www.pardo.com.ar/heladera-philco-phnt453xdi2-no-frost-inverter-402l-con-dispenser-inox-45699/p" target="_blank" rel="noopener">$1.139.999</a></td><td class="dif">+20%</td></tr>
+<tr><td class="prod">Heladera Whirlpool 496l Inverter Wre66akdim Inox No Frost</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/496l-wre66akdim-inox-inv-c-n-f-combi-209129/p" target="_blank" rel="noopener">$1.921.999</a></td><td class="max"><a href="https://www.carrefour.com.ar/heladera_nf_whirlpool_530l_inv_wre66akdim_inox_784594/p" target="_blank" rel="noopener">$2.279.000</a></td><td class="na">—</td><td class="dif">+19%</td></tr>
+<tr><td class="prod">Heladera Samsung No Frost Inverter RT29K577JS8 308Lts</td><td class="min"><a href="https://www.fravega.com/heladera-samsung-no-frost-inverter-rt29k577js8-308lts-160752/p" target="_blank" rel="noopener">$1.039.999</a></td><td class="na">—</td><td class="max"><a href="https://www.carrefour.com.ar/heladera-samsung-no-frost-inverter-298-lts-rt29k577j-gris/p" target="_blank" rel="noopener">$1.199.000</a></td><td class="na">—</td><td class="dif">+15%</td></tr>
+<tr><td class="prod">Heladera Gafa 252 Litros Hgf252b Blanca</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/252l-hgf252b-blanca-208903-1/p" target="_blank" rel="noopener">$599.999</a></td><td class="na">—</td><td class="max"><a href="https://www.pardo.com.ar/heladera-gafa-hgf252b-252-l-top-freezer-blanca-45792/p" target="_blank" rel="noopener">$666.999</a></td><td class="dif">+11%</td></tr>
+<tr><td class="prod">Heladera Midea 240 Litros Mdrt333fge01a Blanca A++</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/240l-mdrt333fge01a-blanca-a--208870-1/p" target="_blank" rel="noopener">$629.999</a></td><td class="na">—</td><td class="max"><a href="https://www.pardo.com.ar/heladera-midea-mdrt333fge01a-240l-ciclica-blanca-pardo/p" target="_blank" rel="noopener">$683.199</a></td><td class="dif">+8%</td></tr>
+<tr><td class="prod">Heladera Midea 266 Litros Mdrt385mtf01ad Blanca</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/266l-mdrt385mtf01ad-blanca-a--208932/p" target="_blank" rel="noopener">$747.999</a></td><td class="na">—</td><td class="max"><a href="https://www.pardo.com.ar/heladera-inverter-midea-mdrt385mtf01ad-266lts-blanco/p" target="_blank" rel="noopener">$770.999</a></td><td class="dif">+3%</td></tr>
+<tr><td class="prod">Heladera Midea 340 Litros No Frost Mdrt489 Blanca Inverter</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/340l-mdrt489-blanca-a-n-f-inv-c-disp-208689-1/p" target="_blank" rel="noopener">$899.999</a></td><td class="na">—</td><td class="max"><a href="https://www.pardo.com.ar/midea-carrier-heladera-mod-mdrt489mte01adw-340-lts-blanca-pardo-hogar/p" target="_blank" rel="noopener">$925.199</a></td><td class="dif">+3%</td></tr>
+<tr><td class="prod">Heladera No Frost Inverter Samsung RT32K5930 330Lt</td><td class="min"><a href="https://www.fravega.com/heladera-no-frost-inverter-samsung-rt32k5930-330lt-160401/p" target="_blank" rel="noopener">$1.469.999</a></td><td class="na">—</td><td class="max"><a href="https://www.carrefour.com.ar/heladera-no-frost-samsung-inverter-twin-cooling-330-lts-rt32k5930sl-acero/p" target="_blank" rel="noopener">$1.499.000</a></td><td class="na">—</td><td class="dif">+2%</td></tr>
+<tr><td class="prod">Heladera Samsung No Frost RB31FSRNDSA 328Lts</td><td class="min"><a href="https://www.fravega.com/heladera-samsung-no-frost-rb31fsrndsa-328lts--160856/p" target="_blank" rel="noopener">$1.869.999</a></td><td class="max"><a href="https://www.naldo.com.ar/207544/p" target="_blank" rel="noopener">$1.869.999</a></td><td class="na">—</td><td class="na">—</td><td class="dif">+0%</td></tr>
+</tbody></table></div>
+
+<h2>Con todo lo publicado en cada web</h2>
+<p>En estas webs no vende solo la tienda: también venden otros comercios, como en un shopping. En la de Carrefour, <b>87 de 97</b> heladeras las vendía otro comercio. Marcamos esos precios con <sup>*</sup>.</p>
+<div class="scroll"><table><thead><tr><th>Modelo</th><th>Frávega</th><th>Naldo</th><th>Carrefour</th><th>Pardo</th><th>Diferencia</th></tr></thead><tbody>
+<tr><td class="prod">Heladera Gafa Hgnf251b Inverter 262l No Frost Blanca</td><td class="min"><a href="https://www.fravega.com/heladera-gafa-hgnf251b-inverter-262l-no-frost-blanca-990437068/p" target="_blank" rel="noopener">$603.305</a><sup>*</sup></td><td class="na">—</td><td class="max"><a href="https://www.carrefour.com.ar/heladera-tf-gafa-hgf252b-257-litros-puerta-reversible-blanca-1770248/p" target="_blank" rel="noopener">$1.049.999</a><sup>*</sup></td><td class="na">—</td><td class="dif">+74%</td></tr>
+<tr><td class="prod">Heladera con Freezer Philco 125L Blanco NPHCT128B</td><td class="min"><a href="https://www.fravega.com/heladera-con-freezer-philco-125l-blanco-nphct128b-990819932/p" target="_blank" rel="noopener">$418.181</a><sup>*</sup></td><td class="na">—</td><td class="max"><a href="https://www.carrefour.com.ar/heladera-con-freezer-philco-125l-blanco-nphct128b-1776355/p" target="_blank" rel="noopener">$655.599</a><sup>*</sup></td><td class="na">—</td><td class="dif">+57%</td></tr>
+<tr><td class="prod">Heladera con freezer Gafa HGF368AFB Blanca 330lts</td><td class="max"><a href="https://www.fravega.com/heladera-gafa-freezer-ciclica-330l-blanca-990381751/p" target="_blank" rel="noopener">$1.199.999</a><sup>*</sup></td><td class="na">—</td><td class="min"><a href="https://www.carrefour.com.ar/heladera-con-freezer-gafa-hgf368afb-blanca-330lts-1658337/p" target="_blank" rel="noopener">$841.377</a><sup>*</sup></td><td class="na">—</td><td class="dif">+43%</td></tr>
+<tr><td class="prod">Heladera Electrolux Top Freezer No Frost Inverter Plata 408L IF43S</td><td class="min"><a href="https://www.fravega.com/heladera-electrolux-top-freezer-no-frost-inverter-plata-408l-if43s-990359181/p" target="_blank" rel="noopener">$1.197.560</a><sup>*</sup></td><td class="na">—</td><td class="max"><a href="https://www.carrefour.com.ar/heladera-no-frost-408-litros-electrolux-if43s-top-freezer-inverter-plata-1770225/p" target="_blank" rel="noopener">$1.622.899</a><sup>*</sup></td><td class="na">—</td><td class="dif">+36%</td></tr>
+<tr><td class="prod">Heladera Samsung No Frost 290 Litros RT29K507JS8</td><td class="max"><a href="https://www.fravega.com/heladera-samsung-inverter-no-frost-299l-sart29k507js8-160955/p" target="_blank" rel="noopener">$1.149.999</a></td><td class="min"><a href="https://www.naldo.com.ar/290l-rt29k507js8-silver-n-f-207986-1/p" target="_blank" rel="noopener">$849.999</a></td><td class=""><a href="https://www.carrefour.com.ar/heladera-nf-inv-rt29-silver-samsung-sart29k507js8/p" target="_blank" rel="noopener">$1.099.000</a></td><td class="na">—</td><td class="dif">+35%</td></tr>
+<tr><td class="prod">Heladera Midea 266 Litros Mdrt385mtf01ad Blanca</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/266l-mdrt385mtf01ad-blanca-a--208932/p" target="_blank" rel="noopener">$747.999</a></td><td class="max"><a href="https://www.carrefour.com.ar/heladera-no-frost-inverter-midea-266-lts-blanca-mdrt385mtf01ad-1775634/p" target="_blank" rel="noopener">$974.399</a><sup>*</sup></td><td class=""><a href="https://www.pardo.com.ar/heladera-inverter-midea-mdrt385mtf01ad-266lts-blanco/p" target="_blank" rel="noopener">$770.999</a></td><td class="dif">+30%</td></tr>
+<tr><td class="prod">Heladera Samsung No Frost RB31FSRNDSA 328Lts</td><td class="min"><a href="https://www.fravega.com/heladera-samsung-no-frost-rb31fsrndsa-328lts--160856/p" target="_blank" rel="noopener">$1.869.999</a></td><td class=""><a href="https://www.naldo.com.ar/207544/p" target="_blank" rel="noopener">$1.869.999</a></td><td class="na">—</td><td class="max"><a href="https://www.pardo.com.ar/heladera-samsung-freezer-inferior-no-frost-con-digital-inverter-328l-102221/p" target="_blank" rel="noopener">$2.399.998</a><sup>*</sup></td><td class="dif">+28%</td></tr>
+<tr><td class="prod">Heladera Whirlpool 397l No Frost Wre45mkdim Inox Inverter</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/397l-wre45mkdim-inox-inv-a-c-n-f-208983-1/p" target="_blank" rel="noopener">$1.368.999</a></td><td class="max"><a href="https://www.carrefour.com.ar/heladera-con-freezer-inverter-no-frost-whirlpool-428l-wre45-inox-1771708/p" target="_blank" rel="noopener">$1.707.421</a><sup>*</sup></td><td class=""><a href="https://www.pardo.com.ar/heladera-whirlpool-inverter-no-frost-bottom-freezer-inox-428-397-litros-102351/p" target="_blank" rel="noopener">$1.649.999</a><sup>*</sup></td><td class="dif">+25%</td></tr>
+<tr><td class="prod">Heladera Whirlpool 496l Inverter Wre66akdim Inox No Frost</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/496l-wre66akdim-inox-inv-c-n-f-combi-209129/p" target="_blank" rel="noopener">$1.921.999</a></td><td class=""><a href="https://www.carrefour.com.ar/heladera_nf_whirlpool_530l_inv_wre66akdim_inox_784594/p" target="_blank" rel="noopener">$2.279.000</a></td><td class="max"><a href="https://www.pardo.com.ar/heladera-whirlpool-inox-xpert-ai-no-frost-inverter-496-530-lts-102865/p" target="_blank" rel="noopener">$2.369.999</a><sup>*</sup></td><td class="dif">+23%</td></tr>
+<tr><td class="prod">Heladera con freezer Cíclica 277 Lts Blanca Drean HDR280F50B</td><td class="min"><a href="https://www.fravega.com/heladera-con-freezer-ciclica-277-lts-blanca-drean-hdr280f50b-990367390/p" target="_blank" rel="noopener">$561.983</a><sup>*</sup></td><td class="max"><a href="https://www.naldo.com.ar/264l-hdr280f50b-blanca-luz-led-208455-1/p" target="_blank" rel="noopener">$679.999</a></td><td class="na">—</td><td class="na">—</td><td class="dif">+21%</td></tr>
+<tr><td class="prod">Heladera Side By Side Whirlpool 555l Inverter Wro85mk Plata</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/555l-wro85mk-sbs-plata-inv-sext-sent-n-f-209102/p" target="_blank" rel="noopener">$2.574.999</a></td><td class="na">—</td><td class="max"><a href="https://www.pardo.com.ar/heladera-whirlpool-xpert-inverter-no-frost-french-door-593-555-litros-102357/p" target="_blank" rel="noopener">$3.099.999</a><sup>*</sup></td><td class="dif">+20%</td></tr>
+<tr><td class="prod">Heladera con freezer Cíclica 364 L Blanca Drean HDR370F50B</td><td class="na">—</td><td class="max"><a href="https://www.naldo.com.ar/364l-hdr370f50b-blanca-a--208478-1/p" target="_blank" rel="noopener">$899.999</a></td><td class="min"><a href="https://www.carrefour.com.ar/heladera-con-freezer-ciclica-364-l-blanca-drean-hdr370f50b-1750802/p" target="_blank" rel="noopener">$749.999</a><sup>*</sup></td><td class="na">—</td><td class="dif">+20%</td></tr>
+<tr><td class="prod">Heladera Philco 402l Phnt453xdi2 Inoxidable Inverter</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/402l-phnt453xdi2-inox-inv-n-f-209315/p" target="_blank" rel="noopener">$949.999</a></td><td class="na">—</td><td class="max"><a href="https://www.pardo.com.ar/heladera-philco-phnt453xdi2-no-frost-inverter-402l-con-dispenser-inox-45699/p" target="_blank" rel="noopener">$1.139.999</a></td><td class="dif">+20%</td></tr>
+<tr><td class="prod">Heladera Gafa 252 Litros Hgf252b Blanca</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/252l-hgf252b-blanca-208903-1/p" target="_blank" rel="noopener">$599.999</a></td><td class="max"><a href="https://www.carrefour.com.ar/heladera-gafa-257l-top-freezer-puerta-reversible-blanca-hgf252b-1769078/p" target="_blank" rel="noopener">$705.754</a><sup>*</sup></td><td class=""><a href="https://www.pardo.com.ar/heladera-gafa-hgf252b-252-l-top-freezer-blanca-45792/p" target="_blank" rel="noopener">$666.999</a></td><td class="dif">+18%</td></tr>
+<tr><td class="prod">Heladera Midea 240 Litros Mdrt333fge01a Blanca A++</td><td class="na">—</td><td class="min"><a href="https://www.naldo.com.ar/240l-mdrt333fge01a-blanca-a--208870-1/p" target="_blank" rel="noopener">$629.999</a></td><td class="max"><a href="https://www.carrefour.com.ar/heladera-con-freezer-midea-mdrt333fge01a-blanca-240l-1775288/p" target="_blank" rel="noopener">$734.999</a><sup>*</sup></td><td class=""><a href="https://www.pardo.com.ar/heladera-midea-mdrt333fge01a-240l-ciclica-blanca-pardo/p" target="_blank" rel="noopener">$683.199</a></td><td class="dif">+17%</td></tr>
+</tbody></table></div>
+<p class="note">41 modelos en más de una tienda · diferencia promedio 14% · máxima 74%.</p>
+
+<h2>El pedido que le hicimos a la IA</h2>
+<pre>Quiero un programa en Python, comentado en castellano para alguien que nunca programó,
+que compare precios de electrodomésticos en tiendas online argentinas.
+
+- Que busque un producto (por defecto, &quot;heladera&quot;) en Frávega, Naldo, Carrefour y Pardo.
+  Las cuatro usan la plataforma VTEX: usá su catálogo público en JSON.
+- Antes de leer cada sitio, revisá su robots.txt y respetalo. Pocas páginas y una pausa
+  entre pedidos.
+- De cada producto con stock guardá: nombre, marca, precio, precio de lista, cuotas sin
+  interés, código de barras (EAN) y link.
+- Juntá los que son exactamente el mismo modelo (mismo EAN) y calculá cuánto cambia el
+  precio de una tienda a otra.
+- Armá un Excel ordenado por la diferencia, con el precio más barato en verde y el más
+  caro en rojo, y un resumen en la pantalla.
+- Que se pueda correr sin internet con una copia guardada, por si falla la conexión.
+- No inventes datos: si una tienda no responde, avisá y seguí con las demás.</pre>
+<p>Al ver los resultados nos dimos cuenta de que estábamos comparando a la tienda con otros comercios. Le pedimos un cambio:</p>
+<pre>Marcá con * los precios que no vende la tienda sino otro comercio dentro de su web,
+y hacé la comparación dos veces: con todo lo publicado y solo con lo que vende cada tienda.</pre>
+<p><b>La IA escribió el programa. Darse cuenta de que comparaba cosas distintas fue trabajo nuestro:</b> es el paso de juzgar, el que no se delega.</p>
+
+<h2>Bajalo y probalo</h2>
+<div class="dl">
+  <a href="scraper_electrodomesticos.py" download>Programa (Python)</a>
+  <a href="electro_heladera_2026-10-07.xlsx" download class="sec">Excel con los resultados</a>
+  <a href="scraper_convocatorias.py" download class="sec">Bonus: scraper de convocatorias</a>
+</div>
+<ol>
+  <li>Instalá Python desde <a href="https://www.python.org/downloads/">python.org</a> (en Windows, tildá «Add Python to PATH»).</li>
+  <li>En una terminal: <code>pip install openpyxl</code></li>
+  <li>En la carpeta donde guardaste el programa: <code>python scraper_electrodomesticos.py</code></li>
+  <li>Probá con otro producto: <code>python scraper_electrodomesticos.py lavarropas</code></li>
+</ol>
+
+<footer>
+Precios publicados en fravega.com, naldo.com.ar, carrefour.com.ar y pardo.com.ar el 07/10/2026, con stock. No incluyen envío ni promociones bancarias. «Mismo modelo» = mismo código de barras (EAN). Los robots.txt de las cuatro tiendas permiten leer este catálogo; el programa hace pocas consultas y con pausas.<br>
+Taller de IA · Secretaría de Juventud FUBA · Económicas UBA · <a href="../">volver a la presentación</a>
+</footer>
+</main>
+</body>
+</html>

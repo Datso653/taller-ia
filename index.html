@@ -1219,6 +1219,33 @@ figure, .curve-full, .amp-chart, .sec-shield {
 .qr-card.fl-qr img { width:clamp(84px,8.4cqw,150px); }
 .slide.active .qr-card.fl-qr { animation:qrIn .7s cubic-bezier(.34,1.56,.64,1) 1.5s backwards; }
 
+/* === DEMO: SCRAPER DE ELECTRODOMÉSTICOS === */
+.scr { flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:4%; align-items:center; }
+.scr-main { display:flex; flex-direction:column; gap:1.1em; min-width:0; }
+.scr-case { position:relative; display:flex; flex-direction:column; gap:.65em; background:#fff; border:2.5px solid var(--black);
+  border-radius:18px; padding:1.1em 1.3em 1.2em; box-shadow:8px 8px 0 #7A9EC7; }
+.scr-k { font-size:clamp(9px,.95cqw,16px); font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#6B6B6B; }
+.scr-h { font-size:clamp(14px,1.75cqw,30px); font-weight:800; line-height:1.15; margin-bottom:.2em; }
+.scr-bar { display:grid; grid-template-columns:7.2em minmax(0,1fr) 7.6em; align-items:center; gap:.8em; font-size:clamp(11px,1.3cqw,22px); }
+.scr-t { font-weight:700; }
+.scr-track { height:1.15em; }
+.scr-track i { display:block; height:100%; border-radius:6px; background:#8FADD3; transform-origin:left center; }
+.scr-bar--min .scr-track i { background:#EBB416; }
+.scr-bar--max .scr-track i { background:#0A0A0A; }
+.scr-bar b { text-align:right; font-variant-numeric:tabular-nums; }
+.scr-gap { position:absolute; right:1.1em; top:.8em; background:#EBB416; border:2.5px solid #0A0A0A; border-radius:999px;
+  padding:.15em .7em; font-weight:800; font-size:clamp(14px,1.9cqw,32px); rotate:4deg; }
+.scr-facts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1em; }
+.scr-fact { display:flex; flex-direction:column; gap:.2em; border-top:3px solid #0A0A0A; padding-top:.45em; }
+.scr-fact b { font-size:clamp(18px,2.4cqw,40px); font-weight:800; line-height:1; }
+.scr-fact span { font-size:clamp(9.5px,1.05cqw,18px); line-height:1.35; color:#3A3A3A; }
+.qr-card.scr-qr img { width:clamp(110px,13cqw,240px); }
+.slide.active .scr-track i { animation:fillGrow 1.1s cubic-bezier(.16,1,.3,1) backwards; }
+.slide.active .scr-bar:nth-of-type(1) .scr-track i { animation-delay:.6s; }
+.slide.active .scr-bar:nth-of-type(2) .scr-track i { animation-delay:.85s; }
+.slide.active .scr-bar:nth-of-type(3) .scr-track i { animation-delay:1.1s; }
+.slide.active .scr-gap { animation:bump .6s cubic-bezier(.34,1.56,.64,1) 1.9s backwards; }
+
 /* === TARJETA QR: QR grande arriba, rótulo corto abajo === */
 .qr-card {
   display:flex; flex-direction:column; align-items:center; gap:.4em; flex-shrink:0;
@@ -3031,9 +3058,45 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ======================================================
-     SLIDE 21 — EL CONTROL
+     DEMO: SCRAPER DE ELECTRODOMÉSTICOS
 ====================================================== -->
 <div class="slide slide--cream" id="slide-33">
+  <span class="pill pill--yellow">Demo en vivo &middot; Qué se puede hacer</span>
+  <h2 class="slide-title slide-title--sm">La misma heladera, &iquest;al mismo precio?</h2>
+  <div class="scr">
+
+    <div class="scr-main">
+      <div class="scr-case">
+        <span class="scr-k">Mismo código de barras &middot; vendida por cada tienda</span>
+        <span class="scr-h">Heladera Samsung No Frost 290 litros</span>
+        <div class="scr-bar scr-bar--min"><span class="scr-t">Naldo</span><span class="scr-track"><i style="width:73.9%"></i></span><b>$849.999</b></div>
+        <div class="scr-bar"><span class="scr-t">Carrefour</span><span class="scr-track"><i style="width:95.6%"></i></span><b>$1.099.000</b></div>
+        <div class="scr-bar scr-bar--max"><span class="scr-t">Frávega</span><span class="scr-track"><i style="width:100.0%"></i></span><b>$1.149.999</b></div>
+        <span class="scr-gap">+35%</span>
+      </div>
+      <div class="scr-facts">
+        <div class="scr-fact"><b>228</b><span>heladeras en 4 tiendas, leídas en 5 segundos</span></div>
+        <div class="scr-fact"><b>41</b><span>modelos idénticos en más de una tienda</span></div>
+        <div class="scr-fact"><b>87 de 97</b><span>en la web de Carrefour no las vende Carrefour: las vende otro comercio</span></div>
+      </div>
+    </div>
+
+    <div class="qr-card scr-qr">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQMAAAC6caSPAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACd0lEQVR4nO2bPW7zMAyGWWTwmCP4KDmadTQfxUfo6KEIP/NPYt0WX5RmKKCXiyGLj6cXpEjRRLC/aVytHIv3Y32X17edaGJdM6+X5gVkdGQz4UyK6Cuiw2WnZafYv/BqXlcgQJ5A3lR5BzKZTO904+aiMr3IvnwPCJCMRBxTTS3mMmscAwLkRUgzC2IMBMgLEAtyIUuaj9D34a/8k+uP6RXIeEg1yZUStxS56eFK4poh1YAA6UWSWa40mXqR6HGMfjIgQP6PeK5k9iJR7cNDoXokWQIBIhpijVvCv5sLSZ0oVg/00mWIwxUQIF1IxC2T3TWEuWonq+0nmQIB0otYkXhqPIjpeUxly9/WlUDGREiLwslddM2tq+D79RUQIE8idmD39Ond0Z2iaGRfMzOQ0RG7oklxK69dYxHH9PAFBEgnsr1512Ax5CTLFteWXFcCAfIwIma5stCpG1o/Ybny2I/QCGRcRPZW3Vg8bllXQTWllroKzECAdCPSqeKUC3URA1TqEp2sMnHEOSBAOpDmQlQbD9Et9VxJ9VoQCJBN9w4N8Z4Qqp0s0WDqOgAB0o1wyNBd5rvLsPhmDO2ZTIEA6UY28sZDoWhEiOWrZ5clp9AHZHQkcmMaoFKn6DoAAfJbRC3ukU/zMGaFctMeyKBIMq/oTnFrZtdYaVc6QIB0IFytUG6ft39H2X9nKLmrAATI48gWmiyqxMiV9pksS263PEBGRvK/ol7xUUx5MrfJYm7jDUCAPI3UuLZOcaafOZ3PrkCAvARpVzbtKvo03gBkXMSeU51FiEliImpxjb5OpwMB8iBS7ZMs1yl+Z2A+/VIDBEgfAvuL9g+B3XSnTx4n8wAAAABJRU5ErkJggg==" alt="QR a la demo del scraper: código, resultados y el pedido a la IA">
+      <b>Código y resultados</b>
+      <span>Probalo con tu producto</span>
+    </div>
+
+  </div>
+  <p class="slide-note slide-note--bold">El programa lo escribió una IA con un pedido de un párrafo. <strong>Darse cuenta de que estaba comparando a la tienda con otros comercios fue trabajo nuestro:</strong> el paso de juzgar.</p>
+  <p class="src"><b>Fuente:</b> precios publicados con stock en fravega.com, naldo.com.ar, carrefour.com.ar y pardo.com.ar el 07/10/2026. No incluyen envío ni promociones bancarias.</p>
+  <div class="footer">Taller de IA &middot; JUP &middot; FCE UBA &middot; Del chat al agente</div>
+</div>
+
+<!-- ======================================================
+     SLIDE 21 — EL CONTROL
+====================================================== -->
+<div class="slide slide--cream" id="slide-34">
   <span class="pill pill--yellow">El control</span>
   <h2 class="slide-title">Cuanto más hace, más importa qué le dejás hacer</h2>
   <div class="sec">
@@ -3080,7 +3143,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      SLIDE 22 — LAS CUATRO ETAPAS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-34">
+<div class="slide slide--cream" id="slide-35">
   <span class="pill pill--yellow">Lo que viene cuando empezás</span>
   <h2 class="slide-title">Las cuatro etapas</h2>
   <div class="curve-full">
@@ -3132,7 +3195,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      SLIDE 23 — DIVIDER AZUL CIERRE
 ====================================================== -->
-<div class="slide slide--blue" id="slide-35">
+<div class="slide slide--blue" id="slide-36">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Cierre</span>
   <h2 class="slide-title slide-title--big">Quién está detrás</h2>
@@ -3146,7 +3209,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      GRANDES EMPRESAS — capex
 ====================================================== -->
-<div class="slide slide--cream" id="slide-36">
+<div class="slide slide--cream" id="slide-37">
   <span class="pill pill--yellow">Quién está detrás</span>
   <h2 class="slide-title slide-title--sm">Lo que se está jugando</h2>
   <div class="cap">
@@ -3183,7 +3246,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      MAPA DE DATA CENTERS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-37">
+<div class="slide slide--cream" id="slide-38">
   <span class="pill pill--yellow">Quién está detrás</span>
   <h2 class="slide-title slide-title--sm">¿Dónde vive, físicamente, todo esto?</h2>
   <div class="map">
@@ -3224,7 +3287,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      DOS CAMINOS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-38">
+<div class="slide slide--cream" id="slide-39">
   <span class="pill pill--yellow">Quién está detrás</span>
   <h2 class="slide-title slide-title--sm">La misma tecnología, dos caminos</h2>
   <div class="fork">
@@ -3273,7 +3336,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      DOS VELOCIDADES
 ====================================================== -->
-<div class="slide slide--cream" id="slide-39">
+<div class="slide slide--cream" id="slide-40">
   <span class="pill pill--yellow">Quién está detrás</span>
   <h2 class="slide-title slide-title--sm">Ella acelera. Nosotros aprendemos al mismo ritmo de siempre</h2>
   <div class="spd">
@@ -3309,7 +3372,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      AMPLIFICADOR
 ====================================================== -->
-<div class="slide slide--cream" id="slide-40">
+<div class="slide slide--cream" id="slide-41">
   <span class="pill pill--yellow">Quién está detrás</span>
   <h2 class="slide-title slide-title--sm">La IA amplifica, no iguala</h2>
   <div class="amp">
@@ -3367,7 +3430,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      GLOSARIO
 ====================================================== -->
-<div class="slide slide--cream" id="slide-41">
+<div class="slide slide--cream" id="slide-42">
   <span class="pill pill--yellow">Para llevarse</span>
   <h2 class="slide-title slide-title--sm">Las palabras que conviene tener</h2>
   <div class="glos">
@@ -3395,7 +3458,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      SLIDE 27 — CIERRE FINAL AMARILLO
 ====================================================== -->
-<div class="slide slide--yellow" id="slide-42">
+<div class="slide slide--yellow" id="slide-43">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Para esta semana</span>
   <h2 class="slide-title slide-title--big">Elegí una tarea real y probala con contexto</h2>
@@ -3407,7 +3470,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
      NAVIGATION UI
 ====================================================== -->
 <div class="nav-ui" role="navigation" aria-label="Navegación">
-  <span class="nav-counter" id="navCounter" aria-live="polite">1 / 44</span>
+  <span class="nav-counter" id="navCounter" aria-live="polite">1 / 45</span>
   <button class="nav-btn" id="prevBtn" aria-label="Slide anterior">&#8592;</button>
   <button class="nav-btn" id="nextBtn" aria-label="Slide siguiente">&#8594;</button>
 </div>
@@ -3415,7 +3478,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      LISTA DE TAREAS
 ====================================================== -->
-<div class="slide slide--cream" id="slide-43">
+<div class="slide slide--cream" id="slide-44">
   <span class="pill pill--yellow">Para esta semana</span>
   <h2 class="slide-title slide-title--sm">Doce para elegir</h2>
   <p class="slide-note" style="margin:-1% 0 2%">Todas son lo mismo: <strong>una tarea, un archivo, una pregunta de control.</strong></p>
@@ -3437,7 +3500,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 <!-- ======================================================
      CIERRE — gracias
 ====================================================== -->
-<div class="slide slide--yellow" id="slide-44">
+<div class="slide slide--yellow" id="slide-45">
   <div class="bye">
     <span class="bye-hand" role="img" aria-label="Mano saludando">&#128075;</span>
     <div class="bye-big">¡Gracias!</div>
@@ -3472,7 +3535,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 
 <script>
 (function() {
-  var TOTAL = 44;
+  var TOTAL = 45;
   var current = 1;
   var deck    = document.getElementById('deck');
   var counter = document.getElementById('navCounter');
@@ -3650,7 +3713,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   // Grupos que entran de a uno (tarjetas, columnas, filas)
   var STAGGER = ['.pcards', '.chat-duo', '.sessions', '.anat', '.iatable', '.stack', '.ads',
                  '.stair', '.grid-c4', '.grid-c2', '.agt', '.glos', '.tasks', '.news-facts', '.cap-firms',
-                 '.data-table tbody', '.bench-bot'];
+                 '.data-table tbody', '.bench-bot', '.scr-facts'];
   Array.prototype.forEach.call(document.querySelectorAll(STAGGER.join(',')), function(g) {
     g.classList.add('stg');
     Array.prototype.forEach.call(g.children, function(k, i) { k.style.setProperty('--i', i); });
