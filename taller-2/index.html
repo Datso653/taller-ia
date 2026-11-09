@@ -2722,6 +2722,117 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   .slide { width:1600px !important; height:900px !important; }
 }
 
+/* ==========================================================================
+   TALLER 2 (noviembre) · segunda tanda: skills, energía, navegadores,
+   tablero de La Pizarra, vibe coding e IA y laburo
+   ========================================================================== */
+
+/* ---------- skills ---------- */
+.sk { flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:4.5%; align-items:center; }
+.sk-left { display:flex; flex-direction:column; gap:1.1em; }
+.sk-tree { display:flex; flex-direction:column; gap:.45em; background:#fff; border:2.5px solid var(--ink); border-radius:14px; padding:.8em 1em;
+  box-shadow:7px 7px 0 var(--sky); font-family:Consolas,ui-monospace,monospace; font-size:clamp(11px,1.25cqw,21px); }
+.sk-tree span { display:flex; align-items:center; gap:.55em; }
+.sk-tree span.in { padding-left:1.7em; }
+.sk-tree b { font-weight:800; }
+.sk-tree em { font-style:normal; font-family:Poppins,sans-serif; font-size:.75em; font-weight:600; color:#6B6B6B; margin-left:auto; }
+.sk .t2-file-b { font-size:clamp(10px,1.1cqw,19px); }
+.sk .t2-rows { gap:.85em; }
+.sk .t2-d { font-size:clamp(10.5px,1.2cqw,20.5px); }
+
+/* ---------- energía ---------- */
+.en { flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.95fr); gap:4.5%; align-items:center; }
+.en-left { display:flex; flex-direction:column; gap:.9em; }
+.en-q { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.8em; }
+.en-q div { background:#fff; border:2.5px solid var(--ink); border-radius:14px; padding:.65em .8em; display:flex; flex-direction:column; gap:.25em; }
+.en-q div:nth-child(1) { box-shadow:6px 6px 0 var(--amber); } .en-q div:nth-child(2) { box-shadow:6px 6px 0 var(--sky); } .en-q div:nth-child(3) { box-shadow:6px 6px 0 #D9D5CB; }
+.en-q b { font-family:'Noto Serif Display',Georgia,serif; font-stretch:62.5%; font-weight:900; font-size:clamp(26px,3.1cqw,56px); line-height:.95; color:var(--navy); }
+.en-q span { font-size:clamp(9.5px,1.02cqw,17.5px); line-height:1.35; }
+.en-crit { font-size:clamp(9.5px,1.02cqw,17.5px); line-height:1.4; color:#5A5A5A; font-style:italic; }
+.en-ar { background:#FFF6D6; border:2.5px solid var(--ink); border-radius:14px; padding:.75em 1em; display:flex; flex-direction:column; gap:.35em; }
+.en-ar .t { font-size:clamp(12px,1.4cqw,24px); font-weight:800; }
+.en-ar span { font-size:clamp(10px,1.1cqw,19px); line-height:1.42; }
+.en-ar .en-link { font-size:clamp(9.5px,1.02cqw,17.5px); color:#3A3A3A; }
+.en svg { width:100%; height:auto; max-height:54cqh; overflow:visible; }
+.en svg text { font-family:Poppins,sans-serif; }
+.en-bar { transform-box:fill-box; transform-origin:50% 100%; }
+@keyframes enBar { from { transform:scaleY(0); } }
+.slide.active .en-bar { animation:enBar 1s cubic-bezier(.22,1,.36,1) var(--d,.4s) backwards; }
+
+/* ---------- navegadores con IA ---------- */
+.nv { flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,1.12fr) minmax(0,1fr); gap:4%; align-items:center; }
+.nv-win { background:#fff; border:2.5px solid var(--ink); border-radius:14px; overflow:hidden; box-shadow:9px 9px 0 var(--sky); }
+.nv-body { display:grid; grid-template-columns:minmax(0,1fr) 33%; }
+.nv-page { position:relative; padding:1em .9em 1.4em; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.6em; align-items:start; background:#F7F6F2; }
+.nv-prod { background:#fff; border:2px solid var(--ink); border-radius:10px; padding:.5em; display:flex; flex-direction:column; gap:.25em; font-size:clamp(9px,.95cqw,16px); }
+.nv-prod i { display:block; aspect-ratio:3/4; border-radius:6px; border:2px solid #BDB7A8; background:linear-gradient(#E9E7E1 0 38%, #BDB7A8 38% 40%, #E9E7E1 40%); }
+.nv-prod b { font-weight:800; }
+.nv-prod em { font-style:normal; font-weight:800; text-align:center; background:var(--amber); border:2px solid var(--ink); border-radius:999px; padding:.15em .2em; font-size:.92em; }
+.nv-prod--on { outline:3px solid var(--amber); outline-offset:3px; }
+.nv-cursor { position:absolute; width:clamp(18px,1.9cqw,34px); left:49%; top:84%; filter:drop-shadow(2px 2px 0 rgba(10,10,10,.35)); }
+@keyframes nvCur { from { left:88%; top:10%; } }
+.slide.active .nv-cursor { animation:nvCur 1.4s cubic-bezier(.22,1,.36,1) .9s backwards; }
+.nv-side { border-left:2px solid var(--ink); background:#fff; padding:.8em .8em 1em; display:flex; flex-direction:column; gap:.55em; }
+.nv-side b { display:flex; align-items:center; gap:.45em; font-size:clamp(11px,1.2cqw,20px); font-weight:800; }
+.nv-dot { width:.65em; height:.65em; border-radius:50%; background:#9FD3A8; border:1.5px solid var(--ink); }
+.nv-step { position:relative; padding-left:1.45em; font-size:clamp(9px,.98cqw,16.5px); line-height:1.3; color:#8A8780; }
+.nv-step::before { content:''; position:absolute; left:0; top:.15em; width:.85em; height:.85em; border-radius:50%; border:2px solid #B5B1A8; background:#fff; }
+.nv-step.done { color:var(--ink); } .nv-step.done::before { background:#9FD3A8; border-color:var(--ink); }
+.nv-step.on { color:var(--ink); font-weight:700; } .nv-step.on::before { background:var(--amber); border-color:var(--ink); }
+.nv-right { display:flex; flex-direction:column; gap:1.1em; }
+.nv .t2-rows { gap:.8em; }
+.nv .t2-d { font-size:clamp(10.5px,1.18cqw,20px); }
+
+/* ---------- tablero de La Pizarra ---------- */
+.kb { flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:4%; align-items:center; }
+.kb svg { width:100%; height:auto; max-height:56cqh; overflow:visible; }
+.kb svg text { font-family:Poppins,sans-serif; }
+.kb .eq-side { gap:.9em; }
+
+/* ---------- vibe coding ---------- */
+.vc { flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:4%; align-items:center; }
+.vc-left { display:flex; align-items:center; gap:1em; }
+.vc-ask { flex:1; background:#FFF0B8; border:2.5px solid var(--ink); border-radius:16px 16px 4px 16px; padding:.75em .9em; font-size:clamp(10.5px,1.18cqw,20px); line-height:1.42;
+  box-shadow:6px 6px 0 rgba(10,10,10,.85); }
+.vc-ask b { font-weight:800; }
+.vc-arrow { font-size:clamp(26px,3.2cqw,56px); font-weight:800; line-height:1; }
+.vc-app { flex:0 0 44%; background:#fff; border:3px solid var(--ink); border-radius:26px; padding:1em .9em 1.1em; box-shadow:9px 9px 0 var(--amber); display:flex; flex-direction:column; gap:.55em; }
+.vc-app-h { font-family:'Noto Serif Display',Georgia,serif; font-stretch:62.5%; font-weight:800; font-size:clamp(22px,2.5cqw,44px); line-height:1; color:var(--navy); }
+.vc-row { display:flex; justify-content:space-between; border:2px solid var(--ink); border-radius:10px; padding:.3em .6em; font-size:clamp(10px,1.1cqw,19px); }
+.vc-row b { font-weight:800; }
+.vc-res { text-align:center; background:var(--amber); border:2.5px solid var(--ink); border-radius:12px; padding:.3em .2em .35em; font-family:'Noto Serif Display',Georgia,serif;
+  font-stretch:62.5%; font-weight:900; font-size:clamp(26px,3cqw,54px); line-height:1; }
+.vc-res small { display:block; font-family:Poppins,sans-serif; font-stretch:100%; font-size:.32em; font-weight:700; margin-top:.2em; }
+.vc-list { display:flex; flex-direction:column; gap:.3em; font-size:clamp(9px,.95cqw,16px); line-height:1.3; }
+@keyframes vcIn { from { opacity:0; scale:.85; } }
+.slide.active .vc-app { animation:vcIn .6s cubic-bezier(.34,1.56,.64,1) 1s backwards; }
+.vc .t2-rows { gap:.8em; }
+.vc .t2-d { font-size:clamp(10.5px,1.2cqw,20.5px); }
+.vc-tools { display:flex; flex-direction:column; gap:.4em; margin-top:1.1em; }
+.vc-tools span { display:flex; gap:.7em; align-items:baseline; font-size:clamp(10px,1.1cqw,19px); border-top:1px dashed #BDB7A8; padding-top:.4em; }
+.vc-tools b { flex:0 0 9.5em; font-weight:800; }
+
+/* ---------- IA y laburo ---------- */
+.lb { flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:4.5%; align-items:center; }
+.lb-left { display:flex; flex-direction:column; gap:1em; }
+.lb-big { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1em; }
+.lb-big div { border-top:3px solid var(--ink); padding-top:.4em; }
+.lb-big b { display:block; font-family:'Noto Serif Display',Georgia,serif; font-stretch:62.5%; font-weight:900; font-size:clamp(36px,4.4cqw,80px); line-height:.95; color:var(--navy); }
+.lb-big span { font-size:clamp(10px,1.08cqw,18.5px); line-height:1.38; }
+.lb-bars { display:flex; flex-direction:column; gap:.5em; }
+.lb-bar { display:grid; grid-template-columns:9.5em minmax(0,1fr) 3em; gap:.7em; align-items:center; font-size:clamp(10px,1.1cqw,19px); }
+.lb-bar b { font-weight:700; }
+.lb-bar i { display:block; height:1.15em; width:var(--w); border-radius:6px; background:var(--sky); border:2px solid var(--ink); }
+.lb-bar:first-child i { background:var(--amber); }
+.lb-bar em { font-style:normal; font-weight:800; }
+@keyframes lbGrow { from { width:0; } }
+.slide.active .lb-bar i { animation:lbGrow .9s cubic-bezier(.22,1,.36,1) calc(.5s + var(--i,0) * .12s) backwards; }
+.lb .t2-rows { gap:.85em; }
+.lb .t2-d { font-size:clamp(10.5px,1.2cqw,20.5px); }
+
+/* los iconitos no se centran (hay una regla general para los dibujos grandes) */
+.sk-tree svg, .sk .t2-file-h svg { margin:0 !important; flex:0 0 auto; width:auto; }
+
 </style>
 </head>
 <body>
@@ -2994,6 +3105,37 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 
 <div class="slide slide--cream" id="slide-8" data-cap="0" data-lv="2">
   <span class="lv lv-2 lv-corner"><b>2</b>Recuerda</span>
+  <span class="pill pill--yellow">Cerebro contextual &middot; Skills</span>
+  <h2 class="slide-title slide-title--sm">Skills: le enseñás una tarea una sola vez</h2>
+  <div class="sk">
+    <div class="sk-left">
+      <div class="sk-tree t2-in" style="--d:.25s">
+        <span><svg viewBox="0 0 20 16" width="20" height="16" aria-hidden="true"><path d="M1 2h6l2 2h10v11H1z" fill="#FFE07A" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg><b>nueva-neurona/</b><em>una carpeta</em></span>
+        <span class="in"><svg viewBox="0 0 16 20" width="13" height="16" aria-hidden="true"><path d="M2 1h8l4 4v14H2z" fill="#fff" stroke="#0A0A0A" stroke-width="1.6"/></svg>SKILL.md<em>las instrucciones</em></span>
+        <span class="in"><svg viewBox="0 0 20 16" width="20" height="16" aria-hidden="true"><path d="M1 2h6l2 2h10v11H1z" fill="#B7CBE4" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg>plantillas/<em>si hacen falta</em></span>
+      </div>
+      <div class="t2-file t2-in" style="--d:.6s">
+        <div class="t2-file-h"><svg viewBox="0 0 16 20" width="13" height="16" aria-hidden="true"><path d="M2 1h8l4 4v14H2z" fill="#fff" stroke="#0A0A0A" stroke-width="1.6"/></svg>SKILL.md &middot; una skill real de Juan (fragmento)</div>
+        <div class="t2-file-b"><span class="h">name:</span> nueva-neurona<br><span class="h">description:</span> Crea una nota bien formateada en el cerebro de Juan, con sus convenciones.<br><br><span class="h">## Pasos</span><br>1. Identificar el tema y la carpeta.<br>2. Ponerle un nombre descriptivo.<br>3. Completar el encabezado y enlazarla.</div>
+      </div>
+    </div>
+    <div>
+      <div class="t2-rows" data-stg>
+        <div class="t2-row"><span class="t2-n">1</span><div class="t2-d"><b>Es una carpeta</b> con un archivo de instrucciones y, si hace falta, plantillas o ejemplos.</div></div>
+        <div class="t2-row"><span class="t2-n">2</span><div class="t2-d"><b>La IA lee solo el nombre y la descripción.</b> Abre el resto cuando la tarea lo pide: no gasta tokens de más.</div></div>
+        <div class="t2-row"><span class="t2-n">3</span><div class="t2-d"><b>Sirve en muchas IAs.</b> Desde diciembre de 2025 es un estándar abierto: Claude, Codex, Gemini CLI, Copilot, Cursor.</div></div>
+        <div class="t2-row"><span class="t2-n">4</span><div class="t2-d"><b>Los agentes se las arman solos.</b> OpenClaw aprende con skills y Hermes escribe las suyas a partir de lo que hace.</div></div>
+      </div>
+      <div class="t2-chips t2-in" style="--d:1.4s;margin-top:1.1em;align-items:center"><span class="t2-k" style="margin-right:.3em">Ideas</span><span class="t2-chip t2-chip--y">Corregir con la rúbrica</span><span class="t2-chip">El informe de cada lunes</span><span class="t2-chip">Responder consultas de alumnos</span></div>
+    </div>
+  </div>
+  <p class="slide-note slide-note--bold">El cerebro dice quién sos; la skill, cómo se hace una tarea. <strong>Juntos, la IA trabaja a tu manera sin que se lo expliques cada vez.</strong></p>
+  <p class="src"><b>Fuente:</b> Anthropic publicó Agent Skills como estándar abierto el 18/12/2025 (agentskills.io).</p>
+  <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Cerebro contextual</div>
+</div>
+
+<div class="slide slide--cream" id="slide-9" data-cap="0" data-lv="2">
+  <span class="lv lv-2 lv-corner"><b>2</b>Recuerda</span>
   <span class="pill pill--yellow">Cerebro contextual &middot; La economía de los tokens</span>
   <h2 class="slide-title slide-title--sm">Un agente lee cien veces más de lo que escribe</h2>
   <div class="tk">
@@ -3029,8 +3171,49 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Cerebro contextual</div>
 </div>
 
+<div class="slide slide--cream" id="slide-10" data-cap="0">
+  <span class="pill pill--yellow">Cerebro contextual &middot; El costo que no se ve</span>
+  <h2 class="slide-title slide-title--sm">Cada token también gasta luz</h2>
+  <div class="en">
+    <div class="en-left">
+      <span class="t2-k">Una pregunta a Gemini, según Google</span>
+      <div class="en-q" data-stg>
+        <div><b>0,24 Wh</b><span>de electricidad: menos de 9 segundos de tele</span></div>
+        <div><b>5 gotas</b><span>de agua (0,26 ml) para enfriar los equipos</span></div>
+        <div><b>0,03 g</b><span>de CO₂. ChatGPT, según OpenAI: 0,34 Wh</span></div>
+      </div>
+      <span class="en-crit t2-in" style="--d:1.1s">Expertos dicen que la cuenta deja afuera el entrenamiento y el agua de las centrales. Y una pregunta es poco: el tema es que son miles de millones por día.</span>
+      <div class="en-ar t2-in" style="--d:1.4s">
+        <b class="t">Y en Argentina</b>
+        <span>OpenAI y Sur Energy firmaron una carta de intención para un data center de <b>US$ 25.000 millones</b> en la Patagonia (proyecto Stargate Argentina). Por ahora, es una intención.</span>
+        <span class="en-link">El TP modelo de la Tecnicatura lo analiza: <b>datso653.github.io/datacenters-ia</b></span>
+      </div>
+    </div>
+    <svg viewBox="0 0 560 400" aria-label="Electricidad de los data centers del mundo: 415 teravatios hora en 2024 y unos 945 en 2030, más que todo Japón hoy">
+      <text x="10" y="22" font-size="17" font-weight="700" fill="#6B6B6B">Electricidad de los data centers del mundo</text>
+      <path d="M40 342H530" stroke="#0A0A0A" stroke-width="3"/>
+      <path d="M40 80H530" stroke="#B03A2E" stroke-width="2.5" stroke-dasharray="7 6"/>
+      <text x="530" y="72" font-size="15" font-weight="700" fill="#B03A2E" text-anchor="end">todo Japón hoy</text>
+      <rect class="en-bar" style="--d:.4s" x="90" y="226" width="150" height="116" rx="6" fill="#8FADD3" stroke="#0A0A0A" stroke-width="3"/>
+      <rect class="en-bar" style="--d:.8s" x="320" y="77" width="150" height="265" rx="6" fill="#EBB416" stroke="#0A0A0A" stroke-width="3"/>
+      <g text-anchor="middle" fill="#0A0A0A">
+        <text class="t2-pop" style="--d:1.2s" x="165" y="196" font-size="30" font-weight="800">415 TWh</text>
+        <text class="t2-pop" style="--d:1.2s" x="165" y="216" font-size="14">1,5% de la electricidad</text>
+        <text class="t2-pop" style="--d:1.5s" x="395" y="125" font-size="30" font-weight="800">945 TWh</text>
+        <text class="t2-pop" style="--d:1.5s" x="395" y="145" font-size="14">casi 3% del mundo</text>
+        <text x="165" y="372" font-size="20" font-weight="800">2024</text>
+        <text x="395" y="372" font-size="20" font-weight="800">2030</text>
+        <text x="395" y="394" font-size="13" fill="#6B6B6B">proyección</text>
+      </g>
+    </svg>
+  </div>
+  <p class="slide-note slide-note--bold">Por eso ahorrar tokens no es solo ahorrar plata. <strong>Usar el modelo justo, o ninguno, también es usar menos luz.</strong></p>
+  <p class="src"><b>Fuentes:</b> Google Cloud, &laquo;Measuring the environmental impact of AI inference&raquo; (agosto de 2025); Sam Altman (junio de 2025); AIE, &laquo;Energy and AI&raquo; (2025); OpenAI, &laquo;Argentina's AI opportunity&raquo; (2025).</p>
+  <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Cerebro contextual</div>
+</div>
+
 <!-- ===================== CAPÍTULO 2 · APIs ===================== -->
-<div class="slide slide--blue" id="slide-9" data-cap="1">
+<div class="slide slide--blue" id="slide-11" data-cap="1">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Capítulo 2 &middot; Escalón 3</span>
   <h2 class="slide-title slide-title--big">El mesero</h2>
@@ -3038,7 +3221,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; APIs</div>
 </div>
 
-<div class="slide slide--cream" id="slide-10" data-cap="1" data-lv="3">
+<div class="slide slide--cream" id="slide-12" data-cap="1" data-lv="3">
   <span class="lv lv-3 lv-corner"><b>3</b>Consulta</span>
   <span class="pill pill--yellow">APIs &middot; La analogía</span>
   <h2 class="slide-title slide-title--sm">Una API es el mesero de un restaurante</h2>
@@ -3128,7 +3311,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; APIs</div>
 </div>
 
-<div class="slide slide--cream" id="slide-11" data-cap="1" data-lv="3">
+<div class="slide slide--cream" id="slide-13" data-cap="1" data-lv="3">
   <span class="lv lv-3 lv-corner"><b>3</b>Consulta</span>
   <span class="pill pill--yellow">Demo en vivo &middot; APIs</span>
   <h2 class="slide-title slide-title--sm">El pedido es una dirección: probalo</h2>
@@ -3159,7 +3342,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; APIs</div>
 </div>
 
-<div class="slide slide--cream" id="slide-12" data-cap="1" data-lv="3">
+<div class="slide slide--cream" id="slide-14" data-cap="1" data-lv="3">
   <span class="lv lv-3 lv-corner"><b>3</b>Consulta</span>
   <span class="pill pill--yellow">APIs &middot; La novedad</span>
   <h2 class="slide-title slide-title--sm">Noviembre de 2026: el INDEC abrió su API</h2>
@@ -3194,7 +3377,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ===================== CAPÍTULO 3 · MCP ===================== -->
-<div class="slide slide--yellow" id="slide-13" data-cap="2">
+<div class="slide slide--yellow" id="slide-15" data-cap="2">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Capítulo 3 &middot; Escalón 4</span>
   <h2 class="slide-title slide-title--big">Las manos<br>de la IA</h2>
@@ -3202,7 +3385,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; MCP</div>
 </div>
 
-<div class="slide slide--cream" id="slide-14" data-cap="2" data-lv="4">
+<div class="slide slide--cream" id="slide-16" data-cap="2" data-lv="4">
   <span class="lv lv-4 lv-corner"><b>4</b>Actúa</span>
   <span class="pill pill--yellow">MCP &middot; El mapa</span>
   <h2 class="slide-title slide-title--sm">Cuatro formas de darle manos a la IA</h2>
@@ -3240,74 +3423,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; MCP</div>
 </div>
 
-<div class="slide slide--cream" id="slide-15" data-cap="2" data-lv="4">
-  <span class="lv lv-4 lv-corner"><b>4</b>Actúa</span>
-  <span class="pill pill--yellow">MCP</span>
-  <h2 class="slide-title slide-title--sm">MCP: el enchufe universal para la IA</h2>
-  <div class="t2-mcp">
-    <svg viewBox="0 0 1200 330" aria-label="Sin MCP, cada IA se conecta a mano con cada herramienta; con MCP, todas se enchufan una sola vez">
-      <text x="20" y="22" font-size="19" fill="#6B6B6B">Sin estándar: cada IA con cada herramienta</text>
-      <g stroke="#0A0A0A" stroke-width="2" fill="none" opacity=".75">
-        <path class="t2-draw" pathLength="1" style="--d:.3s"  d="M170 85C280 85 280 60 390 60"/>
-        <path class="t2-draw" pathLength="1" style="--d:.35s" d="M170 85C280 85 280 130 390 130"/>
-        <path class="t2-draw" pathLength="1" style="--d:.4s"  d="M170 85C280 85 280 200 390 200"/>
-        <path class="t2-draw" pathLength="1" style="--d:.45s" d="M170 85C280 85 280 270 390 270"/>
-        <path class="t2-draw" pathLength="1" style="--d:.5s"  d="M170 165C280 165 280 60 390 60"/>
-        <path class="t2-draw" pathLength="1" style="--d:.55s" d="M170 165C280 165 280 130 390 130"/>
-        <path class="t2-draw" pathLength="1" style="--d:.6s"  d="M170 165C280 165 280 200 390 200"/>
-        <path class="t2-draw" pathLength="1" style="--d:.65s" d="M170 165C280 165 280 270 390 270"/>
-        <path class="t2-draw" pathLength="1" style="--d:.7s"  d="M170 245C280 245 280 60 390 60"/>
-        <path class="t2-draw" pathLength="1" style="--d:.75s" d="M170 245C280 245 280 130 390 130"/>
-        <path class="t2-draw" pathLength="1" style="--d:.8s"  d="M170 245C280 245 280 200 390 200"/>
-        <path class="t2-draw" pathLength="1" style="--d:.85s" d="M170 245C280 245 280 270 390 270"/>
-      </g>
-      <g font-size="19" text-anchor="middle">
-        <rect x="20" y="61" width="150" height="48" rx="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"/><text x="95" y="92">Claude</text>
-        <rect x="20" y="141" width="150" height="48" rx="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"/><text x="95" y="172">ChatGPT</text>
-        <rect x="20" y="221" width="150" height="48" rx="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"/><text x="95" y="252">Gemini</text>
-        <rect x="390" y="38" width="170" height="44" rx="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="2.5"/><text x="475" y="67">Tu Drive</text>
-        <rect x="390" y="108" width="170" height="44" rx="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="2.5"/><text x="475" y="137">Calendario</text>
-        <rect x="390" y="178" width="170" height="44" rx="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="2.5"/><text x="475" y="207">Planillas</text>
-        <rect x="390" y="248" width="170" height="44" rx="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="2.5"/><text x="475" y="277">La Pizarra</text>
-      </g>
-      <text x="20" y="322" font-size="17" fill="#B03A2E" font-weight="800">12 conexiones hechas a mano</text>
-
-      <path d="M600 10V320" stroke="#BDB7A8" stroke-width="2" stroke-dasharray="6 7"/>
-
-      <text x="640" y="22" font-size="19" fill="#6B6B6B">Con MCP: cada una se enchufa una vez</text>
-      <g stroke="#0A0A0A" stroke-width="3" fill="none">
-        <path class="t2-draw" pathLength="1" style="--d:1.1s"  d="M790 85H880"/>
-        <path class="t2-draw" pathLength="1" style="--d:1.15s" d="M790 165H880"/>
-        <path class="t2-draw" pathLength="1" style="--d:1.2s"  d="M790 245H880"/>
-        <path class="t2-draw" pathLength="1" style="--d:1.35s" d="M950 60H1030"/>
-        <path class="t2-draw" pathLength="1" style="--d:1.4s"  d="M950 130H1030"/>
-        <path class="t2-draw" pathLength="1" style="--d:1.45s" d="M950 200H1030"/>
-        <path class="t2-draw" pathLength="1" style="--d:1.5s"  d="M950 270H1030"/>
-      </g>
-      <g font-size="19" text-anchor="middle">
-        <rect x="640" y="61" width="150" height="48" rx="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"/><text x="715" y="92">Claude</text>
-        <rect x="640" y="141" width="150" height="48" rx="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"/><text x="715" y="172">ChatGPT</text>
-        <rect x="640" y="221" width="150" height="48" rx="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"/><text x="715" y="252">Gemini</text>
-        <g class="t2-pop" style="--d:.9s"><rect x="880" y="36" width="70" height="256" rx="14" fill="#EBB416" stroke="#0A0A0A" stroke-width="3"/>
-        <text x="915" y="172" font-size="24" font-weight="800" transform="rotate(-90 915 164)">MCP</text></g>
-        <rect x="1030" y="38" width="160" height="44" rx="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="2.5"/><text x="1110" y="67">Tu Drive</text>
-        <rect x="1030" y="108" width="160" height="44" rx="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="2.5"/><text x="1110" y="137">Calendario</text>
-        <rect x="1030" y="178" width="160" height="44" rx="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="2.5"/><text x="1110" y="207">Planillas</text>
-        <rect x="1030" y="248" width="160" height="44" rx="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="2.5"/><text x="1110" y="277">La Pizarra</text>
-      </g>
-      <text x="640" y="322" font-size="17" fill="#1E6B34" font-weight="800">7 conexiones, todas iguales</text>
-    </svg>
-    <div class="t2-three" data-stg>
-      <div><span class="t2-t">Herramientas</span><span class="t2-d">Acciones que puede hacer: buscar, consultar, crear un evento.</span></div>
-      <div><span class="t2-t">Datos</span><span class="t2-d">Lo que puede leer: archivos, planillas, bases de datos.</span></div>
-      <div><span class="t2-t">Permisos</span><span class="t2-d">Lo que le dejás: solo leer, o también escribir. El control sigue siendo tuyo.</span></div>
-    </div>
-  </div>
-  <p class="src"><b>Fuente:</b> lo lanzó Anthropic en noviembre de 2024; desde diciembre de 2025 es un estándar abierto de la Linux Foundation (Agentic AI Foundation) y lo usan Claude, ChatGPT, Gemini y Copilot, entre otros.</p>
-  <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; APIs y MCP</div>
-</div>
-
-<div class="slide slide--cream" id="slide-16" data-cap="2" data-lv="4">
+<div class="slide slide--cream" id="slide-17" data-cap="2" data-lv="4">
   <span class="lv lv-4 lv-corner"><b>4</b>Actúa</span>
   <span class="pill pill--yellow">MCP &middot; Un caso de acá</span>
   <h2 class="slide-title slide-title--sm">&laquo;Comprame AL30 a precio de mercado&raquo;</h2>
@@ -3335,7 +3451,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; MCP</div>
 </div>
 
-<div class="slide slide--cream" id="slide-17" data-cap="2" data-lv="3">
+<div class="slide slide--cream" id="slide-18" data-cap="2" data-lv="3">
   <span class="lv lv-3 lv-corner"><b>3</b>Consulta</span>
   <span class="pill pill--yellow">Demo en vivo &middot; MCP</span>
   <h2 class="slide-title slide-title--sm">Conectá La Pizarra a tu IA</h2>
@@ -3362,8 +3478,48 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; APIs y MCP</div>
 </div>
 
+<div class="slide slide--cream" id="slide-19" data-cap="2" data-lv="4">
+  <span class="lv lv-4 lv-corner"><b>4</b>Actúa</span>
+  <span class="pill pill--yellow">Las manos &middot; La pantalla, en tu navegador</span>
+  <h2 class="slide-title slide-title--sm">El navegador que navega solo</h2>
+  <div class="nv">
+    <div class="nv-win t2-in" style="--d:.2s">
+      <div class="t2-shot-bar"><i></i><i></i><i></i><span>una-tienda.com/heladeras</span></div>
+      <div class="nv-body">
+        <div class="nv-page">
+          <div class="nv-prod"><i></i><b>Heladera A</b><span>$ 1.190.000</span></div>
+          <div class="nv-prod nv-prod--on"><i></i><b>Heladera B</b><span>$ 1.049.000</span><em>Agregar</em></div>
+          <div class="nv-prod"><i></i><b>Heladera C</b><span>$ 1.320.000</span></div>
+          <svg class="nv-cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 7-6 2-2 6z" fill="#fff" stroke="#0A0A0A" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="nv-side">
+          <b><i class="nv-dot"></i>Agente</b>
+          <span class="nv-step done">Abrí tres tiendas</span>
+          <span class="nv-step done">Comparé precio y envío</span>
+          <span class="nv-step on">Agrego la más barata&hellip;</span>
+          <span class="nv-step">Antes de pagar, te pido el OK</span>
+        </div>
+      </div>
+    </div>
+    <div class="nv-right">
+      <div class="t2-rows" data-stg>
+        <div class="t2-row"><span class="t2-n">1</span><div class="t2-d"><b>El navegador es el agente:</b> Comet, de Perplexity, gratis en compu y celular. También Dia.</div></div>
+        <div class="t2-row"><span class="t2-n">2</span><div class="t2-d"><b>El agente vive en tu navegador:</b> Gemini en Chrome, Claude en Chrome, Copilot en Edge.</div></div>
+        <div class="t2-row"><span class="t2-n">3</span><div class="t2-d"><b>El navegador está en la nube:</b> el agente de ChatGPT navega en una compu de OpenAI.</div></div>
+      </div>
+      <div class="caso-foot t2-in" style="--d:1.2s">
+        <div class="caso-dato"><b>9 meses</b><span>duró Atlas, el navegador de OpenAI: cerró en agosto de 2026</span></div>
+        <p class="caso-ojo">Una página puede esconder órdenes para el agente y nadie promete inmunidad. <b>No lo dejes suelto con tu banco abierto.</b></p>
+      </div>
+    </div>
+  </div>
+  <p class="slide-note slide-note--bold">Es la demo del scraper del primer taller, pero sin que vos hagas nada: <strong>el agente entra, compara y compra.</strong></p>
+  <p class="src"><b>Fuentes:</b> ayuda de OpenAI sobre el cierre de Atlas (9/8/2026); perplexity.ai/comet; Google, auto browse en Chrome (por ahora en EE. UU., con plan pago). La tienda es un ejemplo ilustrativo.</p>
+  <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; MCP</div>
+</div>
+
 <!-- ===================== CAPÍTULO 4 · FLUJOS ===================== -->
-<div class="slide slide--blue" id="slide-18" data-cap="3">
+<div class="slide slide--blue" id="slide-20" data-cap="3">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Capítulo 4 &middot; Escalón 4</span>
   <h2 class="slide-title slide-title--big">Flujos que<br>corren solos</h2>
@@ -3371,7 +3527,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Flujos</div>
 </div>
 
-<div class="slide slide--cream" id="slide-19" data-cap="3" data-lv="4">
+<div class="slide slide--cream" id="slide-21" data-cap="3" data-lv="4">
   <span class="lv lv-4 lv-corner"><b>4</b>Actúa</span>
   <span class="pill pill--yellow">Demo en vivo &middot; n8n</span>
   <h2 class="slide-title slide-title--sm">n8n: un flujo armado con circulitos</h2>
@@ -3437,29 +3593,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Flujos</div>
 </div>
 
-<div class="slide slide--cream" id="slide-20" data-cap="3" data-lv="4">
-  <span class="lv lv-4 lv-corner"><b>4</b>Actúa</span>
-  <span class="pill pill--yellow">Flujos</span>
-  <h2 class="slide-title slide-title--sm">¿Automatización o agente? Quién decide</h2>
-  <div class="t2-spec">
-    <div class="t2-spec-cols" data-stg>
-      <div class="t2-spec-c"><span class="t2-k">Automatización</span><span class="t2-t">Pasos fijos, nadie decide</span><span class="t2-d">Hace siempre lo mismo, en el mismo orden.</span><span class="t2-ej"><b>Ej.:</b> el día que sale el IPC, bajarlo y actualizar el gráfico.</span></div>
-      <div class="t2-spec-c"><span class="t2-k">Flujo con IA</span><span class="t2-t">Pasos fijos, uno lo hace la IA</span><span class="t2-d">La IA resume, clasifica o redacta, pero el camino ya está marcado.</span><span class="t2-ej"><b>Ej.:</b> ordenar por tema los mails de consulta de una cátedra.</span></div>
-      <div class="t2-spec-c"><span class="t2-k">Agente</span><span class="t2-t">La IA decide los pasos</span><span class="t2-d">Le das un objetivo y elige qué hacer, en qué orden y con qué herramientas.</span><span class="t2-ej"><b>Ej.:</b> &laquo;investigá estas tres convocatorias y armame las respuestas&raquo;.</span></div>
-    </div>
-    <div class="t2-axis t2-in" style="--d:1s"><span>Más previsible y barato</span><i></i><span>Más flexible, más riesgoso</span></div>
-    <div class="t2-check t2-in" style="--d:1.3s">
-      <b>Antes de dejarlo solo:</b>
-      <span class="t2-chip">¿Qué pasa si falla? Que avise</span>
-      <span class="t2-chip">¿Quién revisa lo que hizo?</span>
-      <span class="t2-chip">¿Qué datos salen de tu compu?</span>
-    </div>
-  </div>
-  <p class="slide-note slide-note--bold">Regla práctica: <strong>si siempre se hace igual, automatizá sin IA: no gasta tokens ni inventa.</strong> Si hay que decidir, agente, y con permisos acotados.</p>
-  <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Flujos</div>
-</div>
-
-<div class="slide slide--cream" id="slide-21" data-cap="3" data-lv="4">
+<div class="slide slide--cream" id="slide-22" data-cap="3" data-lv="4">
   <span class="lv lv-4 lv-corner"><b>4</b>Actúa</span>
   <span class="pill pill--yellow">Flujos &middot; Para instalarlo</span>
   <h2 class="slide-title slide-title--sm">n8n: en la nube o en tu compu</h2>
@@ -3493,7 +3627,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ===================== CAPÍTULO 5 · AGENTES ===================== -->
-<div class="slide slide--yellow" id="slide-22" data-cap="4">
+<div class="slide slide--yellow" id="slide-23" data-cap="4">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Capítulo 5 &middot; Escalón 5</span>
   <h2 class="slide-title slide-title--big">Agentes que<br>hacen cosas</h2>
@@ -3502,7 +3636,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
 </div>
 
-<div class="slide slide--cream" id="slide-23" data-cap="4" data-lv="5">
+<div class="slide slide--cream" id="slide-24" data-cap="4" data-lv="5">
   <span class="lv lv-5 lv-corner"><b>5</b>Trabaja sola</span>
   <span class="pill pill--yellow">Agentes &middot; Por dentro</span>
   <h2 class="slide-title slide-title--sm">Anatomía de un agente</h2>
@@ -3545,7 +3679,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
 </div>
 
-<div class="slide slide--cream" id="slide-24" data-cap="4" data-lv="5">
+<div class="slide slide--cream" id="slide-25" data-cap="4" data-lv="5">
   <span class="lv lv-5 lv-corner"><b>5</b>Trabaja sola</span>
   <span class="pill pill--yellow">Agentes &middot; Caso 1</span>
   <h2 class="slide-title slide-title--sm">El que se volvió viral</h2>
@@ -3570,7 +3704,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
 </div>
 
-<div class="slide slide--cream" id="slide-25" data-cap="4" data-lv="5">
+<div class="slide slide--cream" id="slide-26" data-cap="4" data-lv="5">
   <span class="lv lv-5 lv-corner"><b>5</b>Trabaja sola</span>
   <span class="pill pill--yellow">Agentes &middot; Caso 2</span>
   <h2 class="slide-title slide-title--sm">El que aprende de lo que hace</h2>
@@ -3595,7 +3729,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
 </div>
 
-<div class="slide slide--cream" id="slide-26" data-cap="4" data-lv="5">
+<div class="slide slide--cream" id="slide-27" data-cap="4" data-lv="5">
   <span class="lv lv-5 lv-corner"><b>5</b>Trabaja sola</span>
   <span class="pill pill--yellow">Agentes &middot; Caso 3</span>
   <h2 class="slide-title slide-title--sm">El compañero con compu propia</h2>
@@ -3620,7 +3754,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
 </div>
 
-<div class="slide slide--cream" id="slide-27" data-cap="4" data-lv="5">
+<div class="slide slide--cream" id="slide-28" data-cap="4" data-lv="5">
   <span class="lv lv-5 lv-corner"><b>5</b>Trabaja sola</span>
   <span class="pill pill--yellow">Agentes &middot; En Argentina</span>
   <h2 class="slide-title slide-title--sm">Operar con un agente: dos caminos</h2>
@@ -3661,7 +3795,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
 </div>
 
-<div class="slide slide--cream" id="slide-28" data-cap="4" data-lv="5">
+<div class="slide slide--cream" id="slide-29" data-cap="4" data-lv="5">
   <span class="lv lv-5 lv-corner"><b>5</b>Trabaja sola</span>
   <span class="pill pill--yellow">Agentes &middot; Dónde trabajan</span>
   <h2 class="slide-title slide-title--sm">Darle su propia compu: la máquina virtual</h2>
@@ -3711,7 +3845,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
 </div>
 
-<div class="slide slide--cream" id="slide-29" data-cap="4" data-lv="5">
+<div class="slide slide--cream" id="slide-30" data-cap="4" data-lv="5">
   <span class="lv lv-5 lv-corner"><b>5</b>Trabaja sola</span>
   <span class="pill pill--yellow">Agentes &middot; Una historia</span>
   <h2 class="slide-title slide-title--sm" style="font-size:clamp(28px,3.55cqw,66px)">&laquo;Quiero un calzón y una ensalada, para las 14:30&raquo;</h2>
@@ -3750,7 +3884,56 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
 </div>
 
-<div class="slide slide--cream" id="slide-30" data-cap="4" data-lv="5">
+<div class="slide slide--cream" id="slide-31" data-cap="4" data-lv="5">
+  <span class="lv lv-5 lv-corner"><b>5</b>Trabaja sola</span>
+  <span class="pill pill--yellow">Agentes &middot; Un caso propio: La Pizarra</span>
+  <h2 class="slide-title slide-title--sm">Personas y agentes en un mismo equipo</h2>
+  <div class="kb">
+    <svg viewBox="0 0 720 430" aria-label="Tablero de tareas con cinco columnas; una tarjeta pasa de haciendo a revisión y a hecho">
+      <g font-size="14" font-weight="800" text-anchor="middle" fill="#0A0A0A">
+        <rect x="5" y="10" width="132" height="38" rx="10" fill="#E9E7E1" stroke="#0A0A0A" stroke-width="2.5"/><text x="71" y="35">Pendientes</text>
+        <rect x="147" y="10" width="132" height="38" rx="10" fill="#E9E7E1" stroke="#0A0A0A" stroke-width="2.5"/><text x="213" y="35">Para hacer</text>
+        <rect x="289" y="10" width="132" height="38" rx="10" fill="#FFF0B8" stroke="#0A0A0A" stroke-width="2.5"/><text x="355" y="35">Haciendo</text>
+        <rect x="431" y="10" width="132" height="38" rx="10" fill="#B7CBE4" stroke="#0A0A0A" stroke-width="2.5"/><text x="497" y="35">Revisión</text>
+        <rect x="573" y="10" width="132" height="38" rx="10" fill="#C6EFCE" stroke="#0A0A0A" stroke-width="2.5"/><text x="639" y="35">Hecho</text>
+      </g>
+      <g fill="#fff" stroke="#BDB7A8" stroke-width="2" stroke-dasharray="5 5">
+        <rect x="5" y="56" width="132" height="330" rx="12"/><rect x="147" y="56" width="132" height="330" rx="12"/><rect x="289" y="56" width="132" height="330" rx="12"/>
+        <rect x="431" y="56" width="132" height="330" rx="12"/><rect x="573" y="56" width="132" height="330" rx="12"/>
+      </g>
+      <g font-size="13.5" font-weight="700" fill="#0A0A0A">
+        <g class="t2-pop" style="--d:.3s"><rect x="13" y="66" width="116" height="62" rx="9" fill="#fff" stroke="#0A0A0A" stroke-width="2"/><text x="22" y="88">Mapa del</text><text x="22" y="106">clima</text><circle cx="114" cy="113" r="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="1.5"/><text x="114" y="118" font-size="12" text-anchor="middle">E</text></g>
+        <g class="t2-pop" style="--d:.4s"><rect x="13" y="138" width="116" height="62" rx="9" fill="#fff" stroke="#0A0A0A" stroke-width="2"/><text x="22" y="160">Glosario</text><circle cx="114" cy="185" r="10" fill="#FDE3DA" stroke="#0A0A0A" stroke-width="1.5"/><text x="114" y="190" font-size="12" text-anchor="middle">P</text></g>
+        <g class="t2-pop" style="--d:.5s"><rect x="155" y="66" width="116" height="62" rx="9" fill="#fff" stroke="#0A0A0A" stroke-width="2"/><text x="164" y="88">Informe</text><text x="164" y="106">semanal</text><circle cx="256" cy="113" r="10" fill="#EBB416" stroke="#0A0A0A" stroke-width="1.5"/><text x="256" y="118" font-size="12" text-anchor="middle">G</text></g>
+        <g class="t2-pop" style="--d:.6s"><rect x="155" y="138" width="116" height="62" rx="9" fill="#fff" stroke="#0A0A0A" stroke-width="2"/><text x="164" y="160">Modo</text><text x="164" y="178">claro</text><circle cx="256" cy="185" r="10" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.5"/><text x="256" y="190" font-size="12" text-anchor="middle" fill="#fff">B</text></g>
+        <g class="t2-pop" style="--d:.7s"><rect x="297" y="138" width="116" height="62" rx="9" fill="#fff" stroke="#0A0A0A" stroke-width="2"/><text x="306" y="160">Calculadora</text><text x="306" y="178">de bonos</text><circle cx="398" cy="185" r="10" fill="#FDE3DA" stroke="#0A0A0A" stroke-width="1.5"/><text x="398" y="190" font-size="12" text-anchor="middle">P</text></g>
+        <g class="t2-pop" style="--d:.8s"><rect x="439" y="138" width="116" height="62" rx="9" fill="#fff" stroke="#0A0A0A" stroke-width="2"/><text x="448" y="160">Fuentes</text><text x="448" y="178">caídas</text><circle cx="540" cy="185" r="10" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.5"/><text x="540" y="190" font-size="12" text-anchor="middle" fill="#fff">B</text></g>
+        <g class="t2-pop" style="--d:.9s"><rect x="581" y="138" width="116" height="62" rx="9" fill="#fff" stroke="#0A0A0A" stroke-width="2"/><text x="590" y="160">Riesgo</text><text x="590" y="178">país</text><circle cx="682" cy="185" r="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="1.5"/><text x="682" y="190" font-size="12" text-anchor="middle">E</text></g>
+        <g class="t2-pop" style="--d:1s"><rect x="581" y="210" width="116" height="62" rx="9" fill="#fff" stroke="#0A0A0A" stroke-width="2"/><text x="590" y="232">Tablero</text><text x="590" y="250">nuevo</text><circle cx="682" cy="257" r="10" fill="#EBB416" stroke="#0A0A0A" stroke-width="1.5"/><text x="682" y="262" font-size="12" text-anchor="middle">G</text></g>
+        <g>
+          <rect x="297" y="66" width="116" height="62" rx="9" fill="#FFF0B8" stroke="#0A0A0A" stroke-width="2.5"/><text x="306" y="88">API del</text><text x="306" y="106">INDEC</text><circle cx="398" cy="113" r="10" fill="#8FADD3" stroke="#0A0A0A" stroke-width="1.5"/><text x="398" y="118" font-size="12" text-anchor="middle">E</text>
+          <animateMotion dur="7s" repeatCount="indefinite" path="M0 0H284" keyPoints="0;0;.5;.5;1;1" keyTimes="0;.18;.32;.6;.74;1" calcMode="linear"/>
+        </g>
+      </g>
+      <g font-size="13" font-weight="700" fill="#0A0A0A">
+        <circle cx="16" cy="412" r="9" fill="#EBB416" stroke="#0A0A0A" stroke-width="1.5"/><text x="31" y="417">Groot</text>
+        <circle cx="96" cy="412" r="9" fill="#8FADD3" stroke="#0A0A0A" stroke-width="1.5"/><text x="111" y="417">Eva</text>
+        <circle cx="160" cy="412" r="9" fill="#0A0A0A"/><text x="175" y="417">Baru</text>
+        <circle cx="232" cy="412" r="9" fill="#FDE3DA" stroke="#0A0A0A" stroke-width="1.5"/><text x="247" y="417">personas del equipo</text>
+      </g>
+    </svg>
+    <div class="eq-side" data-stg>
+      <div class="eq-q"><b>Quién hace qué</b><span>Cada uno trabaja con su agente. Groot, el de Juan, lleva el tablero; Eva se ocupa de los datos y Baru de las pantallas. Se coordinan en un grupo de Telegram.</span></div>
+      <div class="eq-q"><b>Las reglas</b><span>Nadie sube cambios directo: todo pasa por una revisión. Y «hecho» es cuando llegó a la página, no cuando alguien dice que terminó.</span></div>
+      <div class="eq-q"><b>Lo que aprendimos</b><span>Un agente revisa a otro: Baru corrigió a Groot dos veces, con pruebas. Y si el tablero queda viejo, los agentes repiten trabajo.</span></div>
+    </div>
+  </div>
+  <p class="slide-note slide-note--bold">No es ciencia ficción: <strong>es como trabajamos hoy en La Pizarra, con un tablero y reglas claras.</strong></p>
+  <p class="src">Tablero simplificado; las tarjetas son ejemplos de tareas reales del equipo.</p>
+  <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
+</div>
+
+<div class="slide slide--cream" id="slide-32" data-cap="4" data-lv="5">
   <span class="lv lv-5 lv-corner"><b>5</b>Trabaja sola</span>
   <span class="pill pill--yellow">Agentes &middot; Para tener en el radar</span>
   <h2 class="slide-title slide-title--sm">Otras que vale la pena conocer</h2>
@@ -3766,8 +3949,42 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
 </div>
 
+<div class="slide slide--cream" id="slide-33" data-cap="4" data-lv="5">
+  <span class="lv lv-5 lv-corner"><b>5</b>Trabaja sola</span>
+  <span class="pill pill--yellow">Demo en vivo &middot; Programar sin programar</span>
+  <h2 class="slide-title slide-title--sm">Armá tu propia app sin saber programar</h2>
+  <div class="vc">
+    <div class="vc-left">
+      <div class="vc-ask t2-in" style="--d:.3s">Armame una app para dividir los gastos del asado: pongo cuánto puso cada uno y me dice quién le debe a quién. <b>Que se vea linda en el celular.</b></div>
+      <span class="vc-arrow t2-in" style="--d:.7s">&rarr;</span>
+      <div class="vc-app">
+        <div class="vc-app-h">Dividí el asado</div>
+        <div class="vc-row"><span>Total</span><b>$ 84.000</b></div>
+        <div class="vc-row"><span>Somos</span><b>6</b></div>
+        <div class="vc-res">$ 14.000<small>cada uno</small></div>
+        <div class="vc-list"><span>Juan puso $ 50.000 &rarr; le deben $ 36.000</span><span>Meli puso $ 34.000 &rarr; le deben $ 20.000</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="t2-rows" data-stg>
+        <div class="t2-row"><span class="t2-n">1</span><div class="t2-d"><b>Contá lo que querés</b> como se lo explicarías a un amigo.</div></div>
+        <div class="t2-row"><span class="t2-n">2</span><div class="t2-d"><b>Mirá lo que armó y pedí cambios:</b> «más grande», «que guarde los nombres».</div></div>
+        <div class="t2-row"><span class="t2-n">3</span><div class="t2-d"><b>Compartila con un link</b> y que la prueben otros.</div></div>
+      </div>
+      <div class="vc-tools t2-in" style="--d:1.2s">
+        <span><b>Sin instalar nada</b> Claude, Gemini (Canvas), ChatGPT</span>
+        <span><b>Apps para esto</b> Lovable, Bolt, Replit</span>
+        <span><b>Más en serio</b> Claude Code, Cursor, Codex</span>
+      </div>
+      <p class="caso-ojo t2-in" style="--d:1.5s;margin-top:.9em">Puede tener errores que no se ven. <b>Si maneja datos o plata, que lo revise alguien que sepa.</b></p>
+    </div>
+  </div>
+  <p class="slide-note slide-note--bold">Tiene nombre: <em>vibe coding</em>, la palabra del año 2025 para el diccionario Collins. <strong>Esta presentación y La Pizarra se hicieron así, conversando con agentes.</strong></p>
+  <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
+</div>
+
 <!-- ===================== CAPÍTULO 6 · LO TUYO ===================== -->
-<div class="slide slide--blue" id="slide-31" data-cap="5">
+<div class="slide slide--blue" id="slide-34" data-cap="5">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Capítulo 6 &middot; Escalón 3</span>
   <h2 class="slide-title slide-title--big">Con tu material,<br>en tu compu</h2>
@@ -3775,7 +3992,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; RAG y modelos locales</div>
 </div>
 
-<div class="slide slide--cream" id="slide-32" data-cap="5" data-lv="3">
+<div class="slide slide--cream" id="slide-35" data-cap="5" data-lv="3">
   <span class="lv lv-3 lv-corner"><b>3</b>Consulta</span>
   <span class="pill pill--yellow">RAG</span>
   <h2 class="slide-title slide-title--sm">Ya hacés RAG sin darte cuenta</h2>
@@ -3805,7 +4022,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; RAG</div>
 </div>
 
-<div class="slide slide--cream" id="slide-33" data-cap="5" data-lv="3">
+<div class="slide slide--cream" id="slide-36" data-cap="5" data-lv="3">
   <span class="lv lv-3 lv-corner"><b>3</b>Consulta</span>
   <span class="pill pill--yellow">Probalo ahora &middot; RAG en tu celular</span>
   <h2 class="slide-title slide-title--sm">Tu propio RAG en tres minutos</h2>
@@ -3831,7 +4048,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; RAG</div>
 </div>
 
-<div class="slide slide--cream" id="slide-34" data-cap="6" data-lv="1">
+<div class="slide slide--cream" id="slide-37" data-cap="6" data-lv="1">
   <span class="lv lv-1 lv-corner"><b>1</b>Charla</span>
   <span class="pill pill--yellow">Modelos locales</span>
   <h2 class="slide-title slide-title--sm">Una IA que corre en tu compu, sin internet</h2>
@@ -3860,7 +4077,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ===================== CAPÍTULO 7 · CUIDADO ===================== -->
-<div class="slide slide--yellow" id="slide-35" data-cap="7">
+<div class="slide slide--yellow" id="slide-38" data-cap="7">
   <span class="asterisk">*</span>
   <span class="pill pill--white">Capítulo 7 &middot; Escalones 4 y 5</span>
   <h2 class="slide-title slide-title--big">Antes de<br>conectar todo</h2>
@@ -3868,7 +4085,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Seguridad</div>
 </div>
 
-<div class="slide slide--cream" id="slide-36" data-cap="7">
+<div class="slide slide--cream" id="slide-39" data-cap="7">
   <span class="pill pill--yellow">Con cuidado &middot; Lo que ya pasó</span>
   <h2 class="slide-title slide-title--sm">Lo que ya salió mal, y qué aprender</h2>
   <div class="inc" data-stg>
@@ -3881,7 +4098,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Seguridad</div>
 </div>
 
-<div class="slide slide--cream" id="slide-37" data-cap="7">
+<div class="slide slide--cream" id="slide-40" data-cap="7">
   <span class="pill pill--yellow">Antes de conectar todo &middot; Seguridad</span>
   <h2 class="slide-title slide-title--sm">Lo que la IA lee también le puede dar órdenes</h2>
   <div class="t2-sec">
@@ -3915,7 +4132,39 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Seguridad</div>
 </div>
 
-<div class="slide slide--cream" id="slide-38" data-cap="8">
+<div class="slide slide--cream" id="slide-41" data-cap="8">
+  <span class="pill pill--yellow">IA y laburo &middot; Qué piden los avisos</span>
+  <h2 class="slide-title slide-title--sm">Los avisos con IA crecen, el resto no</h2>
+  <div class="lb">
+    <div class="lb-left">
+      <div class="lb-big">
+        <div class="t2-in" style="--d:.3s"><b>+134%</b><span>crecieron los avisos que mencionan IA desde 2020. El total de avisos, apenas +6%.</span></div>
+        <div class="t2-in" style="--d:.5s"><b>43%</b><span>de los trabajadores de EE. UU. ya usa IA seguido en su trabajo.</span></div>
+      </div>
+      <span class="t2-k">Avisos que mencionan IA, por área (dic. 2025)</span>
+      <div class="lb-bars">
+        <div class="lb-bar" style="--i:0"><b>Datos y análisis</b><i style="--w:100%"></i><em>45%</em></div>
+        <div class="lb-bar" style="--i:1"><b>Software</b><i style="--w:44%"></i><em>20%</em></div>
+        <div class="lb-bar" style="--i:2"><b>Marketing</b><i style="--w:33%"></i><em>15%</em></div>
+        <div class="lb-bar" style="--i:3"><b>Recursos humanos</b><i style="--w:20%"></i><em>9%</em></div>
+        <div class="lb-bar" style="--i:4"><b>Contabilidad</b><i style="--w:13%"></i><em>6%</em></div>
+      </div>
+    </div>
+    <div>
+      <span class="t2-k" style="display:block;margin-bottom:.7em">Cómo contarlo en tu CV</span>
+      <div class="t2-rows" data-stg>
+        <div class="t2-row"><span class="t2-n">1</span><div class="t2-d"><b>Mostrá algo hecho:</b> el link a tu flujo, tu app o tu cuaderno de NotebookLM.</div></div>
+        <div class="t2-row"><span class="t2-n">2</span><div class="t2-d"><b>Herramienta y resultado:</b> «Automaticé con n8n el reporte semanal: de tres horas a diez minutos».</div></div>
+        <div class="t2-row"><span class="t2-n">3</span><div class="t2-d"><b>Cómo lo controlás:</b> qué revisás y qué datos no le das. Eso es lo que más tranquiliza.</div></div>
+      </div>
+    </div>
+  </div>
+  <p class="slide-note slide-note--bold">Lo que más se valora no es «saber IA» en general. <strong>Es saber usarla para el trabajo de tu área, y poder mostrarlo.</strong></p>
+  <p class="src"><b>Fuente:</b> Indeed Hiring Lab, &laquo;January 2026 US Labor Market Update&raquo; (22/1/2026). Datos de Estados Unidos; marketing pasó de 8% a 15% de los avisos en 2025 y RR. HH. de 4% a 9%.</p>
+  <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; IA y laburo</div>
+</div>
+
+<div class="slide slide--cream" id="slide-42" data-cap="8">
   <span class="pill pill--yellow">El mapa &middot; Para una entrevista</span>
   <h2 class="slide-title slide-title--sm">Si te preguntan, que no te agarren en blanco</h2>
   <div class="mx t2-in" style="--d:.3s">
@@ -3937,7 +4186,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; El mapa</div>
 </div>
 
-<div class="slide slide--cream" id="slide-39" data-cap="8">
+<div class="slide slide--cream" id="slide-43" data-cap="8">
   <span class="pill pill--yellow">Para llevarse</span>
   <h2 class="slide-title slide-title--sm">Semillas: por dónde seguir</h2>
   <div class="arr arr--big" data-stg>
@@ -3973,7 +4222,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Para llevarse</div>
 </div>
 
-<div class="slide slide--yellow" id="slide-40" data-cap="-">
+<div class="slide slide--yellow" id="slide-44" data-cap="-">
   <div class="bye">
     <span class="bye-hand" role="img" aria-label="Mano saludando">&#128075;</span>
     <div class="bye-big">¡Gracias!</div>
@@ -4010,7 +4259,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
      NAVIGATION UI
 ====================================================== -->
 <div class="nav-ui" role="navigation" aria-label="Navegación">
-  <span class="nav-counter" id="navCounter" aria-live="polite">1 / 40</span>
+  <span class="nav-counter" id="navCounter" aria-live="polite">1 / 44</span>
   <button class="nav-btn" id="prevBtn" aria-label="Slide anterior">&#8592;</button>
   <button class="nav-btn" id="nextBtn" aria-label="Slide siguiente">&#8594;</button>
 </div>
@@ -4024,7 +4273,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 
 <script>
 (function() {
-  var TOTAL = 40;
+  var TOTAL = 44;
   var current = 1;
   var deck    = document.getElementById('deck');
   var counter = document.getElementById('navCounter');
