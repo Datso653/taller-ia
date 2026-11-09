@@ -2283,7 +2283,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
    Estado base = final (visible en el PDF); las animaciones solo definen el "desde".
    ========================================================================== */
 :root {
-  --lv1:#D9D5CB; --lv2:#B7CBE4; --lv3:#8FADD3; --lv4:#EBB416; --lv5:#0B1530;
+  --lv1:#D9D5CB; --lv2:#B7CBE4; --lv3:#8FADD3; --lv4:#EBB416; --lv5:#0A0A0A;
   --navy:#0B1530; --ink:#0A0A0A; --amber:#EBB416; --sky:#8FADD3; --paper:#F1F1F2;
 }
 
@@ -2293,24 +2293,24 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 .hilo.off { opacity:0; }
 .hilo::before, .hilo::after { content:''; position:absolute; left:.45em; right:.45em; top:calc(50% - 1px); height:2px; border-radius:2px; }
 .hilo::before { background:rgba(10,10,10,.14); }
-.hilo::after { right:auto; width:calc((100% - .9em) * var(--p, 0) / 100); background:var(--navy); transition:width .7s cubic-bezier(.22,1,.36,1); }
-.hilo-s { position:relative; z-index:1; display:flex; align-items:center; gap:.45em; background:var(--paper); padding:0 .55em;
+.hilo::after { right:auto; width:calc((100% - .9em) * var(--p, 0) / 100); background:var(--ink); transition:width .7s cubic-bezier(.22,1,.36,1); }
+.hilo-s { position:relative; z-index:1; display:flex; align-items:center; gap:.45em; background:var(--hb, var(--paper)); padding:0 .55em;
   font-family:'Poppins',sans-serif; font-size:clamp(8px,.72cqw,13px); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#8A8780;
   transition:color .4s ease; }
 .hilo-s:first-child { padding-left:0; }
 .hilo-s:last-child { padding-right:0; }
-.hilo-s i { width:.85em; height:.85em; border-radius:50%; border:2px solid #B5B1A8; background:var(--paper); transition:all .4s ease; }
+.hilo-s i { width:.85em; height:.85em; border-radius:50%; border:2px solid #B5B1A8; background:var(--hb, var(--paper)); transition:all .4s ease; }
 .hilo-s.done { color:#3A3A3A; }
-.hilo-s.done i { background:var(--navy); border-color:var(--navy); }
+.hilo-s.done i { background:var(--ink); border-color:var(--ink); }
 .hilo-s.on { color:var(--ink); }
 .hilo-s.on i { background:var(--amber); border-color:var(--ink); transform:scale(1.45); box-shadow:0 0 0 4px rgba(235,180,22,.25); }
-.hilo.dark::before { background:rgba(255,255,255,.2); }
-.hilo.dark::after { background:var(--amber); }
-.hilo.dark .hilo-s { background:var(--navy); color:#7F8AA5; }
-.hilo.dark .hilo-s i { background:var(--navy); border-color:#5C6884; }
-.hilo.dark .hilo-s.done { color:#C9D2E3; }
-.hilo.dark .hilo-s.done i { background:var(--amber); border-color:var(--amber); }
-.hilo.dark .hilo-s.on { color:#fff; }
+/* en las slides de color, el hilo toma el fondo de la slide (--hb lo pone el JS) */
+.hilo.color::before { background:rgba(10,10,10,.22); }
+.hilo.color .hilo-s { color:#3A3A3A; }
+.hilo.color .hilo-s i { border-color:#3A3A3A; }
+.hilo.color .hilo-s.done i { background:var(--ink); border-color:var(--ink); }
+.hilo.color .hilo-s.on i { background:#fff; border-color:var(--ink); box-shadow:0 0 0 4px rgba(255,255,255,.45); }
+.hilo.color::after { background:var(--ink); }
 
 /* ---------- etiquetas de nivel ---------- */
 .lv { display:inline-flex; align-items:center; gap:.5em; font-family:'Poppins',sans-serif; font-weight:700; font-size:clamp(9.5px,1cqw,17px);
@@ -2351,26 +2351,6 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 .slide.active .esc-step { animation:escUp .8s cubic-bezier(.22,1,.36,1) calc(.4s + var(--i,0) * .18s) backwards; }
 .slide.active .esc-head { animation:t2Fade .5s ease-out calc(.8s + var(--i,0) * .18s) backwards; }
 
-/* ---------- separadores de capítulo (oscuros) ---------- */
-.slide--cap { background:var(--navy); background-image:radial-gradient(ellipse at 85% 110%, rgba(235,180,22,.18), transparent 55%); padding:6% 8% 8%;
-  justify-content:center; color:#fff; }
-.cap-n { font-family:'Noto Serif Display',Georgia,serif; font-stretch:62.5%; font-weight:900; font-size:clamp(120px,19cqw,340px); line-height:.8;
-  color:transparent; -webkit-text-stroke:3px var(--amber); position:absolute; right:7%; top:13%; opacity:.95; }
-.cap-k { font-family:'Poppins',sans-serif; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--amber); font-size:clamp(11px,1.15cqw,20px); }
-.cap-t { font-family:'Noto Serif Display',Georgia,serif; font-stretch:62.5%; font-weight:800; font-size:clamp(56px,8.4cqw,150px); line-height:.98; color:#fff;
-  margin:.15em 0 .3em; max-width:68%; }
-.cap-d { font-size:clamp(14px,1.75cqw,30px); line-height:1.4; color:#C9D2E3; max-width:58%; }
-.cap-who { display:flex; flex-wrap:wrap; gap:.5em; margin-top:1.4em; }
-.cap-who span { border:2px solid rgba(255,255,255,.4); border-radius:999px; padding:.25em .9em; font-weight:700; font-size:clamp(10px,1.1cqw,19px); color:#fff; }
-.cap-esc { position:absolute; right:7.4%; bottom:10%; display:flex; flex-direction:column; align-items:flex-end; gap:.5em; font-size:clamp(10px,1cqw,18px);
-  color:#C9D2E3; }
-.cap-esc .mini-esc { height:5.5em; gap:.45em; }
-.cap-esc .mini-esc i { width:2.2em; background:rgba(255,255,255,.14); }
-.cap-esc .mini-esc i.on { background:var(--amber); outline:0; }
-.slide--cap .footer { color:#7F8AA5; }
-@keyframes capIn { from { opacity:0; translate:40px 0; } }
-.slide.active .cap-n { animation:capIn 1s cubic-bezier(.22,1,.36,1) .15s backwards; }
-
 /* ---------- fichas de caso ---------- */
 .caso { flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,1fr); gap:3.6%; align-items:center; }
 .caso .t2-shot { box-shadow:9px 9px 0 var(--sky); }
@@ -2387,7 +2367,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 .caso-dl dt { font-size:clamp(8.5px,.88cqw,15px); font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#6B6B6B; padding-top:.25em; }
 .caso-dl dd { margin:0; font-size:clamp(10.5px,1.18cqw,20px); line-height:1.4; color:#1A1A1A; }
 .caso-foot { display:flex; gap:.8em; align-items:stretch; }
-.caso-dato { flex:0 0 auto; display:flex; flex-direction:column; justify-content:center; background:var(--navy); color:#fff; border-radius:12px; padding:.55em .9em; }
+.caso-dato { flex:0 0 auto; display:flex; flex-direction:column; justify-content:center; background:var(--ink); color:#fff; border-radius:12px; padding:.55em .9em; }
 .caso-dato b { font-family:'Noto Serif Display',Georgia,serif; font-stretch:62.5%; font-weight:800; font-size:clamp(22px,2.6cqw,46px); line-height:1; color:var(--amber); }
 .caso-dato span { font-size:clamp(8.5px,.88cqw,15px); line-height:1.3; color:#C9D2E3; max-width:14em; }
 .caso-ojo { flex:1; margin:0; background:#FFF6D6; border:2px solid var(--ink); border-radius:12px; padding:.55em .8em; font-size:clamp(9.5px,1.02cqw,17.5px);
@@ -2522,7 +2502,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 .mx { flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; }
 .mx table { width:100%; border-collapse:separate; border-spacing:0; background:#fff; border:2.5px solid var(--ink); border-radius:16px; overflow:hidden;
   font-size:clamp(9.5px,1.08cqw,18.5px); }
-.mx th { text-align:left; padding:.6em .8em; background:var(--navy); color:#fff; font-weight:700; letter-spacing:.02em; }
+.mx th { text-align:left; padding:.6em .8em; background:var(--ink); color:#fff; font-weight:700; letter-spacing:.02em; }
 .mx td { padding:.55em .8em; border-top:1px solid #E3DFD4; vertical-align:middle; line-height:1.3; }
 .mx tr:first-child td { border-top:0; }
 .mx td:first-child { font-weight:800; white-space:nowrap; }
@@ -2591,7 +2571,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 .mes svg text { font-family:Poppins,sans-serif; }
 .mes-map { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.1em; }
 .mes-map div { background:#fff; border:2.5px solid var(--ink); border-radius:14px; padding:.6em .9em; display:flex; flex-direction:column; gap:.2em; }
-.mes-map div:nth-child(1) { box-shadow:6px 6px 0 var(--sky); } .mes-map div:nth-child(2) { box-shadow:6px 6px 0 var(--amber); } .mes-map div:nth-child(3) { box-shadow:6px 6px 0 var(--navy); }
+.mes-map div:nth-child(1) { box-shadow:6px 6px 0 var(--sky); } .mes-map div:nth-child(2) { box-shadow:6px 6px 0 var(--amber); } .mes-map div:nth-child(3) { box-shadow:6px 6px 0 var(--ink); }
 .mes-map b { font-size:clamp(12px,1.4cqw,24px); font-weight:800; }
 .mes-map span { font-size:clamp(10px,1.1cqw,19px); line-height:1.38; color:#2A2A2A; }
 @keyframes steam { 0% { opacity:0; translate:0 6px; } 40% { opacity:.9; } 100% { opacity:0; translate:0 -16px; } }
@@ -2671,8 +2651,8 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 .nb-tag--pago { background:#FDE3DA; } .nb-tag--free { background:#C6EFCE; }
 .nb-o p { margin:0; font-size:clamp(10.5px,1.18cqw,20px); line-height:1.42; }
 .nb-o small { font-size:clamp(9px,.98cqw,16.5px); line-height:1.38; color:#5A5A5A; }
-.chatm { background:#fff; border:2.5px solid var(--ink); border-radius:18px; overflow:hidden; box-shadow:9px 9px 0 var(--navy); display:flex; flex-direction:column; }
-.chatm-h { background:var(--navy); color:#fff; padding:.5em 1em; font-size:clamp(9.5px,1cqw,17px); font-weight:700; display:flex; align-items:center; gap:.5em; }
+.chatm { background:#fff; border:2.5px solid var(--ink); border-radius:18px; overflow:hidden; box-shadow:9px 9px 0 var(--ink); display:flex; flex-direction:column; }
+.chatm-h { background:var(--ink); color:#fff; padding:.5em 1em; font-size:clamp(9.5px,1cqw,17px); font-weight:700; display:flex; align-items:center; gap:.5em; }
 .chatm-h i { width:.7em; height:.7em; border-radius:50%; background:#9FD3A8; }
 .chatm-b { padding:.9em; display:flex; flex-direction:column; gap:.6em; background:#F7F6F2; }
 .chatm-b span { max-width:88%; border:2px solid var(--ink); padding:.45em .75em; font-size:clamp(9.5px,1.06cqw,18px); line-height:1.38; }
@@ -2720,14 +2700,6 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 .ram-tip { font-size:clamp(10px,1.08cqw,18.5px); line-height:1.42; background:#FFF6D6; border:2px solid var(--ink); border-radius:12px; padding:.55em .85em; }
 .ram-tip b { font-weight:800; }
 
-/* separadores: chips con nombres más chicos */
-.cap-who span { font-size:clamp(10px,1.05cqw,18px); }
-.slide--cap .cap-t { animation:none; }
-@keyframes capTIn { from { opacity:0; translate:0 18px; } }
-.slide.active.slide--cap .cap-t { animation:capTIn .7s cubic-bezier(.22,1,.36,1) .25s backwards; }
-.slide.active.slide--cap .cap-d { animation:capTIn .7s cubic-bezier(.22,1,.36,1) .45s backwards; }
-.slide.active.slide--cap .cap-who, .slide.active.slide--cap .cap-esc { animation:capTIn .7s cubic-bezier(.22,1,.36,1) .65s backwards; }
-
 /* tabla de herramientas: columna de escalón centrada */
 .mx td:last-child { text-align:center; white-space:nowrap; }
 .mx td em { font-style:normal; color:#6B6B6B; font-weight:700; }
@@ -2735,7 +2707,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 
 @media print { .lv-corner { background:#fff; } .steam { opacity:.8; } }
 
-.caso.lvc-5 .t2-shot { box-shadow:9px 9px 0 var(--navy); }
+.caso.lvc-5 .t2-shot { box-shadow:9px 9px 0 var(--ink); }
 .tk-viz { align-items:flex-end; }
 .tk-big b { font-size:clamp(32px,3.9cqw,70px); }
 .arr--big .arr-c { padding:1.3em 1.3em 1.1em; gap:.8em; }
@@ -2860,12 +2832,11 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ===================== CAPÍTULO 1 · CEREBRO ===================== -->
-<div class="slide slide--cap" id="slide-4" data-cap="0">
-  <span class="cap-n">01</span>
-  <span class="cap-k">Capítulo 1 &middot; Escalón 2</span>
-  <h2 class="cap-t">Un cerebro para tu IA</h2>
-  <p class="cap-d">Que no tengas que explicarle quién sos cada vez que abrís un chat nuevo.</p>
-  <div class="cap-esc"><div class="mini-esc"><i></i><i class="on"></i><i></i><i></i><i></i></div><span>Escalón 2 &middot; Recuerda</span></div>
+<div class="slide slide--yellow" id="slide-4" data-cap="0">
+  <span class="asterisk">*</span>
+  <span class="pill pill--white">Capítulo 1 &middot; Escalón 2</span>
+  <h2 class="slide-title slide-title--big">Un cerebro<br>para tu IA</h2>
+  <p class="slide-subtitle">Que no tengas que explicarle quién sos cada vez que abrís un chat nuevo.</p>
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Cerebro contextual</div>
 </div>
 
@@ -3059,12 +3030,11 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ===================== CAPÍTULO 2 · APIs ===================== -->
-<div class="slide slide--cap" id="slide-9" data-cap="1">
-  <span class="cap-n">02</span>
-  <span class="cap-k">Capítulo 2 &middot; Escalón 3</span>
-  <h2 class="cap-t">El mesero</h2>
-  <p class="cap-d">Una API te trae el dato que pediste sin que tengas que entrar a la cocina.</p>
-  <div class="cap-esc"><div class="mini-esc"><i></i><i></i><i class="on"></i><i></i><i></i></div><span>Escalón 3 &middot; Consulta</span></div>
+<div class="slide slide--blue" id="slide-9" data-cap="1">
+  <span class="asterisk">*</span>
+  <span class="pill pill--white">Capítulo 2 &middot; Escalón 3</span>
+  <h2 class="slide-title slide-title--big">El mesero</h2>
+  <p class="slide-subtitle">Una API te trae el dato que pediste sin que tengas que entrar a la cocina.</p>
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; APIs</div>
 </div>
 
@@ -3101,7 +3071,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
         <circle cx="650" cy="104" r="32" fill="#fff" stroke="#0A0A0A" stroke-width="4"/>
         <circle cx="640" cy="100" r="3.5" fill="#0A0A0A"/><circle cx="660" cy="100" r="3.5" fill="#0A0A0A"/>
         <path d="M640 114q10 7 20 0" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round"/>
-        <rect x="605" y="144" width="90" height="140" rx="30" fill="#0B1530" stroke="#0A0A0A" stroke-width="4"/>
+        <rect x="605" y="144" width="90" height="140" rx="30" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="4"/>
         <rect x="622" y="208" width="56" height="76" rx="6" fill="#fff" stroke="#0A0A0A" stroke-width="3"/>
         <path d="M632 148l18 8-18 8zM668 148l-18 8 18 8z" fill="#EBB416" stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round"/>
         <path d="M695 176L745 142" stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"/>
@@ -3224,12 +3194,11 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ===================== CAPÍTULO 3 · MCP ===================== -->
-<div class="slide slide--cap" id="slide-13" data-cap="2">
-  <span class="cap-n">03</span>
-  <span class="cap-k">Capítulo 3 &middot; Escalón 4</span>
-  <h2 class="cap-t">Las manos<br>de la IA</h2>
-  <p class="cap-d">Con MCP la IA no solo lee: también hace cosas en tus apps. Y ahí empieza lo delicado.</p>
-  <div class="cap-esc"><div class="mini-esc"><i></i><i></i><i></i><i class="on"></i><i></i></div><span>Escalón 4 &middot; Actúa</span></div>
+<div class="slide slide--yellow" id="slide-13" data-cap="2">
+  <span class="asterisk">*</span>
+  <span class="pill pill--white">Capítulo 3 &middot; Escalón 4</span>
+  <h2 class="slide-title slide-title--big">Las manos<br>de la IA</h2>
+  <p class="slide-subtitle">Con MCP la IA no solo lee: también hace cosas en tus apps. Y ahí empieza lo delicado.</p>
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; MCP</div>
 </div>
 
@@ -3394,12 +3363,11 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ===================== CAPÍTULO 4 · FLUJOS ===================== -->
-<div class="slide slide--cap" id="slide-18" data-cap="3">
-  <span class="cap-n">04</span>
-  <span class="cap-k">Capítulo 4 &middot; Escalón 4</span>
-  <h2 class="cap-t">Flujos que corren solos</h2>
-  <p class="cap-d">Automatizar no siempre es usar IA: a veces es una receta que no se cansa nunca.</p>
-  <div class="cap-esc"><div class="mini-esc"><i></i><i></i><i></i><i class="on"></i><i></i></div><span>Escalón 4 &middot; Actúa</span></div>
+<div class="slide slide--blue" id="slide-18" data-cap="3">
+  <span class="asterisk">*</span>
+  <span class="pill pill--white">Capítulo 4 &middot; Escalón 4</span>
+  <h2 class="slide-title slide-title--big">Flujos que<br>corren solos</h2>
+  <p class="slide-subtitle">Automatizar no siempre es usar IA: a veces es una receta que no se cansa nunca.</p>
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Flujos</div>
 </div>
 
@@ -3525,13 +3493,12 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ===================== CAPÍTULO 5 · AGENTES ===================== -->
-<div class="slide slide--cap" id="slide-22" data-cap="4">
-  <span class="cap-n">05</span>
-  <span class="cap-k">Capítulo 5 &middot; Escalón 5</span>
-  <h2 class="cap-t">Agentes que hacen cosas</h2>
-  <p class="cap-d">Le das un objetivo, no los pasos. Y trabaja con su propia compu.</p>
-  <div class="cap-who"><span>OpenClaw</span><span>Hermes</span><span>Grok Bot</span><span>Devin</span><span>Manus</span></div>
-  <div class="cap-esc"><div class="mini-esc"><i></i><i></i><i></i><i></i><i class="on"></i></div><span>Escalón 5 &middot; Trabaja sola</span></div>
+<div class="slide slide--yellow" id="slide-22" data-cap="4">
+  <span class="asterisk">*</span>
+  <span class="pill pill--white">Capítulo 5 &middot; Escalón 5</span>
+  <h2 class="slide-title slide-title--big">Agentes que<br>hacen cosas</h2>
+  <p class="slide-subtitle">Le das un objetivo, no los pasos. Y trabaja con su propia compu.</p>
+  <div class="t2-chips" style="margin-top:1.3em"><span class="t2-chip">OpenClaw</span><span class="t2-chip">Hermes</span><span class="t2-chip">Grok Bot</span><span class="t2-chip">Devin</span><span class="t2-chip">Manus</span></div>
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Agentes</div>
 </div>
 
@@ -3545,13 +3512,13 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
         <path class="t2-draw" pathLength="1" style="--d:1s" d="M162 72L214 128"/><path class="t2-draw" pathLength="1" style="--d:1.1s" d="M478 72L426 128"/>
         <path class="t2-draw" pathLength="1" style="--d:1.2s" d="M162 408L214 352"/><path class="t2-draw" pathLength="1" style="--d:1.3s" d="M478 408L426 352"/>
       </g>
-      <circle class="t2-pop" style="--d:.2s" cx="320" cy="240" r="150" fill="none" stroke="#0B1530" stroke-width="3.5" stroke-dasharray="2 11" stroke-linecap="round"/>
+      <circle class="t2-pop" style="--d:.2s" cx="320" cy="240" r="150" fill="none" stroke="#0A0A0A" stroke-width="3.5" stroke-dasharray="2 11" stroke-linecap="round"/>
       <g class="t2-pop" style="--d:.35s">
         <circle cx="320" cy="240" r="74" fill="#EBB416" stroke="#0A0A0A" stroke-width="4"/>
         <text x="320" y="236" font-size="25" font-weight="800" text-anchor="middle" fill="#0A0A0A">El modelo</text>
         <text x="320" y="264" font-size="17" text-anchor="middle" fill="#0A0A0A">piensa</text>
       </g>
-      <circle r="10" fill="#0B1530" stroke="#fff" stroke-width="3"><animateMotion dur="6s" repeatCount="indefinite" path="M320 90A150 150 0 1 1 319.9 90"/></circle>
+      <circle r="10" fill="#0A0A0A" stroke="#fff" stroke-width="3"><animateMotion dur="6s" repeatCount="indefinite" path="M320 90A150 150 0 1 1 319.9 90"/></circle>
       <g font-size="16" font-weight="700" text-anchor="middle" fill="#0A0A0A">
         <g class="t2-pop" style="--d:.55s"><rect x="265" y="72" width="110" height="36" rx="18" fill="#fff" stroke="#0A0A0A" stroke-width="3"/><text x="320" y="96">Mirar</text></g>
         <g class="t2-pop" style="--d:.7s"><rect x="415" y="222" width="110" height="36" rx="18" fill="#fff" stroke="#0A0A0A" stroke-width="3"/><text x="470" y="246">Pensar</text></g>
@@ -3562,7 +3529,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
         <g class="t2-pop" style="--d:1.2s"><rect x="8" y="8" width="160" height="66" rx="14" fill="#B7CBE4" stroke="#0A0A0A" stroke-width="3"/><text x="88" y="38" font-size="18" font-weight="800">Memoria</text><text x="88" y="60" font-size="13.5" font-weight="600">el cerebro</text></g>
         <g class="t2-pop" style="--d:1.3s"><rect x="472" y="8" width="160" height="66" rx="14" fill="#FFF0B8" stroke="#0A0A0A" stroke-width="3"/><text x="552" y="38" font-size="18" font-weight="800">Herramientas</text><text x="552" y="60" font-size="13.5" font-weight="600">API · MCP · pantalla</text></g>
         <g class="t2-pop" style="--d:1.4s"><rect x="8" y="406" width="160" height="66" rx="14" fill="#E9F0F8" stroke="#0A0A0A" stroke-width="3"/><text x="88" y="436" font-size="18" font-weight="800">Canal</text><text x="88" y="458" font-size="13.5" font-weight="600">WhatsApp · Telegram</text></g>
-        <g class="t2-pop" style="--d:1.5s"><rect x="472" y="406" width="160" height="66" rx="14" fill="#0B1530" stroke="#0A0A0A" stroke-width="3"/><text x="552" y="436" font-size="18" font-weight="800" fill="#fff">Su compu</text><text x="552" y="458" font-size="13.5" font-weight="600" fill="#C9D2E3">la tuya o una virtual</text></g>
+        <g class="t2-pop" style="--d:1.5s"><rect x="472" y="406" width="160" height="66" rx="14" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3"/><text x="552" y="436" font-size="18" font-weight="800" fill="#fff">Su compu</text><text x="552" y="458" font-size="13.5" font-weight="600" fill="#C9D2E3">la tuya o una virtual</text></g>
       </g>
     </svg>
     <div class="t2-rows" data-stg>
@@ -3667,7 +3634,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
         <li class="si">Tres niveles de permiso, y la contraseña no pasa por la IA.</li>
         <li class="no">Solo hace lo que IOL decidió ofrecer.</li>
       </ul>
-      <div class="ig" style="background:#0B1530">
+      <div class="ig">
         <div class="ig-h"><b>En tu chat</b> &middot; modo «confirmar operaciones»</div>
         <div class="ig-t" style="font-size:clamp(11px,1.3cqw,22px)">«Comprame 100 nominales de AL30 a precio de mercado»</div>
         <div class="ig-c">Antes de operar, te manda un link para que confirmes vos.</div>
@@ -3713,7 +3680,7 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
       </g>
       <g class="t2-pop" style="--d:.45s">
         <path d="M478 262a52 52 0 0 1 4-104a74 74 0 0 1 138-26a62 62 0 0 1 104 52a46 46 0 0 1-14 78z" fill="#E9F0F8" stroke="#0A0A0A" stroke-width="4" stroke-linejoin="round"/>
-        <rect x="532" y="158" width="150" height="88" rx="12" fill="#0B1530" stroke="#0A0A0A" stroke-width="3"/>
+        <rect x="532" y="158" width="150" height="88" rx="12" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3"/>
         <path d="M594 158v-12a13 13 0 0 1 26 0v12" fill="none" stroke="#0A0A0A" stroke-width="4"/>
         <g transform="translate(607 204)"><rect x="-24" y="-17" width="48" height="32" rx="8" fill="#EBB416" stroke="#fff" stroke-width="2.5"/><circle cx="-9" cy="-2" r="3.5" fill="#0A0A0A"/><circle cx="9" cy="-2" r="3.5" fill="#0A0A0A"/></g>
       </g>
@@ -3800,12 +3767,11 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ===================== CAPÍTULO 6 · LO TUYO ===================== -->
-<div class="slide slide--cap" id="slide-31" data-cap="5">
-  <span class="cap-n">06</span>
-  <span class="cap-k">Capítulo 6 &middot; Escalón 3</span>
-  <h2 class="cap-t">Con tu material,<br>en tu compu</h2>
-  <p class="cap-d">RAG para que responda con tus documentos, y modelos que corren sin internet.</p>
-  <div class="cap-esc"><div class="mini-esc"><i></i><i></i><i class="on"></i><i></i><i></i></div><span>Escalón 3 &middot; Consulta</span></div>
+<div class="slide slide--blue" id="slide-31" data-cap="5">
+  <span class="asterisk">*</span>
+  <span class="pill pill--white">Capítulo 6 &middot; Escalón 3</span>
+  <h2 class="slide-title slide-title--big">Con tu material,<br>en tu compu</h2>
+  <p class="slide-subtitle">RAG para que responda con tus documentos, y modelos que corren sin internet.</p>
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; RAG y modelos locales</div>
 </div>
 
@@ -3894,12 +3860,11 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
 </div>
 
 <!-- ===================== CAPÍTULO 7 · CUIDADO ===================== -->
-<div class="slide slide--cap" id="slide-35" data-cap="7">
-  <span class="cap-n">07</span>
-  <span class="cap-k">Capítulo 7 &middot; Escalones 4 y 5</span>
-  <h2 class="cap-t">Antes de conectar todo</h2>
-  <p class="cap-d">Cada escalón le da más poder a la IA. Y también a quien la quiera engañar.</p>
-  <div class="cap-esc"><div class="mini-esc"><i></i><i></i><i></i><i class="on"></i><i class="on"></i></div><span>Escalones 4 y 5 &middot; Con cuidado</span></div>
+<div class="slide slide--yellow" id="slide-35" data-cap="7">
+  <span class="asterisk">*</span>
+  <span class="pill pill--white">Capítulo 7 &middot; Escalones 4 y 5</span>
+  <h2 class="slide-title slide-title--big">Antes de<br>conectar todo</h2>
+  <p class="slide-subtitle">Cada escalón le da más poder a la IA. Y también a quien la quiera engañar.</p>
   <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Seguridad</div>
 </div>
 
@@ -4345,7 +4310,9 @@ body { font-family:'Poppins', sans-serif; background:#F1F1F2; }
     if (off) return;
     var k = +c;
     stops.forEach(function (el, i) { el.classList.toggle('done', i < k); el.classList.toggle('on', i === k); });
-    hilo.classList.toggle('dark', s.classList.contains('slide--cap'));
+    // en las slides de color el hilo toma ese fondo, para que no queden parches grises
+    hilo.classList.toggle('color', !s.classList.contains('slide--cream'));
+    hilo.style.setProperty('--hb', getComputedStyle(s).backgroundColor);
     hilo.style.setProperty('--p', k / (stops.length - 1) * 100);
   }
   // Solo escucha a las slides: si escuchara al hilo, se dispararía a sí mismo sin fin
