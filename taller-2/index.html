@@ -3420,6 +3420,15 @@ body { background-color:var(--sky-bg); }
 .eva-pie .qr-card img { width:clamp(70px,7.4cqw,130px); }
 .eva-pie .qr-card b { font-size:clamp(10px,1.08cqw,18px); }
 
+/* ---------- 8. «Llevate todo»: los QR del taller juntos (Juan, 12/11) ---------- */
+.lt { flex:none; margin:auto 0; display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:2.2%; align-items:stretch; }
+.lt .qr-card { justify-content:flex-start; }
+.lt .qr-card { padding:1em .9em 1.1em; border-radius:18px; gap:.45em; box-shadow:7px 7px 0 var(--ink); }
+.lt .qr-card:nth-child(odd) { box-shadow:7px 7px 0 #EBB416; }
+.lt .qr-card img { width:100%; max-width:220px; }
+.lt .qr-card b { font-size:clamp(13px,1.45cqw,26px); }
+.lt .qr-card span { font-size:clamp(10px,1.05cqw,18px); line-height:1.3; text-align:center; }
+
 </style>
 </head>
 <body>
@@ -5660,7 +5669,22 @@ draw(0.016);
 </div>
 
 
-<div class="slide slide--yellow" id="slide-49" data-cap="-">
+<div class="slide slide--cream" id="slide-49" data-cap="7">
+  <span class="pill pill--yellow">Para llevarse &middot; Escaneá antes de irte</span>
+  <h2 class="slide-title slide-title--sm">Llevate <span class="hl">todo</span></h2>
+  <div class="lt" data-stg>
+    <div class="qr-card qr-card--sm"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQMAAAC6caSPAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADCUlEQVR4nO2bvZHrMAyE4VHg0CWoFJUmleZSVIJCBx7jAQuAlMbv8jsQDDymxU/RDn4WNFGt37k4FtH9Q8sx2e6pzx767SVHjtvpWCGJEDykSRE5Kae2GQ9uvD3etOKcIBuO3QtJhqgsdkFmVsEQrbv8vLzkCwuyy6lFERwrpJAT4oFlfrvyQmNPKiQ9IhpZoBHPMZvEHYZ6fhRMIX8dUWnQSTAaJaARPvSJZJ0fU1IhAyKxRGM3EZxpTPKLFySRX9qxQhIhfc2sgpmkHH37i1wwqDn+uwoZD7GUBPFoLJHooixaWQLPVpBg7YXkQqTo/KD/kP2t5RdEGFvhXRxesxSSCzG7wpCuno+1orqDo0GTPylkbATNyWyBBUpClFmwoZN34X5YIZmQroZIHlZmaH5x9diRh9UchWRCRBqWXyx5RLhQwWwIJC8/csSRQoZG3N3kXm2sQNToPkJw8et8mosVkgFBrWmCOXkX1pmwGVYLvkrW8fxSyMAI+hezOtGyaGXi/cvmhWpD9LOQVEjLL6qRp9sVFmqkNt1MOfZWbWULyYTYDGN258rCBQCbbKwKhHN1zi+FDIpAY6Yc7i5F05jPTr068fxSSB7EBYPwsaCGmPw2RbOxHuxjdNCFZELszpQgbnTvimha0fwSLQqFjAoZG+lBBeVob1htjK49bbug2xreQpIgll/C6L7OxNmCin8zvpDBEdbmZGWO7tVWn4vt9yhH9UWFZEPiOp0KBqMwDu/CW1lmr1gjvxSSBnkSXQXTTq0+Fe0vmrs3XsiwCLqUt4Wa5TJGZzO62yD1PEYvJAeCqOH/5SEKs+o8Rrf1vkSYQjIgffUhl+7uVnNshBRE4NuQq5BxkSahZnQji3zd5z9f1CkkDfKEWpp3MYXRHRsyc8sEg1XI2AhMb//zF8f/NnDrRn9AOYp1vddXSDLk4l0QeX5x5KuCLSQX4lclNEJg5tFPPdy7mL80Vsh4CDa4ZBeWlm/Cu2gFyVf3WshfR1pQETW0ZsQsbXSvMRVtM/VChkZq/cb1DyiyhIRujqzJAAAAAElFTkSuQmCC" alt="Código QR"><b>El Drive del taller</b><span>La skill del cerebro y los materiales</span></div>
+    <div class="qr-card qr-card--sm"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQMAAAC6caSPAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABsUlEQVR4nO3bvZHDIBCGYTwOFLoElaLSpNJUiktw6ODGe4Jl0SKNx6kN75fcHPhR9g2gnxDId0Z87tvAJMs+O8gz3KqfQCDtkFeZvxWyTcXh6wZsWAOBtEWuqQiPNDfttbjIX7nSmAYXCARSkzXMmW1E1xcIpBcSdPgCgTRPLJ5sQK/1/Lgfg0A6Ij62vhwq5gOBNEMOsc1V+kdP4p8CgfwoKZsr7YvdhtraIuVYbVkgkN6JiB65H8Eya8F0fYmnlDFvr/IEBNIGycUYcl+m9DfoU4u4vgyuLbPowgOBtEFirukAEYuxFpSHB9eXfKyGQPolvmLWJTnHHmVAIM2QBHxfquybqymtL7k0EEivJG674pHbDty5S/o2lE/Zj0EgzRDNaXMVFx7bXIk994ZAGiTaGCMi1c1ZrdGiv4NAuiWHRBBnCtGnfKPIGwCB/CwRn/tu7YBurwLWJ3EIpAVyfq9vlnJ3dqj6MkMgkLcfTfjU+zEIpEWSn1nUn5eOhUIg7ZLVOhFji0Uo14JAOicW/TRo0iq90nFEr6UFW+KvIZCGiM/eF/cSeHCrCwTSNyHfmH+nqs3koJXaHwAAAABJRU5ErkJggg==" alt="Código QR"><b>La Pizarra</b><span>La economía en datos, y su MCP para tu IA</span></div>
+    <div class="qr-card qr-card--sm"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASIAAAEiAQAAAAB1xeIbAAACBUlEQVR4nO1aUWrrMBCctQT9tKEHeEexb9ArW0fpAR5YnwWZeexKDi0t5FGqxkq0BEeSB7xMRuvdVYS4bmH4DxDQUYd1JhpgIkqxJYogiIcsAI5Vf27vG0c5mtlclvFN8q3ZVrfb+XXd7gElWd4AuEYPhEnHuiGWBrxvFeXfT8bkTfMMi0+39Wt4NFR8okUazNup/Lpr3TNPxgQEcUnmVWU/6nK8jV/Dg6D2nNAAGuqz5C3o2+p0du+v21lRvsg725swTMh5DhvwfmgdFS8az8mOI8IfTTSjPxKgE3t/DyhHriMpC/aS34dJR/oOOL/3TaK8xXuoiX0wbvrlmLNNRM02z+r90DpqtJJ2F66m8ehBbmXa37UVuUfuJ3BzPH4Fp/l9mdoNridWTsMo5I7NrBTnUe7s2LS8Azr3Nbmn9dJmJnDFsQNKcdt1X5N7x0+BxyK/XmxD9JhTm3tc1F46x8cO6NzXq2tTHhJRwDA5neslPtd44tBRX51bQU0zSzu30gv52uvamrWVy8LXiioJxt2r+HUbaHG7uK7Vqj1kufwA1sSXUus6TTl/+olDR33JxK6MWxenpJx2dN75+o0zQ0Iw/vUML7sn4lTjiUNHfWCCVI3bSGsrWayRPGmO+Q51zTrq231MID4nmV99ytnmzF2YE83O6mE/yYT0/wQW6/o67BGY+Aetnf9rEgGLNQAAAABJRU5ErkJggg==" alt="Código QR"><b>Eva</b><span>Un agente para armar agentes</span></div>
+    <div class="qr-card qr-card--sm"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAFKAQAAAABTUiuoAAACaElEQVR4nO1by43cMAx9lA3kaANTwJTi6SAlpaZ0YHVkHRewwYAfz6z3tLtAYiImDx5/eCD0RPLpSUOMT1otn/UE0rXkYCGnCxq5PQAQjRvRoxGhjvJo1mfCIEDJAPPSsRom/Vnk7bDi8K5jnk+PtaQrxDx79O6+gucmj3bxpEMOFk6fLv3haesZ2EBAt9I0r/8ggJKu+P5g1dFveM5xjTmzmFnyqP1gr3/Dm7EMYGB23EqMWK/OMuA2LR1/vLgly/h7EHwNrYMpMsoJnQ4+bT491nJ5Vzg9V3gkyySjeJZkkurIs1TCRCvIdOmFCZLecL2vRhFpWm7Sxka5E57YbmuAWMvlXWH1711aaTLtLcsJhlKNcvnBKoEqIQtQ2q2seU3CE41qJFqRKiELb9eqB6l6jDYSVymQwuW5PvqshAiAFnypZWRCxQsnGPvXZBmxXDtb/6ocaOxQ18laBGtq8OFWx6yUfX52K7M934x5zKfHWtIVbhvRr2Vzvckgs02up6BRcrAQom+xE8Nnk1peDe35tZwda7m8K2xtZcLgASj/oKJT6oQxpktv2QO8kVY8wuCChhrXcQkTa7m8K7zM2UC8lPfju1R1A2rwy04RXzzRNajsW1HQeu1v7bTiwyZXMvgoaPWSOLbCIrQbo/7UbtXZZ0YThX4IEWu69g6UQib7+xg6JtcOdSulW5E6YcTp0lRv0prIjHrXrRQ5DKpqVAkV6yVd+/cPqreTFsatV9wYTcD7nRp8CLSOZ3WdYByYh6yOUyeM47qZzm6H0+z0+92PafAsYmGgWK/tSvmPIJwMQUlX/JeD9QcdMuWQeJXEDgAAAABJRU5ErkJggg==" alt="Código QR"><b>Comparar modelos</b><span>El podio, actualizado</span></div>
+    <div class="qr-card qr-card--sm"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAFKAQAAAABTUiuoAAACZElEQVR4nO1bS47bMAx9lAV0KQNzgDlKfIMeqejN7KP0AAXsZQAZLEhKY6dFgZlFJ0RNLYIo4oLg0+NPDDHeuZb0XkkgRFMYC3FdsFFbE3aiybYZRCPQj3IQBk5cxsC6gC2DZwzmHHneMnDTo9WNriEKNPaUaoxSeOgbVxjzpjCW1+tS7oTltYK/K4Kfr8BfV8LVRfN5s41gYAeh7Bko6ycokEIUH0SLbVOqbAcmbF+Y2m9ytoVd3Vhgt7wPitGkuYWw6vYjA4sejW50vbZobuyxdScGKnh5vRNr8PrnCqQQxUeMtWUoo2jS5F249dvHEtzycbPAvApGhZnnIkVX/82qrBvXtp2frmu6vCgMLSmCW7R62HYEAy0X1wXMxh79pgSTmtjWmXQc3IKbuAVI8GqJ4QGjZowtgiUHul5cFK1FWGr3evLRuoPqEyNuuUJr1YyiRSv1hN0xVqu8tNPL4Qnhot6q1h3kZVxBgHjCUjOh/Oz9De1BpWfrmi4vCssyZjGEeL3+gNK+NRcZ3PJxXdAzwR6o/vCO6g7DE3pBS5GxAkvgOXKLN6oFt/ygxcIeJdjJCbY62ZKOqLf8oLU29hxbywTtfb/PAXDkhHg6WslywreySp+NdRGNrVkYUzRe0EKn0NHBfeBb1Ftusww+Iti5ER+e0Jco2cyTtAiX0+yMPCqP4h1jntATWm1pBFt3srcTeYNUlsWEms+Zp5fKyzhImjFU6TzJ6U6M7cWDrunyovlx5gl0Y0izEP2dRFqEy1cBMIyVfM08EbUHrSNZPCY0kgddry1K8Y8gPBmCFKL4L431C/isuNSTtQcfAAAAAElFTkSuQmCC" alt="Código QR"><b>El taller 1</b><span>El de octubre, completo</span></div>
+  </div>
+  <p class="slide-note slide-note--bold">Sacale una foto a esta pantalla: <strong>está todo lo de hoy, y lo del taller anterior.</strong></p>
+  <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Para llevarse</div>
+</div>
+
+
+<div class="slide slide--yellow" id="slide-50" data-cap="-">
   <div class="bye">
     <span class="bye-hand" role="img" aria-label="Mano saludando">&#128075;</span>
     <div class="bye-big">¡Gracias!</div>
@@ -5697,7 +5721,7 @@ draw(0.016);
      NAVIGATION UI
 ====================================================== -->
 <div class="nav-ui" role="navigation" aria-label="Navegación">
-  <span class="nav-counter" id="navCounter" aria-live="polite">1 / 49</span>
+  <span class="nav-counter" id="navCounter" aria-live="polite">1 / 50</span>
   <button class="nav-btn" id="prevBtn" aria-label="Slide anterior">&#8592;</button>
   <button class="nav-btn" id="nextBtn" aria-label="Slide siguiente">&#8594;</button>
 </div>
@@ -5711,7 +5735,7 @@ draw(0.016);
 
 <script>
 (function() {
-  var TOTAL = 49;
+  var TOTAL = 50;
   var current = 1;
   var deck    = document.getElementById('deck');
   var counter = document.getElementById('navCounter');
