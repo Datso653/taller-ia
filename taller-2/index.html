@@ -3402,6 +3402,17 @@ body { background-color:var(--sky-bg); }
 .ct-hoy { display:flex; gap:.8em; align-items:flex-start; margin-top:2.2em; background:#fff; border:2.5px solid var(--ink); border-radius:14px; padding:.8em 1.2em; box-shadow:6px 6px 0 var(--ink); font-size:clamp(12px,1.45cqw,26px); line-height:1.4; }
 .ct-hoy p { margin:0; }
 
+/* ---------- 6. íconos de fondo DETRÁS del contenido (Juan, 12/11) ----------
+   El celeste pasa al mazo y las slides claras quedan transparentes (conservan la textura),
+   así los íconos del lienzo nunca tapan texto. Las slides de color siguen tapándolos. */
+.deck { background-color:var(--sky-bg); }
+.slide--cream { background-color:transparent !important; }
+#particleCanvas { z-index:0 !important; mix-blend-mode:normal !important; }
+/* en el cruce, la que sale se va rápido para que no se superpongan los textos */
+.slide.leaving { animation-duration:.24s !important; }
+.slide.active { animation-delay:.08s; }
+@media print { .slide--cream { background-color:var(--sky-bg) !important; } }
+
 </style>
 </head>
 <body>
@@ -5955,95 +5966,88 @@ draw(0.016);
 })();
 
 /* === PARTICLES === */
-/* Fondo: una red que respira, como el grafo de un cerebro contextual.
-   Nodos que derivan despacio, enlaces cuando se acercan, algún asterisco del flyer
-   y, de vez en cuando, un mensaje amarillo que viaja de un nodo a otro. (Juan, 12/11) */
+/* Fondo: íconos de IA que flotan despacio, en celeste suave (Juan, 12/11).
+   Chispitas de cuatro puntas (el símbolo de la IA) que titilan, globitos de chat
+   con sus tres puntitos y cursores de mouse. */
 (function() {
   var canvas = document.getElementById('particleCanvas');
   var ctx = canvas.getContext('2d');
-  var W = 1600, H = 900, LINK = 175;
-  var nodes = [], stars = [], pulses = [], last = 0, nextPulse = 1.2;
+  var W = 1600, H = 900;
+  var items = [], t = 0, last = 0;
+  var TIPOS = ['chispa', 'chispa', 'chispa', 'chat', 'chat', 'cursor'];
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
 
   function init() {
-    canvas.width = W; canvas.height = H;
-    nodes = []; stars = []; pulses = [];
-    for (var i = 0; i < 34; i++) {
-      nodes.push({ x: rnd(0, W), y: rnd(0, H), vx: rnd(-.12, .12), vy: rnd(-.12, .12),
-                   r: rnd(1.6, 3.4), hub: Math.random() < .14 });
-    }
-    for (var j = 0; j < 6; j++) {
-      stars.push({ x: rnd(0, W), y: rnd(0, H), vx: rnd(-.08, .08), vy: rnd(-.06, .06),
-                   s: rnd(9, 17), a: rnd(0, Math.PI), va: rnd(-.004, .004) });
+    canvas.width = W; canvas.height = H; items = [];
+    for (var i = 0; i < 22; i++) {
+      var tipo = TIPOS[i % TIPOS.length];
+      items.push({ tipo: tipo, x: rnd(0, W), y: rnd(0, H),
+        vx: rnd(-.10, .10), vy: rnd(-.16, -.04),            // suben apenas, como burbujas
+        s: tipo === 'chispa' ? rnd(9, 20) : rnd(14, 22),
+        a: rnd(-.25, .25), va: tipo === 'chispa' ? rnd(-.003, .003) : 0,
+        fase: rnd(0, Math.PI * 2), alfa: rnd(.35, .6) });
     }
   }
 
-  function move(p, pad) {
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < -pad) p.x = W + pad; if (p.x > W + pad) p.x = -pad;
-    if (p.y < -pad) p.y = H + pad; if (p.y > H + pad) p.y = -pad;
-  }
-
-  function star(st) {
-    ctx.save(); ctx.translate(st.x, st.y); ctx.rotate(st.a);
-    ctx.strokeStyle = 'rgba(122,158,199,0.55)'; ctx.lineWidth = 2.6; ctx.lineCap = 'round';
+  function chispa(s) {                                       // estrella de cuatro puntas con lados curvos
     ctx.beginPath();
-    for (var k = 0; k < 3; k++) {
-      var t = k * Math.PI / 3;
-      ctx.moveTo(-Math.cos(t) * st.s, -Math.sin(t) * st.s);
-      ctx.lineTo(Math.cos(t) * st.s, Math.sin(t) * st.s);
-    }
-    ctx.stroke(); ctx.restore();
+    ctx.moveTo(0, -s);
+    ctx.quadraticCurveTo(s * .16, -s * .16, s, 0);
+    ctx.quadraticCurveTo(s * .16, s * .16, 0, s);
+    ctx.quadraticCurveTo(-s * .16, s * .16, -s, 0);
+    ctx.quadraticCurveTo(-s * .16, -s * .16, 0, -s);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(122,158,199,1)'; ctx.fill();
+  }
+
+  function chat(s) {                                         // globito con cola y tres puntitos
+    var w = s * 2, h = s * 1.35, r = s * .45;
+    ctx.beginPath();
+    ctx.moveTo(-w / 2 + r, -h / 2);
+    ctx.arcTo(w / 2, -h / 2, w / 2, h / 2, r);
+    ctx.arcTo(w / 2, h / 2, -w / 2, h / 2, r);
+    ctx.lineTo(-w / 2 + s * .7, h / 2);
+    ctx.lineTo(-w / 2 + s * .15, h / 2 + s * .5);
+    ctx.lineTo(-w / 2 + s * .3, h / 2);
+    ctx.arcTo(-w / 2, h / 2, -w / 2, -h / 2, r);
+    ctx.arcTo(-w / 2, -h / 2, w / 2, -h / 2, r);
+    ctx.closePath();
+    ctx.lineWidth = 2.2; ctx.strokeStyle = 'rgba(95,123,163,1)'; ctx.stroke();
+    ctx.fillStyle = 'rgba(95,123,163,1)';
+    for (var k = -1; k <= 1; k++) { ctx.beginPath(); ctx.arc(k * s * .45, 0, s * .12, 0, Math.PI * 2); ctx.fill(); }
+  }
+
+  function cursor(s) {                                       // flechita de mouse
+    ctx.beginPath();
+    ctx.moveTo(0, 0); ctx.lineTo(0, s * 1.25); ctx.lineTo(s * .32, s * .95);
+    ctx.lineTo(s * .55, s * 1.4); ctx.lineTo(s * .72, s * 1.32); ctx.lineTo(s * .5, s * .88);
+    ctx.lineTo(s * .9, s * .88); ctx.closePath();
+    ctx.lineJoin = 'round'; ctx.lineWidth = 2;
+    ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.fill();
+    ctx.strokeStyle = 'rgba(95,123,163,1)'; ctx.stroke();
   }
 
   function draw(now) {
-    var dt = last ? Math.min((now - last) / 1000, .05) : .016; last = now;
+    var dt = last ? Math.min((now - last) / 1000, .05) : .016; last = now; t += dt;
     ctx.clearRect(0, 0, W, H);
-    var i, j, a, b, dx, dy, d;
-    for (i = 0; i < nodes.length; i++) move(nodes[i], 20);
-    // enlaces
-    ctx.lineWidth = 1;
-    for (i = 0; i < nodes.length; i++) {
-      a = nodes[i];
-      for (j = i + 1; j < nodes.length; j++) {
-        b = nodes[j]; dx = a.x - b.x; dy = a.y - b.y; d = Math.sqrt(dx * dx + dy * dy);
-        if (d < LINK) {
-          ctx.strokeStyle = 'rgba(95,123,163,' + (0.16 * (1 - d / LINK)).toFixed(3) + ')';
-          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-        }
+    for (var i = 0; i < items.length; i++) {
+      var p = items[i];
+      p.x += p.vx; p.y += p.vy; p.a += p.va;
+      if (p.x < -40) p.x = W + 40; if (p.x > W + 40) p.x = -40;
+      if (p.y < -40) { p.y = H + 40; p.x = rnd(0, W); } if (p.y > H + 40) p.y = -40;
+      var esc = 1, alfa = p.alfa;
+      if (p.tipo === 'chispa') {                              // titila: crece y se apaga de a ratos
+        var b = .5 + .5 * Math.sin(t * 1.3 + p.fase);
+        esc = .7 + .45 * b; alfa = p.alfa * (.45 + .55 * b);
       }
+      ctx.save();
+      ctx.globalAlpha = alfa * .8;
+      ctx.translate(p.x, p.y + Math.sin(t * .6 + p.fase) * 4);
+      ctx.rotate(p.a); ctx.scale(esc, esc);
+      if (p.tipo === 'chispa') chispa(p.s); else if (p.tipo === 'chat') chat(p.s); else cursor(p.s);
+      ctx.restore();
     }
-    // nodos
-    for (i = 0; i < nodes.length; i++) {
-      a = nodes[i];
-      ctx.beginPath(); ctx.arc(a.x, a.y, a.hub ? a.r + 1.6 : a.r, 0, Math.PI * 2);
-      ctx.fillStyle = a.hub ? 'rgba(122,158,199,0.45)' : 'rgba(95,123,163,0.28)'; ctx.fill();
-      if (a.hub) { ctx.strokeStyle = 'rgba(95,123,163,0.35)'; ctx.stroke(); }
-    }
-    // un mensaje que viaja por un enlace
-    nextPulse -= dt;
-    if (nextPulse <= 0) {
-      nextPulse = rnd(1.4, 2.6);
-      a = nodes[Math.floor(Math.random() * nodes.length)];
-      var best = null, bd = LINK;
-      for (j = 0; j < nodes.length; j++) {
-        b = nodes[j]; if (b === a) continue;
-        d = Math.hypot(a.x - b.x, a.y - b.y);
-        if (d < bd && Math.random() < .6) { bd = d; best = b; }
-      }
-      if (best) pulses.push({ a: a, b: best, t: 0 });
-    }
-    for (i = pulses.length - 1; i >= 0; i--) {
-      var p = pulses[i]; p.t += dt / 1.3;
-      if (p.t >= 1) { pulses.splice(i, 1); continue; }
-      var e = p.t * p.t * (3 - 2 * p.t);
-      var px = p.a.x + (p.b.x - p.a.x) * e, py = p.a.y + (p.b.y - p.a.y) * e;
-      ctx.beginPath(); ctx.arc(px, py, 3.4, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(235,180,22,' + (0.85 * Math.sin(Math.PI * p.t)).toFixed(3) + ')'; ctx.fill();
-    }
-    // asteriscos del flyer
-    for (i = 0; i < stars.length; i++) { move(stars[i], 30); stars[i].a += stars[i].va; star(stars[i]); }
     requestAnimationFrame(draw);
   }
 
