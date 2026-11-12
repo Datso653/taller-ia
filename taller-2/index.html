@@ -5651,43 +5651,7 @@ draw(0.016);
 </div>
 
 
-<div class="slide slide--cream" id="slide-49" data-cap="8">
-  <span class="pill pill--yellow">Para llevarse</span>
-  <h2 class="slide-title slide-title--sm">Semillas: <span class="hl">por dónde seguir</span></h2>
-  <div class="arr arr--big" data-stg>
-    <div class="arr-c">
-      <span class="arr-t">Esta semana</span>
-      <ol>
-        <li>Armá un <b>Proyecto o Gem</b> con tus instrucciones.</li>
-        <li>Subí tus apuntes a <b>NotebookLM</b> y hacé la prueba trampa.</li>
-        <li>Conectá <b>La Pizarra</b> a Claude y preguntale por la economía de hoy.</li>
-      </ol>
-      <span class="arr-cost">Costo: $0 &middot; sin instalar nada</span>
-    </div>
-    <div class="arr-c">
-      <span class="arr-t">Este mes</span>
-      <ol>
-        <li>Hacé el <b>curso gratis de n8n</b> e instalalo con el chat de copiloto.</li>
-        <li>Armá un flujo: que <b>el dólar te llegue al mail</b> cada mañana.</li>
-        <li>Probá un <b>modelo local</b> con LM Studio.</li>
-      </ol>
-      <span class="arr-cost">Costo: $0 &middot; un rato de instalación</span>
-    </div>
-    <div class="arr-c">
-      <span class="arr-t">Más hondo</span>
-      <ol>
-        <li>El <b>curso de agentes de Hugging Face</b>: gratis, en inglés.</li>
-        <li><b>Teachable Machine</b> de Google: entrená un modelo con tu cámara, en el navegador.</li>
-        <li><b>Diplomaturas</b> de IA y automatización: preguntanos cuáles.</li>
-      </ol>
-      <span class="arr-cost">Costo: tiempo y curiosidad</span>
-    </div>
-  </div>
-  <p class="slide-note slide-note--bold">No hace falta todo. <strong>Elegí una semilla y regá un poco cada día.</strong></p>
-  <div class="footer">Taller de IA 2 &middot; Económicas UBA &middot; Para llevarse</div>
-</div>
-
-<div class="slide slide--yellow" id="slide-50" data-cap="-">
+<div class="slide slide--yellow" id="slide-49" data-cap="-">
   <div class="bye">
     <span class="bye-hand" role="img" aria-label="Mano saludando">&#128075;</span>
     <div class="bye-big">¡Gracias!</div>
@@ -5724,7 +5688,7 @@ draw(0.016);
      NAVIGATION UI
 ====================================================== -->
 <div class="nav-ui" role="navigation" aria-label="Navegación">
-  <span class="nav-counter" id="navCounter" aria-live="polite">1 / 50</span>
+  <span class="nav-counter" id="navCounter" aria-live="polite">1 / 49</span>
   <button class="nav-btn" id="prevBtn" aria-label="Slide anterior">&#8592;</button>
   <button class="nav-btn" id="nextBtn" aria-label="Slide siguiente">&#8594;</button>
 </div>
@@ -5738,7 +5702,7 @@ draw(0.016);
 
 <script>
 (function() {
-  var TOTAL = 50;
+  var TOTAL = 49;
   var current = 1;
   var deck    = document.getElementById('deck');
   var counter = document.getElementById('navCounter');
@@ -5769,9 +5733,10 @@ draw(0.016);
 
   // las bandas de los costados (pantallas que no son 16:9) toman el fondo de la slide visible
   function paintBands(sl) {
-    var cs = getComputedStyle(sl);
-    document.documentElement.style.background = cs.backgroundColor;
-    document.body.style.backgroundColor = cs.backgroundColor;
+    var cs = getComputedStyle(sl), bg = cs.backgroundColor;
+    if (!bg || bg === 'transparent' || bg === 'rgba(0, 0, 0, 0)') bg = getComputedStyle(deck).backgroundColor;
+    document.documentElement.style.background = bg;
+    document.body.style.backgroundColor = bg;
     document.body.style.backgroundImage = cs.backgroundImage;
   }
 
