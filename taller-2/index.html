@@ -3413,6 +3413,13 @@ body { background-color:var(--sky-bg); }
 .slide.active { animation-delay:.08s; }
 @media print { .slide--cream { background-color:var(--sky-bg) !important; } }
 
+/* ---------- 7. QR de Eva (Juan, 12/11) ---------- */
+.eva-pie { display:flex; gap:1em; align-items:center; }
+.eva-pie .caso-ojo { flex:1; margin:0; }
+.eva-pie .qr-card { flex:none; padding:.4em .5em .5em; }
+.eva-pie .qr-card img { width:clamp(70px,7.4cqw,130px); }
+.eva-pie .qr-card b { font-size:clamp(10px,1.08cqw,18px); }
+
 </style>
 </head>
 <body>
@@ -5241,7 +5248,9 @@ draw(0.016);
         <div><span class="ast-b" aria-hidden="true">*</span><span><b>Vive en un chat:</b> se le habla por Telegram.</span></div>
         <div><span class="ast-b" aria-hidden="true">*</span><span><b>Cambia de modelo</b> según la tarea y el costo.</span></div>
       </div>
-      <p class="caso-ojo t2-in" style="--d:1.5s"><b>Mismo camino que los demás:</b> un modelo, un cerebro, herramientas y un lugar donde trabajar. <b>Eso es un agente.</b></p>
+      <div class="eva-pie t2-in" style="--d:1.5s"><p class="caso-ojo"><b>Mismo camino que los demás:</b> un modelo, un cerebro, herramientas y un lugar donde trabajar. <b>Eso es un agente.</b></p>
+        <div class="qr-card qr-card--sm"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASIAAAEiAQAAAAB1xeIbAAACBUlEQVR4nO1aUWrrMBCctQT9tKEHeEexb9ArW0fpAR5YnwWZeexKDi0t5FGqxkq0BEeSB7xMRuvdVYS4bmH4DxDQUYd1JhpgIkqxJYogiIcsAI5Vf27vG0c5mtlclvFN8q3ZVrfb+XXd7gElWd4AuEYPhEnHuiGWBrxvFeXfT8bkTfMMi0+39Wt4NFR8okUazNup/Lpr3TNPxgQEcUnmVWU/6nK8jV/Dg6D2nNAAGuqz5C3o2+p0du+v21lRvsg725swTMh5DhvwfmgdFS8az8mOI8IfTTSjPxKgE3t/DyhHriMpC/aS34dJR/oOOL/3TaK8xXuoiX0wbvrlmLNNRM02z+r90DpqtJJ2F66m8ehBbmXa37UVuUfuJ3BzPH4Fp/l9mdoNridWTsMo5I7NrBTnUe7s2LS8Azr3Nbmn9dJmJnDFsQNKcdt1X5N7x0+BxyK/XmxD9JhTm3tc1F46x8cO6NzXq2tTHhJRwDA5neslPtd44tBRX51bQU0zSzu30gv52uvamrWVy8LXiioJxt2r+HUbaHG7uK7Vqj1kufwA1sSXUus6TTl/+olDR33JxK6MWxenpJx2dN75+o0zQ0Iw/vUML7sn4lTjiUNHfWCCVI3bSGsrWayRPGmO+Q51zTrq231MID4nmV99ytnmzF2YE83O6mE/yYT0/wQW6/o67BGY+Aetnf9rEgGLNQAAAABJRU5ErkJggg==" alt="Código QR"><b>Probá Eva</b><span>eva.solulith.com</span></div>
+      </div>
     </div>
   </div>
   <p class="slide-note slide-note--bold">Lo que hizo Gonza lo puede hacer cualquiera que se meta a armarlo. <strong>No hace falta programar todo: hace falta saber qué pedir.</strong></p>
